@@ -16,6 +16,7 @@ namespace ServoIO
 
             //MainPage = new ServoIO.MainPage();
             Application.Current.MainPage = new MasterDetailPageIO();
+           
         }
 
         protected override void OnStart()
