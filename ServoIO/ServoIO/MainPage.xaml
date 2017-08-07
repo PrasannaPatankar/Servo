@@ -6,6 +6,6 @@
 
 	<Label Text="Welcome to Xamarin Forms TEst!" 
            VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+           HorizontalOptions="Center"  BackgroundColor="AliceBlue"/>
 
 </ContentPage>
