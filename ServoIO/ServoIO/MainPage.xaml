@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:ServoIO"
              x:Class="ServoIO.MainPage">
 
-	<Label Text="Welcome to Xamarin Forms!" 
+	<Label Text="Welcome to Xamarin Forms TEst!" 
            VerticalOptions="Center" 
            HorizontalOptions="Center" />
 
