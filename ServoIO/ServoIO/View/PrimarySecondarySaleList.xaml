@@ -27,7 +27,7 @@
                         </StackLayout>
 
                         <StackLayout Orientation="Vertical"  HorizontalOptions="CenterAndExpand" Grid.ColumnSpan="2">
-                            <Picker x:Name="pkrYear" Title="Year"/>
+                            <Picker x:Name="pkrYear" Title="Year" SelectedIndexChanged="pkrYear_SelectedIndexChangedAsync"/>
                         </StackLayout>
                     </StackLayout>
                 </Grid>
@@ -77,7 +77,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-            </Grid>
+           
             <RelativeLayout x:Name="vwLoading" IsVisible="False" BackgroundColor="Transparent" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
                 <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
                     <Frame Padding="50,30,50,30"  AbsoluteLayout.LayoutFlags="All" BackgroundColor="#506cb3fe" VerticalOptions="Center" HorizontalOptions="Center" CornerRadius="10" HasShadow="True">
@@ -88,6 +88,7 @@
                     </Frame>
                 </StackLayout>
             </RelativeLayout>
+            </Grid>
         </Grid>
 
 
