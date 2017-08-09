@@ -39,7 +39,22 @@ namespace ServoIO.View
             {
                 DisplayAlert("", ex.Message, "Ok");
             }
-            
+
+        }
+
+        private async Task pkrYear_SelectedIndexChangedAsync(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var scope = new ActivityIndicatorScope(syncIndicator, true, vwLoading))
+                {
+                    await viewModel.GetPSRrport(pkrYear.SelectedItem.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("", ex.Message, "Ok");
+            }
         }
     }
 }

@@ -3,20 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ServoIO.View.PrimarySecondarySaleList">
     <ContentPage.Content>
-     
-          
-            <Grid>
-                <Label Text="Primary and Secondary Sale Report"  TextColor="#628fc0" FontSize="Large" BackgroundColor="White"/>
-                
-                <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
-                    <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
-                        <Label Text="Year"/>
-                    </StackLayout>
 
-                    <StackLayout Orientation="Vertical"  HorizontalOptions="Start">
-                        <Picker x:Name="pkrYear" Title="Year"/>
-                    </StackLayout>
+        <StackLayout>
+            <Label Text="Primary and Secondary Sale Report"  TextColor="#628fc0" FontSize="Large" BackgroundColor="White"/>
+
+            <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                    <Label Text="Year"/>
                 </StackLayout>
+
+                <StackLayout Orientation="Vertical"  HorizontalOptions="Start">
+                    <Picker x:Name="pkrYear" Title="Year" SelectedIndexChanged="pkrYear_SelectedIndexChangedAsync"/>
+                </StackLayout>
+            </StackLayout>
+            <Grid>
 
                 <ListView HasUnevenRows="True" SeparatorVisibility="Default" ItemsSource="{Binding ListPS}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}" x:Name="lstPrimarySecondarySale" BackgroundColor="LightGray">
                     <ListView.ItemTemplate>
@@ -74,7 +74,7 @@
                     </StackLayout>
                 </RelativeLayout>
             </Grid>
-       
+        </StackLayout>
 
     </ContentPage.Content>
 </ContentPage>
