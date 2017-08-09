@@ -4,17 +4,31 @@
              x:Class="ServoIO.View.LoginPage"
              BackgroundImage="back.jpg">
     <ContentPage.Content>
-        <StackLayout  x:Name="stkMain" >
-            <StackLayout>
-                <Image x:Name="servoImage" Source="io.jpg" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-            </StackLayout>
-            <StackLayout >
-                <Entry x:Name="entUserName" Margin="20" Placeholder="User Name" HorizontalOptions="Fill" HeightRequest="40" PlaceholderColor="White"/>
-                <Entry x:Name="entPassword" Placeholder="Password" Margin="20" IsPassword="True" HorizontalOptions="Fill" HeightRequest="40" PlaceholderColor="White"/>
-            </StackLayout>
-            <StackLayout>
-                <Button x:Name="entSubmit" Text="Submit" BackgroundColor="White" HorizontalOptions="CenterAndExpand"  Clicked="entSubmit_Clicked" />
+        <Grid>
+            <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
+            <StackLayout  x:Name="stkMain" >
+                <StackLayout>
+                    <Image x:Name="servoImage" Source="io.jpg" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                </StackLayout>
+                <StackLayout >
+                    <Entry x:Name="entUserName" Margin="20" Placeholder="User Name" HorizontalOptions="Fill" HeightRequest="40" PlaceholderColor="White"/>
+                    <Entry x:Name="entPassword" Placeholder="Password" Margin="20" IsPassword="True" HorizontalOptions="Fill" HeightRequest="40" PlaceholderColor="White"/>
+                </StackLayout>
+                <StackLayout>
+                    <Button x:Name="entSubmit" Text="Submit" BackgroundColor="White" HorizontalOptions="CenterAndExpand"  Clicked="entSubmit_Clicked" />
                 </StackLayout>
             </StackLayout>
+        </ScrollView>
+        <RelativeLayout x:Name="vwLoading" IsVisible="False" BackgroundColor="Transparent" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Frame Padding="50,30,50,30"  AbsoluteLayout.LayoutFlags="All" BackgroundColor="#506cb3fe" VerticalOptions="Center" HorizontalOptions="Center" CornerRadius="10" HasShadow="True">
+                    <StackLayout>
+                        <ActivityIndicator HorizontalOptions="Center" Color="AliceBlue" VerticalOptions="Center" IsVisible="False" IsEnabled="True" x:Name="syncIndicator"/>
+                        <Label x:Name="lblProgressStatus" Text="Loading..." />
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </RelativeLayout>
+            </Grid>
     </ContentPage.Content>  
 </ContentPage>
