@@ -20,5 +20,33 @@ namespace ServoIO.View
             this.BindingContext = new DashboardViewModel();
             viewModel = (DashboardViewModel)this.BindingContext;
         }
+
+        //protected override void OnAppearing()
+        //{
+        //    try
+        //    {
+        //        base.OnAppearing();
+        //        this.Animate("", (s) => Layout(new Rectangle(X, (1 - s) * Height, Width, Height)), 0, 600, Easing.SpringIn, null, null);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw;
+        //    }
+            
+        //}
+
+        //protected override void OnDisappearing()
+        //{
+        //    try
+        //    {
+        //        base.OnDisappearing();
+        //        this.Animate("", (s) => Layout(new Rectangle(X, (s - 1) * Height, Width, Height)), 0, 600, Easing.SpringIn, null, null);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw;
+        //    }
+            
+        //}
     }
 }
