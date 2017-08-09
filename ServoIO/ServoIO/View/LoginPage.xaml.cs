@@ -35,7 +35,7 @@ namespace ServoIO.View
             }),
 
             // set the length
-            length: 750,
+            length: 700,
 
             // set the repeat action to update the repeatCount
             finished: (val, b) => {
