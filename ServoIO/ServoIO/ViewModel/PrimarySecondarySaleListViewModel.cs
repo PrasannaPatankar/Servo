@@ -10,13 +10,13 @@ namespace ServoIO.ViewModel
 {
     public class PrimarySecondarySaleListViewModel : ViewModelBase
     {
-        public PrimarySecondarySaleListViewModel()
+        public PrimarySecondarySaleListViewModel(string Year)
         {
             try
             {
                 Task.Factory.StartNew(async () =>
                 {
-                    await GetPSRrport();
+                    await GetPSRrport(Year);
                 });
             }
             catch (Exception)
@@ -34,12 +34,12 @@ namespace ServoIO.ViewModel
             get { return lstPS; }
             set { SetProperty(ref lstPS, value); }
         }
-
-        public async Task GetPSRrport()
+               
+        public async Task GetPSRrport(string Year)
         {
             try
             {
-                ListPS = await ReportService.GetPrimarySecondaryReport("2014");
+                ListPS = await ReportService.GetPrimarySecondaryReport(Year);
             }
             catch (Exception ex)
             {
