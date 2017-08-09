@@ -23,7 +23,6 @@ namespace ServoIO.View
         {
             using (var scope = new ActivityIndicatorScope(syncIndicator, true, vwLoading))
             {
-                await GetPSRrport();
                 Application.Current.MainPage = new MasterDetailPageIO();
             }
                 
@@ -44,18 +43,7 @@ namespace ServoIO.View
 
         }
 
-        public async Task GetPSRrport()
-        {
-            try
-            {
-                var ds = await ReportService.GetPrimarySecondaryReport("2014");
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
-        }
+       
     }
 
 
