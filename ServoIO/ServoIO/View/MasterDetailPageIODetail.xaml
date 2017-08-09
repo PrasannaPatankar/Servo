@@ -13,7 +13,7 @@
             </Picker>
         </StackLayout>
         <StackLayout>
-            <Button Text="Submit" Command="BtnSubmit" x:Name="btnSubmit"></Button>
+            <Button Text="Submit" Command="BtnSubmit" x:Name="btnSubmit" Clicked="btnSubmit_Clicked"></Button>
         </StackLayout>
     </StackLayout>
 

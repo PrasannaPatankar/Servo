@@ -20,5 +20,10 @@ namespace ServoIO.View
             this.BindingContext = new DetailViewModel();
             viewModel = (DetailViewModel)this.BindingContext;
         }
+
+        private void btnSubmit_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new TestPage());
+        }
     }
 }
