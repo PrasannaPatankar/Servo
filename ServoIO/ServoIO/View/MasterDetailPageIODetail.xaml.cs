@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ServoIO.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,12 @@ namespace ServoIO.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MasterDetailPageIODetail : ContentPage
     {
+        public DetailViewModel viewModel { get; set; }
         public MasterDetailPageIODetail()
         {
             InitializeComponent();
+            this.BindingContext = new DetailViewModel();
+            viewModel = (DetailViewModel)this.BindingContext;
         }
     }
 }
