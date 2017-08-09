@@ -13,9 +13,9 @@ namespace ServoIO
         public App()
         {
             InitializeComponent();
-
+            //var vSampleData = new OxyExData();
             //MainPage = new ServoIO.MainPage();
-            Application.Current.MainPage = new MasterDetailPageIO();
+            Application.Current.MainPage = new LoginPage();
         }
 
         protected override void OnStart()

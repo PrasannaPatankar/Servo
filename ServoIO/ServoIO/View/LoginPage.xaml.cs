@@ -16,5 +16,27 @@ namespace ServoIO.View
         {
             InitializeComponent();
         }
+
+        private void entSubmit_Clicked(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new MasterDetailPageIO();
+        }
+
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            
+            //stkMain.TranslateTo(0, 50, 2000, Easing.BounceIn);
+            //stkMain.TranslateTo(0, 200, 2000, Easing.BounceOut);
+            //stkMain.ScaleTo(2, 2000, Easing.CubicIn);
+            //stkMain.ScaleTo(2, 2000, Easing.CubicInOut);
+            //stkMain.RotateTo(360, 2000, Easing.SinInOut);
+            //stkMain.ScaleTo(1, 2000, Easing.CubicOut);
+            //stkMain.TranslateTo(0, -200, 2000, Easing.BounceOut);
+        }
     }
+    
+
+
 }
