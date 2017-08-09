@@ -15,7 +15,7 @@
                     <Entry x:Name="entPassword" Placeholder="Password" Margin="20" IsPassword="True" HorizontalOptions="Fill" HeightRequest="40" PlaceholderColor="White"/>
                 </StackLayout>
                 <StackLayout>
-                    <Button x:Name="entSubmit" Text="Submit" BackgroundColor="White" HorizontalOptions="CenterAndExpand"  Clicked="entSubmit_Clicked" />
+                        <Button x:Name="entSubmit" Text="Submit" BackgroundColor="White" HorizontalOptions="CenterAndExpand"  Clicked="entSubmit_ClickedAsync" />
                 </StackLayout>
             </StackLayout>
         </ScrollView>

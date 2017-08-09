@@ -1,4 +1,5 @@
 ﻿using ServoIO.Common;
+using ServoIO.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,17 +19,21 @@ namespace ServoIO.View
             InitializeComponent();
         }
 
-        private void entSubmit_Clicked(object sender, EventArgs e)
+        private async Task entSubmit_ClickedAsync(object sender, EventArgs e)
         {
             using (var scope = new ActivityIndicatorScope(syncIndicator, true, vwLoading))
+            {
+                await GetPSRrport();
                 Application.Current.MainPage = new MasterDetailPageIO();
+            }
+                
         }
 
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            
+
             //stkMain.TranslateTo(0, 50, 2000, Easing.BounceIn);
             //stkMain.TranslateTo(0, 200, 2000, Easing.BounceOut);
             //stkMain.ScaleTo(2, 2000, Easing.CubicIn);
@@ -36,9 +41,23 @@ namespace ServoIO.View
             //stkMain.RotateTo(360, 2000, Easing.SinInOut);
             //stkMain.ScaleTo(1, 2000, Easing.CubicOut);
             //stkMain.TranslateTo(0, -200, 2000, Easing.BounceOut);
+
+        }
+
+        public async Task GetPSRrport()
+        {
+            try
+            {
+                var ds = await ReportService.GetPrimarySecondaryReport("2014");
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
         }
     }
-    
+
 
 
 }
