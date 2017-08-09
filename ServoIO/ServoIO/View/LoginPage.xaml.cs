@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ServoIO.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,8 @@ namespace ServoIO.View
 
         private void entSubmit_Clicked(object sender, EventArgs e)
         {
-            Application.Current.MainPage = new MasterDetailPageIO();
+            using (var scope = new ActivityIndicatorScope(syncIndicator, true, vwLoading))
+                Application.Current.MainPage = new MasterDetailPageIO();
         }
 
 

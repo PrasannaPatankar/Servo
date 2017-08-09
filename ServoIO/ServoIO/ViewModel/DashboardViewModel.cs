@@ -84,6 +84,13 @@ namespace ServoIO.View
             s2.Items.Add(new BarItem { Value = 120 });
             s2.Items.Add(new BarItem { Value = 26 });
 
+
+            var s3 = new BarSeries { Title = "Series 3", IsStacked = stacked, StrokeColor = OxyColors.Black, StrokeThickness = 1 };
+            s3.Items.Add(new BarItem { Value = 12 });
+            s3.Items.Add(new BarItem { Value = 14 });
+            s3.Items.Add(new BarItem { Value = 120 });
+            s3.Items.Add(new BarItem { Value = 26 });
+
             var categoryAxis = new CategoryAxis { Position = CategoryAxisPosition() };
             categoryAxis.Labels.Add("Category A");
             categoryAxis.Labels.Add("Category B");
@@ -92,6 +99,7 @@ namespace ServoIO.View
             var valueAxis = new LinearAxis { Position = ValueAxisPosition(), MinimumPadding = 0, MaximumPadding = 0.06, AbsoluteMinimum = 0 };
             model.Series.Add(s1);
             model.Series.Add(s2);
+            model.Series.Add(s3);
             model.Axes.Add(categoryAxis);
             model.Axes.Add(valueAxis);
             return model;
