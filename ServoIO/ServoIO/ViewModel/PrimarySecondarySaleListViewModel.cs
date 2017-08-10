@@ -40,6 +40,8 @@ namespace ServoIO.ViewModel
             try
             {
                 ListPS = await ReportService.GetPrimarySecondaryReport(Year);
+               // var SC = ListPS.Select(x => x.SubCategory).Distinct();
+                //string[] d = SC.Select(p => p.ToString()).ToArray();
             }
             catch (Exception ex)
             {

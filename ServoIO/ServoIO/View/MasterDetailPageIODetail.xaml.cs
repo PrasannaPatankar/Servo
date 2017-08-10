@@ -11,19 +11,21 @@ using Xamarin.Forms.Xaml;
 namespace ServoIO.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MasterDetailPageIODetail : ContentPage
+    public partial class MasterDetailPageIODetail : TabbedPage
     {
-        public DetailViewModel viewModel { get; set; }
+       // public DetailViewModel viewModel { get; set; }
         public MasterDetailPageIODetail()
         {
             InitializeComponent();
-            this.BindingContext = new DetailViewModel();
-            viewModel = (DetailViewModel)this.BindingContext;
+            Children.Add(new PrimarySecondarySaleList());
+            Children.Add(new Dashboard());
+            //this.BindingContext = new DetailViewModel();
+            //viewModel = (DetailViewModel)this.BindingContext;
         }
 
-        private void btnSubmit_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushModalAsync(new TestPage());
-        }
+        //private void btnSubmit_Clicked(object sender, EventArgs e)
+        //{
+        //    Navigation.PushModalAsync(new TestPage());
+        //}
     }
 }

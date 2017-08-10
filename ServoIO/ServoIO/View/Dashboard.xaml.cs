@@ -17,8 +17,9 @@ namespace ServoIO.View
         public Dashboard()
         {
             InitializeComponent();
-            this.BindingContext = new DashboardViewModel();
+            this.BindingContext = new DashboardViewModel(new List<Common.PrimarySecReport>());
             viewModel = (DashboardViewModel)this.BindingContext;
+
         }
 
         //protected override void OnAppearing()

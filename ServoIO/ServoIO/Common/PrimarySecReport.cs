@@ -20,7 +20,7 @@ namespace ServoIO.Common
         public string January { get; set; }
         public string February { get; set; }
         public string March { get; set; }
-
+        public string Total { get; set; }
 
     }
 }
