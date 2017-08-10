@@ -43,6 +43,7 @@
     <Compile Include="Service\Constants.cs" />
     <Compile Include="Service\ReportService.cs" />
     <Compile Include="ViewModel\PrimarySecondarySaleListViewModel.cs" />
+    <Compile Include="ViewModel\YearlySalesChartViewModel.cs" />
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -71,6 +72,9 @@
     </Compile>
     <Compile Include="View\TestPage.xaml.cs">
       <DependentUpon>TestPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\YearlySalesChart.xaml.cs">
+      <DependentUpon>YearlySalesChart.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -153,6 +157,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="View\TestPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\YearlySalesChart.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

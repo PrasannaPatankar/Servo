@@ -5,14 +5,14 @@
     <ContentPage.Content>
 
 
-        <Grid>
+        <Grid BackgroundColor="White">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <Label Text="Primary and Secondary Sale Report"  TextColor="#628fc0" FontSize="Large" BackgroundColor="White"/>
+                <Label Text="Primary and Secondary Sale Report"  TextColor="#628fc0" FontSize="Large" BackgroundColor="White" HorizontalOptions="CenterAndExpand"/>
             </Grid>
 
             <Grid HorizontalOptions="CenterAndExpand">
@@ -33,7 +33,7 @@
                 </Grid>
             </Grid>
             <Grid Grid.Row="2">
-                <ListView HasUnevenRows="True" SeparatorVisibility="Default" ItemsSource="{Binding ListPS}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}" x:Name="lstPrimarySecondarySale" BackgroundColor="LightGray">
+                <ListView HasUnevenRows="True" SeparatorVisibility="Default" ItemsSource="{Binding ListPS}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}" x:Name="lstPrimarySecondarySale" BackgroundColor="LightGray" ItemTapped="lstPrimarySecondarySale_ItemTappedAsync">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>

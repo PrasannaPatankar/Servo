@@ -46,6 +46,7 @@ namespace ServoIO.View
         {
             try
             {
+                if (viewModel != null) { }
                 using (var scope = new ActivityIndicatorScope(syncIndicator, true, vwLoading))
                 {
                     await viewModel.GetPSRrport(pkrYear.SelectedItem.ToString());
@@ -53,7 +54,22 @@ namespace ServoIO.View
             }
             catch (Exception ex)
             {
-                await DisplayAlert("", ex.Message, "Ok");
+                //await DisplayAlert("", ex.Message, "Ok");
+            }
+        }
+
+        private async Task lstPrimarySecondarySale_ItemTappedAsync(object sender, ItemTappedEventArgs e)
+        {
+            try
+            {
+                PrimarySecReport ObjPS = e.Item as PrimarySecReport;
+                await Navigation.PushAsync(new YearlySalesChart(ObjPS));
+                lstPrimarySecondarySale.SelectedItem = null;
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }
