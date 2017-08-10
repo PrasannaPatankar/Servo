@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
               xmlns:oxy="clr-namespace:OxyPlot.Xamarin.Forms;assembly=OxyPlot.Xamarin.Forms"  
              x:Class="ServoIO.View.Dashboard">
-    
+   
+
     <AbsoluteLayout>
        
             <oxy:PlotView Model="{Binding BarModel ,Mode=TwoWay}"  

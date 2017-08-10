@@ -35,7 +35,7 @@ namespace ServoIO.View
             }),
 
             // set the length
-            length: 700,
+            length: 800,
 
             // set the repeat action to update the repeatCount
             finished: (val, b) => {
@@ -48,7 +48,29 @@ namespace ServoIO.View
             }
                 );
         }
-
+        private void validPassword(object sender, TextChangedEventArgs e)
+        {
+            entPassword.Text = CheckLength(entPassword.Text, 10);
+        }
+        private string CheckLength(string str, int reqLength)
+        {
+            try
+            {
+                if (str.Length >= reqLength)
+                {
+                    return str.Substring(0, reqLength);
+                }
+                else
+                {
+                    return str;
+                }
+            }
+            catch (Exception ex)
+            {
+                string ab = ex.ToString();
+                return null;
+            }
+        }
 
         private void  entSubmit_Clicked(object sender, EventArgs e)
         {
