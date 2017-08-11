@@ -39,11 +39,16 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\ActivityIndicatorScope.cs" />
+    <Compile Include="Common\IncentiveReport.cs" />
     <Compile Include="Common\PrimarySecReport.cs" />
     <Compile Include="Service\Constants.cs" />
     <Compile Include="Service\ReportService.cs" />
+    <Compile Include="ViewModel\IncentivesListViewModel.cs" />
     <Compile Include="ViewModel\PrimarySecondarySaleListViewModel.cs" />
     <Compile Include="ViewModel\YearlySalesChartViewModel.cs" />
+    <Compile Include="View\IncentivesList.xaml.cs">
+      <DependentUpon>IncentivesList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -163,6 +168,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="View\YearlySalesChart.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\IncentivesList.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

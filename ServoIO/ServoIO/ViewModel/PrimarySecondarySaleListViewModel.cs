@@ -34,14 +34,24 @@ namespace ServoIO.ViewModel
             get { return lstPS; }
             set { SetProperty(ref lstPS, value); }
         }
-               
+
+        private Boolean showactivityindicator;
+
+        public Boolean ShowActivityIndicator
+        {
+            get { return showactivityindicator; }
+            set { SetProperty(ref showactivityindicator, value); }
+        }
+
         public async Task GetPSRrport(string Year)
         {
             try
             {
+                ShowActivityIndicator = true;
                 ListPS = await ReportService.GetPrimarySecondaryReport(Year);
-               // var SC = ListPS.Select(x => x.SubCategory).Distinct();
+                // var SC = ListPS.Select(x => x.SubCategory).Distinct();
                 //string[] d = SC.Select(p => p.ToString()).ToArray();
+                ShowActivityIndicator = false;
             }
             catch (Exception ex)
             {

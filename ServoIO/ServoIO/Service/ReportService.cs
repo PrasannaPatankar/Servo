@@ -27,5 +27,23 @@ namespace ServoIO.Service
                 throw;
             }
         }
+
+        public static async Task<List<IncentiveReport>> GetIncentiveReport(string FromDate, string ToDate)
+        {
+            try
+            {
+                HttpClient client = new HttpClient();
+                var result = await client.GetAsync(Constants.InsentiveReport_List + "/" + FromDate + "/" + ToDate);
+                result.EnsureSuccessStatusCode();
+                string stringJson = await result.Content.ReadAsStringAsync();
+                var ObjRoot = JsonConvert.DeserializeObject<List<IncentiveReport>>(stringJson);
+                return ObjRoot;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
