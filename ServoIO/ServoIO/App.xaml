@@ -5,6 +5,12 @@
 	<Application.Resources>
 
 		<!-- Application resource dictionary -->
+        <ResourceDictionary>
 
-	</Application.Resources>
+            <!-- Colors -->
+           
+
+        </ResourceDictionary>
+
+    </Application.Resources>
 </Application>

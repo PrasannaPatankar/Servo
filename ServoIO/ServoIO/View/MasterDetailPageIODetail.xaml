@@ -1,9 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ServoIO.View.MasterDetailPageIODetail"
              Title="Detail">
-  <StackLayout Padding="10">
-    <Label Text="This is a detail page. To get the 'triple' line icon on each platform add a icon to each platform and update the 'Master' page with an Icon that references it."/>
-  </StackLayout>
-</ContentPage>
+    <!--<StackLayout Orientation="Horizontal">
+        <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand">
+            <Picker x:Name="startYear" ItemsSource="{Binding StartDate}" Title="Start Year" HorizontalOptions="Fill" WidthRequest="100"  >
+            </Picker>
+        </StackLayout>
+        <StackLayout Orientation="Vertical"  HorizontalOptions="StartAndExpand">
+            <Picker x:Name="endYear" Title="End Year"  ItemsSource="{Binding EndDate}" HorizontalOptions="CenterAndExpand" WidthRequest="100"  >
+            </Picker>
+        </StackLayout>
+        <StackLayout>
+            <Button Text="Submit" Command="BtnSubmit" x:Name="btnSubmit" Clicked="btnSubmit_Clicked"></Button>
+        </StackLayout>
+    </StackLayout>-->
+
+</TabbedPage>
+

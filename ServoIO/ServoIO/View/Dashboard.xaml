@@ -1,10 +1,50 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ServoIO.View.Dashboard">
+              xmlns:oxy="clr-namespace:OxyPlot.Xamarin.Forms;assembly=OxyPlot.Xamarin.Forms"  
+             x:Class="ServoIO.View.Dashboard"
+             Title="Chart">
+
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin Forms!" />
-        </StackLayout>
+        <Grid BackgroundColor="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="0" Grid.ColumnSpan="2">
+                <StackLayout Orientation="Horizontal"  HorizontalOptions="CenterAndExpand" >
+                    <StackLayout Orientation="Vertical"  HorizontalOptions="CenterAndExpand" >
+                        <Label Text="Select Year:" Font="20"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Vertical"  HorizontalOptions="CenterAndExpand" Grid.ColumnSpan="2">
+                        <Picker x:Name="pkrYear" Title="Year" SelectedIndexChanged="pkrYear_SelectedIndexChangedAsync"/>
+                    </StackLayout>
+                </StackLayout>
+            </Grid>
+            <Grid Grid.Row="1" Grid.ColumnSpan="2">
+                <AbsoluteLayout>
+
+                    <oxy:PlotView Model="{Binding BarModel ,Mode=TwoWay}"  
+                  AbsoluteLayout.LayoutBounds="20,0,.9,.9"  
+                  AbsoluteLayout.LayoutFlags="WidthProportional,HeightProportional" />
+                </AbsoluteLayout>
+                <RelativeLayout x:Name="vwLoading" IsVisible="False" BackgroundColor="Transparent" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                        <Frame Padding="50,30,50,30"  AbsoluteLayout.LayoutFlags="All" BackgroundColor="#506cb3fe" VerticalOptions="Center" HorizontalOptions="Center" CornerRadius="10" HasShadow="True">
+                            <StackLayout>
+                                <ActivityIndicator HorizontalOptions="Center" Color="AliceBlue" VerticalOptions="Center" IsVisible="False" IsEnabled="True" x:Name="syncIndicator"/>
+                                <Label x:Name="lblProgressStatus" Text="Loading..." />
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </RelativeLayout>
+            </Grid>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -18,7 +18,7 @@ namespace ServoIO.View
             MasterPage.Icon = "hamburger.png";
             MasterPage.ListView.ItemSelected += ListView_ItemSelected;
         }
-
+        
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var item = e.SelectedItem as MasterDetailPageIOMenuItem;
