@@ -46,7 +46,7 @@ namespace ServoIO.ViewModel
                 LegendBorderThickness = 0
             };
 
-            var s1 = new BarSeries { Title = "Monthly Sale", IsStacked = stacked, StrokeColor = OxyColors.Black, StrokeThickness = 1 };
+            var s1 = new BarSeries { Title = "Monthly Sale", IsStacked = stacked, StrokeColor = OxyColors.Black, StrokeThickness = 1, LabelPlacement=LabelPlacement.Inside, LabelFormatString= "{0}" };
 
             if (ObjPS.April != "")
             {

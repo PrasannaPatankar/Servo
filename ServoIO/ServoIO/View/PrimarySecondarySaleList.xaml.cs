@@ -30,11 +30,8 @@ namespace ServoIO.View
                 InitializeComponent();
                 pkrYear.ItemsSource = YearList;
                 pkrYear.SelectedIndex = 0;
-                using (var scope = new ActivityIndicatorScope(syncIndicator, true, vwLoading))
-                {
-                    this.BindingContext = new PrimarySecondarySaleListViewModel(pkrYear.SelectedItem.ToString());
-                    viewModel = (PrimarySecondarySaleListViewModel)this.BindingContext;
-                }
+                this.BindingContext = new PrimarySecondarySaleListViewModel(pkrYear.SelectedItem.ToString());
+                viewModel = (PrimarySecondarySaleListViewModel)this.BindingContext;
             }
             catch (Exception ex)
             {

@@ -78,17 +78,17 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-           
-            <RelativeLayout x:Name="vwLoading" IsVisible="False" BackgroundColor="Transparent" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-                    <Frame Padding="50,30,50,30"  AbsoluteLayout.LayoutFlags="All" BackgroundColor="#506cb3fe" VerticalOptions="Center" HorizontalOptions="Center" CornerRadius="10" HasShadow="True">
-                        <StackLayout>
-                            <ActivityIndicator HorizontalOptions="Center" Color="AliceBlue" VerticalOptions="Center" IsVisible="False" IsEnabled="True" x:Name="syncIndicator"/>
-                            <Label x:Name="lblProgressStatus" Text="Loading..." />
-                        </StackLayout>
-                    </Frame>
-                </StackLayout>
-            </RelativeLayout>
+
+                <RelativeLayout x:Name="vwLoading" IsVisible="{Binding ShowActivityIndicator}" BackgroundColor="Transparent" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                        <Frame Padding="50,30,50,30" AbsoluteLayout.LayoutFlags="All" BackgroundColor="#506cb3fe" VerticalOptions="Center" HorizontalOptions="Center" CornerRadius="10" HasShadow="True">
+                            <StackLayout>
+                                <ActivityIndicator HorizontalOptions="Center" Color="AliceBlue" VerticalOptions="Center" IsVisible="{Binding ShowActivityIndicator}" IsRunning="{Binding ShowActivityIndicator}" IsEnabled="{Binding ShowActivityIndicator}" x:Name="syncIndicator"/>
+                                <Label x:Name="lblProgressStatus" Text="Loading..." />
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </RelativeLayout>
             </Grid>
         </Grid>
 

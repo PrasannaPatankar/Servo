@@ -53,9 +53,9 @@ namespace ServoIO.View
             var SC = ObjPS.Select(x => x.SubCategory).Distinct();
             string[] subCategoryItems = SC.Select(p => p.ToString()).ToArray();
 
-            var s1 = new BarSeries { Title = "Primary", IsStacked = stacked, StrokeColor = OxyColors.Black, StrokeThickness = 1 };
+            var s1 = new BarSeries { Title = "Primary", IsStacked = stacked, StrokeColor = OxyColors.Black, StrokeThickness = 1, LabelPlacement = LabelPlacement.Inside, LabelFormatString = "{0}" };
 
-            var s2 = new BarSeries { Title = "Secondary", IsStacked = stacked, StrokeColor = OxyColors.Black, StrokeThickness = 1 };
+            var s2 = new BarSeries { Title = "Secondary", IsStacked = stacked, StrokeColor = OxyColors.Black, StrokeThickness = 1, LabelPlacement = LabelPlacement.Inside, LabelFormatString = "{0}" };
 
             foreach (string scitem in subCategoryItems)
             {
