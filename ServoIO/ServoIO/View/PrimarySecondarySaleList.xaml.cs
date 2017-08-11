@@ -49,7 +49,7 @@ namespace ServoIO.View
                 if (viewModel != null) { }
                 using (var scope = new ActivityIndicatorScope(syncIndicator, true, vwLoading))
                 {
-                    await viewModel.GetPSRrport(pkrYear.SelectedItem.ToString());
+                    await viewModel.GetPSRrport(pkrYear.SelectedItem.ToString());                    
                 }
             }
             catch (Exception ex)
