@@ -20,7 +20,11 @@ namespace ServoIO.View
             try
             {
                 InitializeComponent();
-                this.BindingContext = new IncentivesListViewModel("10-08-2014", "10-08-2017");
+                DateTime dtFromDate, dtToDate;
+                dtFrom.Date = System.DateTime.Now.Date.AddDays(-7000);
+                dtFromDate = dtFrom.Date;
+                dtToDate = dtTo.Date;
+                this.BindingContext = new IncentivesListViewModel(dtFromDate.ToString("MM-dd-yyyy"), dtToDate.ToString("MM-dd-yyyy"));
                 viewModel = (IncentivesListViewModel)this.BindingContext;
             }
             catch (Exception ex)
@@ -28,6 +32,27 @@ namespace ServoIO.View
                 DisplayAlert("", ex.Message, "Ok");
             }
             
+        }
+
+        private void btnSearch_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dtFrom.Date <= dtTo.Date)
+                {
+                    this.BindingContext = new IncentivesListViewModel(dtFrom.Date.ToString("MM-dd-yyyy"), dtTo.Date.ToString("MM-dd-yyyy"));
+                    viewModel = (IncentivesListViewModel)this.BindingContext;
+                }
+                else
+                {
+                    DisplayAlert("", "From date must be less than To date.", "Ok");
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                DisplayAlert("", ex.Message, "Ok");
+            }
         }
     }
 }
