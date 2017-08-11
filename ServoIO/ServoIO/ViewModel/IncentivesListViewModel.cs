@@ -19,6 +19,14 @@ namespace ServoIO.ViewModel
             set { SetProperty(ref lstIR, value); }
         }
 
+        private Boolean showactivityindicator;
+
+        public Boolean ShowActivityIndicator
+        {
+            get { return showactivityindicator; }
+            set { SetProperty(ref showactivityindicator, value); }
+        }
+
         public IncentivesListViewModel(string FromDate, string ToDate)
         {
             try
@@ -38,7 +46,9 @@ namespace ServoIO.ViewModel
         {
             try
             {
-                ListIR = await ReportService.GetIncentiveReport(FromDate, ToDate);               
+                ShowActivityIndicator = true;
+                ListIR = await ReportService.GetIncentiveReport(FromDate, ToDate);
+                ShowActivityIndicator = false;
             }
             catch (Exception ex)
             {

@@ -13,6 +13,7 @@ namespace ServoIO.Common
         public string FromDate { get; set; }
         public string ToDate { get; set; }
         public string Receipt { get; set; }
+        public string Basic_Salary { get; set; }
         public string Cash_Discount { get; set; }
         public string Spacial_Discount { get; set; }
         public string Credit_Note { get; set; }
