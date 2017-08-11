@@ -8,7 +8,18 @@
         <ResourceDictionary>
 
             <!-- Colors -->
-           
+            <Color x:Key="primary-back-title-color">#02164f</Color>
+            <Color x:Key="primary-title-color">#FFFFFF</Color>
+            <!-- Pallete-end -->
+            <Style ApplyToDerivedTypes="true" TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource Key=primary-back-title-color}"/>
+                <Setter Property="BarTextColor" Value="{StaticResource Key=primary-title-color}"/>
+            </Style>
+
+            <Style ApplyToDerivedTypes="true" TargetType="TabbedPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource Key=primary-back-title-color}"/>
+                <Setter Property="BarTextColor" Value="{StaticResource Key=primary-title-color}"/>
+            </Style>
 
         </ResourceDictionary>
 

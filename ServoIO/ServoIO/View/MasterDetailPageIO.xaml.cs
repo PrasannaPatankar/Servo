@@ -17,6 +17,7 @@ namespace ServoIO.View
             InitializeComponent();
             MasterPage.Icon = "hamburger.png";
             MasterPage.ListView.ItemSelected += ListView_ItemSelected;
+            
         }
         
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -29,6 +30,7 @@ namespace ServoIO.View
             page.Title = item.Title;
 
             Detail = new NavigationPage(page);
+            
             IsPresented = false;
 
             MasterPage.ListView.SelectedItem = null;

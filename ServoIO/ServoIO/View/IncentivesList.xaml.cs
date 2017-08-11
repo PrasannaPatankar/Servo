@@ -21,7 +21,7 @@ namespace ServoIO.View
             {
                 InitializeComponent();
                 DateTime dtFromDate, dtToDate;
-                dtFrom.Date = System.DateTime.Now.Date.AddDays(-7000);
+                dtFrom.Date = System.DateTime.Now.Date.AddDays(-700);
                 dtFromDate = dtFrom.Date;
                 dtToDate = dtTo.Date;
                 this.BindingContext = new IncentivesListViewModel(dtFromDate.ToString("MM-dd-yyyy"), dtToDate.ToString("MM-dd-yyyy"));
