@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using ServoIO.ViewModel;
+using ServoIO.Common;
 
 namespace ServoIO.View
 {
@@ -16,10 +17,36 @@ namespace ServoIO.View
         public DashboardViewModel viewModel { get; set; }
         public Dashboard()
         {
+            var YearList = new List<string>();
+            YearList.Add("2012");
+            YearList.Add("2013");
+            YearList.Add("2014");
+            YearList.Add("2015");
+            YearList.Add("2016");
+            YearList.Add("2017");
+
             InitializeComponent();
-            this.BindingContext = new DashboardViewModel(new List<Common.PrimarySecReport>());
+            pkrYear.ItemsSource = YearList;
+            pkrYear.SelectedIndex = 0;
+            this.BindingContext = new DashboardViewModel(pkrYear.SelectedItem.ToString());
             viewModel = (DashboardViewModel)this.BindingContext;
 
+        }
+        public async Task pkrYear_SelectedIndexChangedAsync(object sender, EventArgs e)
+        {
+            try
+            {
+                if (viewModel != null) 
+                using (var scope = new ActivityIndicatorScope(syncIndicator, true, vwLoading))
+                {
+                    await viewModel.CreateBarChartAsync(false, "Year By Charts", pkrYear.SelectedItem.ToString());
+
+                }
+            }
+            catch (Exception ex)
+            {
+                //await DisplayAlert("", ex.Message, "Ok");
+            }
         }
 
         //protected override void OnAppearing()
@@ -33,7 +60,7 @@ namespace ServoIO.View
         //    {
         //        throw;
         //    }
-            
+
         //}
 
         //protected override void OnDisappearing()
@@ -47,7 +74,7 @@ namespace ServoIO.View
         //    {
         //        throw;
         //    }
-            
+
         //}
     }
 }

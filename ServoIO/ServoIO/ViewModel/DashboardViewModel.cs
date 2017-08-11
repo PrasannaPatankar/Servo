@@ -11,6 +11,7 @@ using OxyPlot;
 using OxyPlot.Series;
 using OxyPlot.Axes;
 using ServoIO.Service;
+using Xamarin.Forms;
 
 namespace ServoIO.View
 {
@@ -24,19 +25,22 @@ namespace ServoIO.View
             set { SetProperty(ref barmodel, value); }
         }
 
-        public DashboardViewModel(List<PrimarySecReport> ObjPS)
+        public DashboardViewModel(string Year)
         {
+           
             Task.Factory.StartNew(async () =>
             {
-                ObjPS = await ReportService.GetPrimarySecondaryReport("2014");
-                BarModel = await CreateBarChartAsync(false, "Comparison Bar Chart", ObjPS);
+               
+                BarModel = await CreateBarChartAsync(false, "Year By Charts", Year);
             });
             
         }
 
 
-        private async Task<PlotModel> CreateBarChartAsync(bool stacked, string title, List<PrimarySecReport> ObjPS)
-        {          
+        public async Task<PlotModel> CreateBarChartAsync(bool stacked, string title, string Year)
+        {
+
+            List<PrimarySecReport> ObjPS = await ReportService.GetPrimarySecondaryReport(Year);
             var model = new PlotModel
             {
                 Title = title,
@@ -77,6 +81,7 @@ namespace ServoIO.View
 
             model.Axes.Add(categoryAxis);
             model.Axes.Add(valueAxis);
+            BarModel = model;
             return model;
         }
 
