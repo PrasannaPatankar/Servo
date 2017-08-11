@@ -15,6 +15,7 @@ namespace ServoIO.View
     public partial class PrimarySecondarySaleList : ContentPage
     {
         private PrimarySecondarySaleListViewModel viewModel;
+        //private DashboardViewModel VMDashBD = new DashboardViewModel();
         public PrimarySecondarySaleList()
         {
             var YearList = new List<string>();
@@ -39,14 +40,17 @@ namespace ServoIO.View
 
         }
 
-        private async Task pkrYear_SelectedIndexChangedAsync(object sender, EventArgs e)
+        public async Task pkrYear_SelectedIndexChangedAsync(object sender, EventArgs e)
         {
             try
             {
+                Application.Current.Properties["PropYear"] = pkrYear.SelectedItem.ToString();
+
                 if (viewModel != null) { }
                 using (var scope = new ActivityIndicatorScope(syncIndicator, true, vwLoading))
                 {
                     await viewModel.GetPSRrport(pkrYear.SelectedItem.ToString());
+                    
                 }
             }
             catch (Exception ex)
