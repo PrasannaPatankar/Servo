@@ -72,6 +72,9 @@
     </Compile>
     <Compile Include="View\MasterDetailPageIOMenuItem.cs" />
     <Compile Include="ViewModel\DashboardViewModel.cs" />
+    <Compile Include="View\NewDashBoard.xaml.cs">
+      <DependentUpon>NewDashBoard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\PrimarySecondarySaleList.xaml.cs">
       <DependentUpon>PrimarySecondarySaleList.xaml</DependentUpon>
     </Compile>
@@ -174,6 +177,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="View\IncentivesList.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\NewDashBoard.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
