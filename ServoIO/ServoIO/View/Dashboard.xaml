@@ -36,7 +36,7 @@
                 </AbsoluteLayout>
                 <RelativeLayout x:Name="vwLoading" IsVisible="False" BackgroundColor="Transparent" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
                     <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-                        <Frame Padding="50,30,50,30"  AbsoluteLayout.LayoutFlags="All" BackgroundColor="#506cb3fe" VerticalOptions="Center" HorizontalOptions="Center" CornerRadius="10" HasShadow="True">
+                        <Frame Padding="50,30,50,30"  AbsoluteLayout.LayoutFlags="All" BackgroundColor="#506cb3fe" VerticalOptions="Center" HorizontalOptions="Center" HasShadow="True">
                             <StackLayout>
                                 <ActivityIndicator HorizontalOptions="Center" Color="AliceBlue" VerticalOptions="Center" IsVisible="False" IsEnabled="True" x:Name="syncIndicator"/>
                                 <Label x:Name="lblProgressStatus" Text="Loading..." />

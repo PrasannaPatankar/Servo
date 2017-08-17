@@ -1,4 +1,7 @@
-﻿using ServoIO.ViewModel;
+﻿using Rg.Plugins.Popup.Extensions;
+
+using ServoIO.ViewModel;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,9 +19,18 @@ namespace ServoIO.View
        // public DetailViewModel viewModel { get; set; }
         public MasterDetailPageIODetail()
         {
-            InitializeComponent();
-            Children.Add(new PrimarySecondarySaleList());
-            Children.Add(new Dashboard());
+            try
+            {
+                InitializeComponent();
+                Children.Add(new PrimarySecondarySaleList());
+                Children.Add(new Dashboard());
+            }
+            catch (Exception ex)
+            {
+                var page = new ErrorMsg(ex.Message);
+                Navigation.PushPopupAsync(page);
+            }
+            
             //this.BindingContext = new DetailViewModel();
             //viewModel = (DetailViewModel)this.BindingContext;
         }

@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Animations\BaseAnimation.cs" />
+    <Compile Include="Animations\FadeBackgroundAnimation.cs" />
+    <Compile Include="Animations\UserAnimation.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -73,14 +76,14 @@
     </Compile>
     <Compile Include="View\MasterDetailPageIOMenuItem.cs" />
     <Compile Include="ViewModel\DashboardViewModel.cs" />
-    <Compile Include="View\NewDashBoard.xaml.cs">
-      <DependentUpon>NewDashBoard.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\PrimarySecondarySaleList.xaml.cs">
       <DependentUpon>PrimarySecondarySaleList.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\TestPage.xaml.cs">
       <DependentUpon>TestPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ErrorMsg.xaml.cs">
+      <DependentUpon>ErrorMsg.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\YearlySalesChart.xaml.cs">
       <DependentUpon>YearlySalesChart.xaml</DependentUpon>
@@ -105,6 +108,12 @@
     </Reference>
     <Reference Include="OxyPlot.Xamarin.Forms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\OxyPlot.Xamarin.Forms.1.0.0\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10\OxyPlot.Xamarin.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="Rg.Plugins.Popup">
+      <HintPath>..\..\..\..\Xamarin Download\Rg.Plugins.Popup-master\Rg.Plugins.Popup-master\src\Rg.Plugins.Popup\bin\Debug\Rg.Plugins.Popup.dll</HintPath>
+    </Reference>
+    <Reference Include="Rg.Plugins.Popup.Platform">
+      <HintPath>..\..\..\..\Xamarin Download\Rg.Plugins.Popup-master\Rg.Plugins.Popup-master\src\Rg.Plugins.Popup\bin\Debug\Rg.Plugins.Popup.Platform.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http, Version=1.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.dll</HintPath>
@@ -183,7 +192,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="View\NewDashBoard.xaml">
+    <EmbeddedResource Include="View\ErrorMsg.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

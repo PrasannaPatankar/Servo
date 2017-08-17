@@ -1,4 +1,5 @@
-﻿using ServoIO.Common;
+﻿using Rg.Plugins.Popup.Extensions;
+using ServoIO.Common;
 using ServoIO.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,7 @@ namespace ServoIO.View
             {
                 InitializeComponent();
                 DateTime dtFromDate, dtToDate;
-                dtFrom.Date = System.DateTime.Now.Date.AddDays(-700);
+                dtFrom.Date = System.DateTime.Now.Date.AddDays(-30);
                 dtFromDate = dtFrom.Date;
                 dtToDate = dtTo.Date;
                 this.BindingContext = new IncentivesListViewModel(dtFromDate.ToString("MM-dd-yyyy"), dtToDate.ToString("MM-dd-yyyy"));
@@ -29,9 +30,10 @@ namespace ServoIO.View
             }
             catch (Exception ex)
             {
-                DisplayAlert("", ex.Message, "Ok");
+                var page = new ErrorMsg(ex.Message);
+                Navigation.PushPopupAsync(page);
             }
-            
+
         }
 
         private void btnSearch_Clicked(object sender, EventArgs e)
@@ -51,7 +53,8 @@ namespace ServoIO.View
             }
             catch (Exception ex)
             {
-                DisplayAlert("", ex.Message, "Ok");
+                var page = new ErrorMsg(ex.Message);
+                Navigation.PushPopupAsync(page);
             }
         }
     }

@@ -39,7 +39,7 @@
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout BackgroundColor="Transparent" Margin="1,0,1,1" Padding="2">
-                                    <Frame Padding="2,2,2,2" Margin="2,2,2,2" AbsoluteLayout.LayoutFlags="All" BackgroundColor="#BFffffff" VerticalOptions="Center" HorizontalOptions="Center" CornerRadius="10" HasShadow="True">
+                                    <Frame Padding="2,2,2,2" Margin="2,2,2,2" AbsoluteLayout.LayoutFlags="All" BackgroundColor="#BFffffff" VerticalOptions="Center" HorizontalOptions="Center"  HasShadow="True">
                                         <StackLayout BackgroundColor="Transparent">
                                             <Grid Padding="2,1,1,1">
                                                 <Grid.RowDefinitions>
@@ -81,7 +81,7 @@
 
                 <RelativeLayout x:Name="vwLoading" IsVisible="{Binding ShowActivityIndicator}" BackgroundColor="Transparent" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
                     <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-                        <Frame Padding="50,30,50,30" AbsoluteLayout.LayoutFlags="All" BackgroundColor="#506cb3fe" VerticalOptions="Center" HorizontalOptions="Center" CornerRadius="10" HasShadow="True">
+                        <Frame Padding="50,30,50,30" AbsoluteLayout.LayoutFlags="All" BackgroundColor="#506cb3fe" VerticalOptions="Center" HorizontalOptions="Center" HasShadow="True">
                             <StackLayout>
                                 <ActivityIndicator HorizontalOptions="Center" Color="AliceBlue" VerticalOptions="Center" IsVisible="{Binding ShowActivityIndicator}" IsRunning="{Binding ShowActivityIndicator}" IsEnabled="{Binding ShowActivityIndicator}" x:Name="syncIndicator"/>
                                 <Label x:Name="lblProgressStatus" Text="Loading..." />
