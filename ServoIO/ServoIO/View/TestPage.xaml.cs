@@ -15,22 +15,44 @@ namespace ServoIO.View
         public TestPage()
         {
             InitializeComponent();
-        }
+            var firstLabel = PandSSales;
+            firstLabel.GestureRecognizers.Add(new TapGestureRecognizer
+            {
+                Command = new Command(() => PrimarySecondaryClick()),
+            });
 
-        //private void setTitleBarBAckground()
-        //{
-        //    var titleBar = ApplicationView.GetCurrentView().TitleBar;
-        //}
-        protected override void OnAppearing()
+            var incentivesLabel = IncentiveRepot;
+            incentivesLabel.GestureRecognizers.Add(new TapGestureRecognizer
+            {
+                Command = new Command(() => IncentiveClick())
+            });
+
+           
+        }
+        public void IncentiveClick()
         {
-            base.OnAppearing();
             try
             {
-                //this.Animate("", s => Layout(new Rectangle(((-1 + s) * Width), Y, Width, Height)), 16, 250, Easing.Linear, null, null);
+                Navigation.PushAsync(new IncentivesList());
+
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                string s = ex.Message;
+
+                throw;
+            }
+        }
+
+        public void PrimarySecondaryClick()
+        {
+            // Application.Current.MainPage = new MasterDetailPageIO();
+            try
+            {
+                Navigation.PushAsync(new MasterDetailPageIODetail());
+            }
+            catch (Exception)
+            {
+
                 throw;
             }
 

@@ -65,9 +65,6 @@
     <Reference Include="OxyPlot.Xamarin.Forms.Platform.Android, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\OxyPlot.Xamarin.Forms.1.0.0\lib\MonoAndroid10\OxyPlot.Xamarin.Forms.Platform.Android.dll</HintPath>
     </Reference>
-    <Reference Include="Rg.Plugins.Popup">
-      <HintPath>..\..\..\..\Xamarin Download\Rg.Plugins.Popup-master\Rg.Plugins.Popup-master\src\Rg.Plugins.Popup.Droid\bin\Debug\Rg.Plugins.Popup.dll</HintPath>
-    </Reference>
     <Reference Include="Rg.Plugins.Popup.Droid">
       <HintPath>..\..\..\..\Xamarin Download\Rg.Plugins.Popup-master\Rg.Plugins.Popup-master\src\Rg.Plugins.Popup.Droid\bin\Debug\Rg.Plugins.Popup.Droid.dll</HintPath>
     </Reference>
@@ -170,6 +167,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\splash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ExternalPackages\Rg.Plugins.Popup.Droid.dll" />
+    <Content Include="ExternalPackages\Rg.Plugins.Popup.Platform%281%29.dll" />
+    <Content Include="ExternalPackages\Rg.Plugins.Popup.Platform.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />
