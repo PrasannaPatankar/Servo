@@ -30,7 +30,7 @@ namespace ServoIO.View
 
         }
 
-            public  void IncentiveClick()
+        public void IncentiveClick()
         {
             try
             {
