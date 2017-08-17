@@ -53,7 +53,7 @@
                                                     <ColumnDefinition Width="*"/>
                                                 </Grid.ColumnDefinitions>
 
-                                                <Label Text="{Binding SubCategory}" TextColor="CornflowerBlue" FontSize="Medium"  Grid.ColumnSpan="2" Grid.Row="0" />
+                                                <Label Text="{Binding SubCategory}"  TextColor="CornflowerBlue" FontSize="Medium"  Grid.ColumnSpan="2" Grid.Row="0" />
 
                                                 <Label Text="{Binding MainCategory}" TextColor="Black"  Grid.Column="1" Grid.Row="0"/>
 

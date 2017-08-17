@@ -26,8 +26,10 @@ namespace ServoIO.View
             {
                 Command = new Command(() => IncentiveClick())
             });
+            
 
-           
+
+
         }
         public void IncentiveClick()
         {

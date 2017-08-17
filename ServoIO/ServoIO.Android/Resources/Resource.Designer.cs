@@ -2215,17 +2215,23 @@ namespace ServoIO.Droid
 			// aapt resource value: 0x7f0200a5
 			public const int mr_ic_play_light = 2130837669;
 			
-			// aapt resource value: 0x7f0200a9
-			public const int notification_template_icon_bg = 2130837673;
+			// aapt resource value: 0x7f0200ab
+			public const int notification_template_icon_bg = 2130837675;
 			
 			// aapt resource value: 0x7f0200a6
-			public const int report1 = 2130837670;
+			public const int psreports = 2130837670;
 			
 			// aapt resource value: 0x7f0200a7
-			public const int servo = 2130837671;
+			public const int report1 = 2130837671;
 			
 			// aapt resource value: 0x7f0200a8
-			public const int splash = 2130837672;
+			public const int salesreports = 2130837672;
+			
+			// aapt resource value: 0x7f0200a9
+			public const int servo = 2130837673;
+			
+			// aapt resource value: 0x7f0200aa
+			public const int splash = 2130837674;
 			
 			static Drawable()
 			{

@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ServoIO.View.TestPage"
-             Title="Indian Oil">
+             Title="Home">
     <ContentPage.Content>
         <Grid Margin="8">
             <Grid.RowDefinitions>
@@ -16,13 +16,23 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Label x:Name="PandSSales" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center" Grid.Row="0" Grid.Column="0" Text="Primary and Secondary Reports" BackgroundColor="#b7ded2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Font="20"  ></Label>
-            <Label x:Name="IncentiveRepot" Grid.Row="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Column="1" Text="Incentives Report" BackgroundColor="#f6a6b2" Font="20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ></Label>
+            <StackLayout  Grid.Row="0" Grid.Column="0"  BackgroundColor="#b7ded2" x:Name="PandSSales" >
+                <Image Source="psreports.png" HeightRequest="70" WidthRequest="70" Margin="20"></Image>
+                <Label  TextColor="White" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center"  Text="Primary and Secondary Reports" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Font="20" FontAttributes="Bold" ></Label>
+            </StackLayout>
+
+            <StackLayout  Grid.Row="0" Grid.Column="1"  BackgroundColor="#f6a6b2"  x:Name="IncentiveRepot"  >
+                <Image Source="salesreports.png" HeightRequest="70" WidthRequest="70" Margin="20"></Image>
+                <Label TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="Incentives         Report" Font="20" HorizontalOptions="FillAndExpand" VerticalOptions="Center" FontAttributes="Bold" ></Label>
+            </StackLayout>
             <Label  Grid.Row="1" x:Name="Sample" Grid.Column="0" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center"  Text="Sample" BackgroundColor="#f7c297" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Label>
             <Label  Grid.Row="1" Grid.Column="1" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center"  Text="Sample" BackgroundColor="#ffecb8" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Label>
             <Label  Grid.Row="2" Grid.Column="0" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center"  Text="Sample" BackgroundColor="#90d2d8" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Label>
-            <Label  Grid.Row="2" Grid.Column="1" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center"  Text="Sample" BackgroundColor="#b7ded2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Label>
 
+            <StackLayout  Grid.Row="2" Grid.Column="1" BackgroundColor="#b7ded2">
+
+                <Label  VerticalTextAlignment="Center"  HorizontalTextAlignment="Center"  Text="Sample"  HorizontalOptions="FillAndExpand" VerticalOptions="Center"></Label>
+            </StackLayout>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
