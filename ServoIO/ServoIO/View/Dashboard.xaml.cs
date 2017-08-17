@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using ServoIO.ViewModel;
 using ServoIO.Common;
+using Rg.Plugins.Popup.Extensions;
 
 namespace ServoIO.View
 {
@@ -45,7 +46,8 @@ namespace ServoIO.View
             }
             catch (Exception ex)
             {
-                //await DisplayAlert("", ex.Message, "Ok");
+                var page = new ErrorMsg(ex.Message);
+                await Navigation.PushPopupAsync(page);
             }
         }
 

@@ -1,4 +1,5 @@
-﻿using ServoIO.Common;
+﻿using Rg.Plugins.Popup.Extensions;
+using ServoIO.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,8 +16,16 @@ namespace ServoIO.View
     {
         public LoginPage()
         {
-            InitializeComponent();
-            ChangeBgAnimation();
+            try
+            {
+                InitializeComponent();
+                ChangeBgAnimation();
+            }
+            catch (Exception ex)
+            {
+                var page = new ErrorMsg(ex.Message);
+                Navigation.PushPopupAsync(page);
+            }            
         }
 
 
@@ -48,6 +57,11 @@ namespace ServoIO.View
             }
                 );
         }
+        private async void OnUserAnimationPupup(object sender, EventArgs e)
+        {
+            var page = new ErrorMsg("When I'm trying to run my project in debugging mode it's working fine in emulator and My device. But as soon I run it in release mode It gives an error.");
+            await Navigation.PushPopupAsync(page);
+        }
         private void validPassword(object sender, TextChangedEventArgs e)
         {
             entPassword.Text = CheckLength(entPassword.Text, 10);
@@ -67,34 +81,40 @@ namespace ServoIO.View
             }
             catch (Exception ex)
             {
-                string ab = ex.ToString();
+                var page = new ErrorMsg(ex.Message);
+                Navigation.PushPopupAsync(page);
                 return null;
             }
         }
 
         private void  entSubmit_Clicked(object sender, EventArgs e)
         {
-            
-
-            using (var scope = new ActivityIndicatorScope(syncIndicator, true, vwLoading))
-                Application.Current.MainPage = new MasterDetailPageIO();
+            try
+            {
+                using (var scope = new ActivityIndicatorScope(syncIndicator, true, vwLoading))
+                    Application.Current.MainPage = new MasterDetailPageIO();
+            }
+            catch (Exception ex)
+            {
+                var page = new ErrorMsg(ex.Message);
+                Navigation.PushPopupAsync(page);
+            }           
         }
-
-
+        
         //protected override void OnAppearing()
         //{
         //    base.OnAppearing();
         //    entSubmit.AnchorX = 0.48;
         //    entSubmit.AnchorY = 0.48;
 
-            //stkMain.TranslateTo(0, 50, 2000, Easing.BounceIn);
-            //stkMain.TranslateTo(0, 200, 2000, Easing.BounceOut);
-            //stkMain.ScaleTo(2, 2000, Easing.CubicIn);
-            //stkMain.ScaleTo(2, 2000, Easing.CubicInOut);
-            //stkMain.RotateTo(360, 2000, Easing.SinInOut);
-            //stkMain.ScaleTo(1, 2000, Easing.CubicOut);
-            //stkMain.TranslateTo(0, -200, 2000, Easing.BounceOut);
-      //  }
+        //stkMain.TranslateTo(0, 50, 2000, Easing.BounceIn);
+        //stkMain.TranslateTo(0, 200, 2000, Easing.BounceOut);
+        //stkMain.ScaleTo(2, 2000, Easing.CubicIn);
+        //stkMain.ScaleTo(2, 2000, Easing.CubicInOut);
+        //stkMain.RotateTo(360, 2000, Easing.SinInOut);
+        //stkMain.ScaleTo(1, 2000, Easing.CubicOut);
+        //stkMain.TranslateTo(0, -200, 2000, Easing.BounceOut);
+        //  }
     }
     
 

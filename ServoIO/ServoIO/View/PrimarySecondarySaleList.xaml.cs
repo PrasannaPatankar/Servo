@@ -1,4 +1,5 @@
-﻿using ServoIO.Common;
+﻿using Rg.Plugins.Popup.Extensions;
+using ServoIO.Common;
 using ServoIO.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -35,7 +36,8 @@ namespace ServoIO.View
             }
             catch (Exception ex)
             {
-                DisplayAlert("", ex.Message, "Ok");
+                var page = new ErrorMsg(ex.Message);
+                Navigation.PushPopupAsync(page);
             }
 
         }
