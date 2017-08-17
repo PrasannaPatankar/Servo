@@ -69,7 +69,7 @@ namespace ServoIO.View
             Task.Factory.StartNew(async () =>
             {
 
-                BarModel = await CreateBarChartAsync(false, "Year By Charts", Year);
+                BarModel = await CreateBarChartAsync(false, "Sales Report", Year);
             });
 
         }

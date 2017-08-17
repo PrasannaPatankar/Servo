@@ -4,7 +4,7 @@
              x:Class="ServoIO.View.NewDashBoard">
     <ContentPage.Content>
         
-            <Grid Margin="8">
+            <!--<Grid Margin="8">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
@@ -16,14 +16,14 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-            <Label x:Name="Firstreport" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center" Grid.Row="0" Grid.Column="0" Text="Primary and Secondary Reports" BackgroundColor="#b7ded2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Font="20"  ></Label>
-            <Label x:Name="Secondreport" Grid.Row="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Column="1" Text="Incentives Report" BackgroundColor="#f6a6b2" Font="20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ></Label>
-            <Label  Grid.Row="1" Grid.Column="0" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center"  Text="Sample" BackgroundColor="#f7c297" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Label>
+            <Label x:Name="PandSSales" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center" Grid.Row="0" Grid.Column="0" Text="Primary and Secondary Reports" BackgroundColor="#b7ded2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Font="20"  ></Label>
+            <Label x:Name="IncentiveRepot" Grid.Row="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Column="1" Text="Incentives Report" BackgroundColor="#f6a6b2" Font="20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ></Label>
+            <Label  Grid.Row="1" x:Name="Sample" Grid.Column="0" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center"  Text="Sample" BackgroundColor="#f7c297" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Label>
             <Label  Grid.Row="1" Grid.Column="1" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center"  Text="Sample" BackgroundColor="#ffecb8" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Label>
             <Label  Grid.Row="2" Grid.Column="0" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center"  Text="Sample" BackgroundColor="#90d2d8" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Label>
             <Label  Grid.Row="2" Grid.Column="1" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center"  Text="Sample" BackgroundColor="#b7ded2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Label>
 
-        </Grid>
+        </Grid>-->
       
     </ContentPage.Content>
 
