@@ -14,11 +14,39 @@ namespace ServoIO.View
     {
         public NewDashBoard()
         {
+
             InitializeComponent();
+            var firstLabel = Firstreport;
+            firstLabel.GestureRecognizers.Add(new TapGestureRecognizer
+            {
+                Command = new Command(() => PrimarySecondaryClick()),
+            });
+
+            var incentivesLabel = Secondreport;
+            incentivesLabel.GestureRecognizers.Add(new TapGestureRecognizer
+            {
+                Command = new Command(() => IncentiveClick())
+            });
+
         }
 
-        private void btnReports_Clicked(object sender, EventArgs e)
+            public  void IncentiveClick()
         {
+            try
+            {
+                Navigation.PushAsync(new IncentivesList());
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public void PrimarySecondaryClick()
+        {
+            // Application.Current.MainPage = new MasterDetailPageIO();
             try
             {
                 Navigation.PushAsync(new MasterDetailPageIODetail());
@@ -28,22 +56,37 @@ namespace ServoIO.View
 
                 throw;
             }
-        }
-
-        
-
-        private void btnIncentives_Clicked(object sender, EventArgs e)
-        {
-            try
-            {
-                Navigation.PushAsync(new IncentivesList());
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
 
         }
+
+
+        //private void btnReports_Clicked(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        Navigation.PushAsync(new MasterDetailPageIODetail());
+        //    }
+        //    catch (Exception)
+        //    {
+
+        //        throw;
+        //    }
+        //}
+
+
+
+        //private void btnIncentives_Clicked(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        Navigation.PushAsync(new IncentivesList());
+        //    }
+        //    catch (Exception)
+        //    {
+
+        //        throw;
+        //    }
+
+        //}
     }
 }

@@ -8,20 +8,20 @@
 
         <Grid BackgroundColor="White">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
+                <!--<RowDefinition Height="Auto"/>-->
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
+            <!--<Grid Grid.Row="0">
                 <Label Text="Primary and Secondary Sale Report"  TextColor="#628fc0" FontSize="Large" BackgroundColor="White" HorizontalOptions="CenterAndExpand"/>
-            </Grid>
+            </Grid>-->
 
             <Grid HorizontalOptions="CenterAndExpand">
                 <Grid.ColumnDefinitions >
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <Grid Grid.Row="1">
+                <Grid Grid.Row="0">
                     <StackLayout Orientation="Horizontal"  HorizontalOptions="CenterAndExpand" >
                         <StackLayout Orientation="Vertical"  HorizontalOptions="CenterAndExpand" Grid.ColumnSpan="2">
                             <Label Text="Select Year:" Font="20"/>
@@ -33,7 +33,7 @@
                     </StackLayout>
                 </Grid>
             </Grid>
-            <Grid Grid.Row="2">
+            <Grid Grid.Row="1">
                 <ListView HasUnevenRows="True" SeparatorVisibility="Default" ItemsSource="{Binding ListPS}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}" x:Name="lstPrimarySecondarySale" BackgroundColor="LightGray" ItemTapped="lstPrimarySecondarySale_ItemTappedAsync">
                     <ListView.ItemTemplate>
                         <DataTemplate>

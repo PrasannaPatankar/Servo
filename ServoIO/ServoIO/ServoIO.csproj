@@ -44,6 +44,7 @@
     <Compile Include="Service\Constants.cs" />
     <Compile Include="Service\ReportService.cs" />
     <Compile Include="ViewModel\IncentivesListViewModel.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\PrimarySecondarySaleListViewModel.cs" />
     <Compile Include="ViewModel\YearlySalesChartViewModel.cs" />
     <Compile Include="View\IncentivesList.xaml.cs">

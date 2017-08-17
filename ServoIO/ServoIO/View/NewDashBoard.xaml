@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ServoIO.View.NewDashBoard">
+             x:Class="ServoIO.View.NewDashBoard"
+             Title="Dashboards">
     <ContentPage.Content>
         
             <Grid Margin="8">
@@ -16,12 +17,12 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-            <Button Grid.Row="0" Grid.Column="0" Text="Primary and Secondary Reports" BackgroundColor="#b7ded2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Font="20"  x:Name="btnReports" Clicked="btnReports_Clicked"></Button>
-            <Button Grid.Row="0"  Grid.Column="1" Text="Incentives Report" BackgroundColor="#f6a6b2" Font="20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="btnIncentives" Clicked="btnIncentives_Clicked" ></Button>
-            <Button  Grid.Row="1" Grid.Column="0" Text="Sample" BackgroundColor="#f7c297" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Button>
-            <Button  Grid.Row="1" Grid.Column="1" Text="Sample" BackgroundColor="#ffecb8" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Button>
-            <Button  Grid.Row="2" Grid.Column="0" Text="Sample" BackgroundColor="#90d2d8" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Button>
-            <Button  Grid.Row="2" Grid.Column="1" Text="Sample" BackgroundColor="#b7ded2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Button>
+            <Label x:Name="Firstreport" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center" Grid.Row="0" Grid.Column="0" Text="Primary and Secondary Reports" BackgroundColor="#b7ded2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Font="20"  ></Label>
+            <Label x:Name="Secondreport" Grid.Row="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Column="1" Text="Incentives Report" BackgroundColor="#f6a6b2" Font="20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ></Label>
+            <Label  Grid.Row="1" Grid.Column="0" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center"  Text="Sample" BackgroundColor="#f7c297" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Label>
+            <Label  Grid.Row="1" Grid.Column="1" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center"  Text="Sample" BackgroundColor="#ffecb8" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Label>
+            <Label  Grid.Row="2" Grid.Column="0" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center"  Text="Sample" BackgroundColor="#90d2d8" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Label>
+            <Label  Grid.Row="2" Grid.Column="1" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center"  Text="Sample" BackgroundColor="#b7ded2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Label>
 
         </Grid>
       

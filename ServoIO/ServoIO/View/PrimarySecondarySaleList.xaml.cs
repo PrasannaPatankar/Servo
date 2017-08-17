@@ -44,14 +44,17 @@ namespace ServoIO.View
         {
             try
             {
-                Application.Current.Properties["PropYear"] = pkrYear.SelectedItem.ToString();
 
-                if (viewModel != null) { }
-                using (var scope = new ActivityIndicatorScope(syncIndicator, true, vwLoading))
+
+                if (viewModel != null)
                 {
-                    await viewModel.GetPSRrport(pkrYear.SelectedItem.ToString());
-                    
+                    using (var scope = new ActivityIndicatorScope(syncIndicator, true, vwLoading))
+                    {
+                        await viewModel.GetPSRrport(pkrYear.SelectedItem.ToString());
+
+                    }
                 }
+                
             }
             catch (Exception ex)
             {
