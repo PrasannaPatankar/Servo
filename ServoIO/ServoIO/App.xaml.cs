@@ -16,9 +16,9 @@ namespace ServoIO
             //var vSampleData = new OxyExData();
             //MainPage = new ServoIO.MainPage();
 
-            //  Application.Current.MainPage = new LoginPage();
+             Application.Current.MainPage = new LoginPage();
             
-             Application.Current.MainPage = new sample();
+            // Application.Current.MainPage = new sample();
            // Application.Current.MainPage = new sample2();
         }
 
