@@ -17,9 +17,10 @@ namespace ServoIO
             //MainPage = new ServoIO.MainPage();
 
             //  Application.Current.MainPage = new LoginPage();
-            
-             Application.Current.MainPage = new sample();
-           // Application.Current.MainPage = new sample2();
+           // MainPage = new NavigationPage(new sample());
+            // Application.Current.MainPage = new sample();
+            // Application.Current.MainPage = new sample2();
+            Application.Current.MainPage = new SSRPerformanceReport();
         }
 
         protected override void OnStart()
