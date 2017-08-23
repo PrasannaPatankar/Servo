@@ -23,7 +23,7 @@ namespace ServoIO.View
                 
             InitializeComponent();
            // pkrYear.ItemsSource = YearList;
-          //  pkrYear.SelectedIndex = 0;
+          // pkrYear.SelectedIndex = 0;
             this.BindingContext = new DashboardViewModel("2012");
             viewModel = (DashboardViewModel)this.BindingContext;
             }

@@ -23,7 +23,7 @@
                     </StackLayout>
 
                     <StackLayout Orientation="Vertical"  HorizontalOptions="CenterAndExpand" Grid.ColumnSpan="2">
-                        <Picker x:Name="pkrYear" Title="Year" ItemsSource="{Binding SelectYear}" SelectedItem="{Binding SelectedIndex, Mode=TwoWay}" />
+                        <Picker x:Name="pkrYear" Title="Year" ItemsSource="{Binding SelectYear}" WidthRequest="70" SelectedItem="{Binding SelectedIndex, Mode=TwoWay}" />
                     </StackLayout>
                 </StackLayout>
             </Grid>

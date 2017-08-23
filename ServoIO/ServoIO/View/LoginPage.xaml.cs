@@ -23,6 +23,7 @@ namespace ServoIO.View
             this.BindingContext = new LoginViewModel();
             _ViewModel = (LoginViewModel)this.BindingContext;
             ChangeBgAnimation();
+           // Opacity = 0.5;
         }
 
 
