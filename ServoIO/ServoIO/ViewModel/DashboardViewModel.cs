@@ -104,7 +104,6 @@ namespace ServoIO.View
                     else
                         s2.Items.Add(new BarItem { Value = Convert.ToInt32(psitem.Total) });
                 }
-
             }
 
             var categoryAxis = new CategoryAxis { Position = CategoryAxisPosition() };

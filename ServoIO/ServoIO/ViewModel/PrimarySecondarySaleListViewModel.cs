@@ -57,7 +57,6 @@ namespace ServoIO.ViewModel
             }
             catch (Exception ex)
             {
-
                 throw;
             }
         }

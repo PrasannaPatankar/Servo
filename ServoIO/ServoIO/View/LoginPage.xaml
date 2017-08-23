@@ -16,7 +16,6 @@
                     <Entry x:Name="entPassword" BindingContext="{Binding Password}" Placeholder="Password"  IsPassword="True" HorizontalOptions="Fill"  />
                     <DatePicker x:Name="DatePicker" BindingContext="{Binding LoginDate}" />
                     <Button x:Name="BtnSubmit" Text="Login" HorizontalOptions="FillAndExpand" Command="{Binding Cmd_Login}" />
-                    
                 </StackLayout>
 
                 <RelativeLayout x:Name="vwLoading" IsVisible="False" BackgroundColor="Transparent" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
