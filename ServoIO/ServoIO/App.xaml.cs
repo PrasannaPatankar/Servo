@@ -16,12 +16,10 @@ namespace ServoIO
             //var vSampleData = new OxyExData();
             //MainPage = new ServoIO.MainPage();
 
-            Application.Current.MainPage = new LoginPage();
-            //{
-            //    BarBackgroundColor = Color.FromHex("#77D065"),
-            //    BarTextColor = Color.White
-
-            //};
+            //  Application.Current.MainPage = new LoginPage();
+            
+             Application.Current.MainPage = new sample();
+           // Application.Current.MainPage = new sample2();
         }
 
         protected override void OnStart()

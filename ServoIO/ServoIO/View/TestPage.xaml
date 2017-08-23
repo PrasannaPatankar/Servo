@@ -35,12 +35,12 @@
                 <Image Source="psreports.png" HeightRequest="70" WidthRequest="70" Margin="20"></Image>
                 <Label TextColor="White"  Font="20" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center"  Text="Sample" HorizontalOptions="FillAndExpand" VerticalOptions="Center" FontAttributes="Bold"></Label>
             </StackLayout>
-
+            
             <StackLayout  Grid.Row="2" Grid.Column="0"   BackgroundColor="#90d2d8">
                 <Image Source="psreports.png" HeightRequest="70" WidthRequest="70" Margin="20"></Image>
                 <Label TextColor="White"  Font="20" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center"  Text="Sample" HorizontalOptions="FillAndExpand" VerticalOptions="Center" FontAttributes="Bold"></Label>
             </StackLayout>
-           
+
             <StackLayout  Grid.Row="2" Grid.Column="1" BackgroundColor="#b7ded2">
                 <Image Source="psreports.png" HeightRequest="70" WidthRequest="70" Margin="20"></Image>
                 <Label TextColor="White" Font="20" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center"  Text="Sample"  HorizontalOptions="FillAndExpand" VerticalOptions="Center" FontAttributes="Bold"></Label>

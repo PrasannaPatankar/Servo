@@ -9,7 +9,7 @@
 
                 <StackLayout Margin="20">
                     <StackLayout >
-                        <Image x:Name="servoImage" Source="io235_281.jpg" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                        <Image x:Name="servoImage"  Source="io235_281.jpg" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                     </StackLayout>
                     <Picker x:Name="LoginRolePicker" Title="User Type"  ItemsSource="{Binding UserRole}" />
                     <Entry x:Name="entUserName" BindingContext="{Binding UserName}" Placeholder="User Name" HorizontalOptions="Fill" />
