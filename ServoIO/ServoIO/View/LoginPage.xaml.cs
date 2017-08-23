@@ -1,4 +1,5 @@
-﻿using ServoIO.Common;
+﻿using Rg.Plugins.Popup.Extensions;
+using ServoIO.Common;
 using ServoIO.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -53,7 +54,8 @@ namespace ServoIO.View
             }
                 );
         }
-        //private void validPassword(object sender, TextChangedEventArgs e)
+
+       //private void validPassword(object sender, TextChangedEventArgs e)
         //{
         //    entPassword.Text = CheckLength(entPassword.Text, 10);
         //}

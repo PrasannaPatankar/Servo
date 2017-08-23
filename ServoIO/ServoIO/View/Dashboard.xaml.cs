@@ -29,7 +29,6 @@ namespace ServoIO.View
             }
             catch (Exception)
             {
-
                 throw;
             }
             //var YearList = new List<string>();
