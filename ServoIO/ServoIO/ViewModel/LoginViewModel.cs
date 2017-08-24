@@ -24,7 +24,7 @@ namespace ServoIO.ViewModel
         public string Password
         {
             get { return _Password; }
-            set { SetProperty(ref _Password , value); var res = CheckLength(); }
+            set { SetProperty(ref _Password, value); var res = validPassword(); }
         }
         
        
@@ -38,10 +38,30 @@ namespace ServoIO.ViewModel
             set { SetProperty(ref _UserRole, value); }
         }
 
-        public bool CheckLength()
+        private string validPassword()
         {
-            //var str = 
-            return true;
+            // entPassword.Text = CheckLength(entPassword.Text, 10);
+            Password = CheckLength(Password, 10);
+            return "";
+        }
+        private string CheckLength(string str, int reqLength)
+        {
+            try
+            {
+                if (str.Length >= reqLength)
+                {
+                    return str.Substring(0, reqLength);
+                }
+                else
+                {
+                    return str;
+                }
+            }
+            catch (Exception ex)
+            {
+                string ab = ex.ToString();
+                return null;
+            }
         }
 
         public LoginViewModel()
