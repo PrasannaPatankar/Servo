@@ -2,8 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ServoIO.View.SSRPerformanceReport"
-             Title="ListView">
-  <ListView ItemsSource="{Binding ItemsGrouped}"
+             Title="SSR Performance Report">
+    <ListView ItemsSource="{Binding ItemsGrouped}"
             ItemTapped="Handle_ItemTapped"
             ItemSelected="Handle_ItemSelected"
             HasUnevenRows="true"
@@ -14,8 +14,8 @@
             CachingStrategy="RecycleElement"
             IsRefreshing="{Binding IsBusy, Mode=OneWay}"
             RefreshCommand="{Binding RefreshDataCommand}">
-    <ListView.Header>
-      <StackLayout Padding="10" 
+        <ListView.Header>
+            <!--<StackLayout Padding="10" 
                    Orientation="Horizontal"
                    HorizontalOptions="FillAndExpand"
                    BackgroundColor="#dadada">
@@ -24,42 +24,108 @@
                HorizontalOptions="FillAndExpand"
                TextColor="Black"
                FontAttributes="Bold"/>
-      </StackLayout>
-    </ListView.Header>
-    <!--Built in Cells-->
-    <ListView.ItemTemplate>
+      </StackLayout>-->
+
+            <Grid HorizontalOptions="CenterAndExpand">
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Row="0">
+                    <StackLayout Orientation="Horizontal"  HorizontalOptions="CenterAndExpand" >
+                        <StackLayout Orientation="Vertical"  HorizontalOptions="CenterAndExpand" Grid.ColumnSpan="2">
+                            <Label Text="From Date"></Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical"  HorizontalOptions="CenterAndExpand" Grid.ColumnSpan="2">
+                            <DatePicker x:Name="dtFrom"></DatePicker>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical"  HorizontalOptions="CenterAndExpand" Grid.ColumnSpan="2">
+                            <Label Text="To Date"></Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical"  HorizontalOptions="CenterAndExpand" Grid.ColumnSpan="2">
+                            <DatePicker x:Name="dtTo"></DatePicker>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical"  HorizontalOptions="CenterAndExpand" Grid.ColumnSpan="2">
+                            <Button Text="Go" x:Name="btnSearch"></Button>
+                        </StackLayout>
+                    </StackLayout>
+                </Grid>
+            </Grid>
+
+        </ListView.Header>
+        <!--Built in Cells-->
+        <!--<ListView.ItemTemplate>
       <DataTemplate>
         <TextCell Text="{Binding Text}"
                   Detail="{Binding Detail}"/>
       </DataTemplate>
-    </ListView.ItemTemplate>
-    
-    <!--Custom View Cells-->
-    <!--
-    <ListView.ItemTemplate>
-      <DataTemplate>
-        <ViewCell>
-          <StackLayout>
+    </ListView.ItemTemplate>-->
+
+        <!--Custom View Cells-->
+
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <!--<StackLayout>
             <Label Text="{Binding Text}" 
                    Style="{DynamicResource ListItemTextStyle}" />
             <Label Text="{Binding Detail}" 
                    Style="{DynamicResource ListItemDetailTextStyle}"/>
-          </StackLayout>
-        </ViewCell>
-      </DataTemplate>
-    </ListView.ItemTemplate>
-    -->
-    <ListView.Footer>
-      <StackLayout Padding="10"
+          </StackLayout>-->
+
+                    <StackLayout BackgroundColor="Transparent" Margin="1,0,1,1" Padding="2">
+                        <Frame Padding="2,2,2,2" Margin="2,2,2,2" AbsoluteLayout.LayoutFlags="All" BackgroundColor="#BFffffff" VerticalOptions="Center" HorizontalOptions="Center" HasShadow="True">
+                            <StackLayout BackgroundColor="Transparent">
+                                <Grid Padding="2,1,1,1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"  />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Text="{Binding Text}" TextColor="CornflowerBlue" FontSize="Medium" Grid.Column="0" Grid.Row="0" />
+                                    <Label Text="{Binding Detail}" TextColor="Black"  Grid.Column="1" Grid.Row="0"/>
+
+                                    <Label Text="Receipt"  Grid.Column="0" Grid.Row="1"/>
+                                    <Label Text="OutStanding"   Grid.Column="1" Grid.Row="1"/>
+                                    <Label Text="Sales In" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" HorizontalTextAlignment="Center" BackgroundColor="#f7f7f7"/>
+                                    <Label Text="Ltr"   Grid.Column="0" Grid.Row="3" HorizontalTextAlignment="Center" BackgroundColor="#f7f7f7"/>
+                                    <Label Text="Rs."   Grid.Column="1" Grid.Row="3" HorizontalTextAlignment="Center" BackgroundColor="#f7f7f7"/>
+
+
+                                    <!--<Label Text="{Binding Receipt,StringFormat='Receipt {0:N}'}"  Grid.Column="0" Grid.Row="1"/>
+                                    <Label Text="{Binding Cash_Discount,StringFormat='Cash Discount {0:N}'}"   Grid.Column="1" Grid.Row="1"/>
+                                    <Label Text="{Binding Spacial_Discount,StringFormat='Spacial Discount {0:N}'}"   Grid.Column="0" Grid.Row="2"/>
+                                    <Label Text="{Binding Credit_Note,StringFormat='Credit Note {0:N}'}"   Grid.Column="1" Grid.Row="2"/>
+                                    <Label Text="{Binding Cheque_Bounce,StringFormat='Cheque Bounce {0:N}'}"   Grid.Column="0" Grid.Row="3"/>
+                                    <Label Text="{Binding Total_Receipts,StringFormat='Total Receipts {0:N}'}"   Grid.Column="1" Grid.Row="3"/>
+                                    <Label Text="{Binding Total_Incentive,StringFormat='Total Incentive {0:N}'}"   Grid.Column="0" Grid.Row="4"/>
+                                    <Label Text="{Binding Basic_Salary,StringFormat='Basic Salary {0:N}'}"   Grid.Column="1" Grid.Row="4"/>
+                                    <Label Text="{Binding Salary_Incentive,StringFormat='Salary Incentive {0:N}'}"   Grid.Column="0" Grid.Row="5"/>-->
+                                </Grid>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+
+        <ListView.Footer>
+            <StackLayout Padding="10"
                    Orientation="Horizontal"
                    HorizontalOptions="FillAndExpand"
                    BackgroundColor="#dadada">
-        <Label Text="Footer" 
+                <Label Text="Footer" 
                HorizontalTextAlignment="Center" 
                HorizontalOptions="FillAndExpand" 
                TextColor="Black"
                FontAttributes="Bold"/>
-      </StackLayout>
-    </ListView.Footer>
-  </ListView>
+            </StackLayout>
+        </ListView.Footer>
+    </ListView>
 </ContentPage>

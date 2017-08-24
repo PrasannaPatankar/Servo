@@ -1,4 +1,6 @@
-﻿using ServoIO.View;
+﻿using Rg.Plugins.Popup.Extensions;
+using ServoIO.Service;
+using ServoIO.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,27 +11,24 @@ using Xamarin.Forms;
 
 namespace ServoIO.ViewModel
 {
-   public class LoginViewModel :ViewModelBase
+    public class LoginViewModel : ViewModelBase
     {
-        private string _UserName;
+        public ICommand Cmd_Login { get; set; }
+        List<string> userrole = new List<string>() { "Admin", "SSAGWL" };
 
+        private string _UserName;
         public string UserName
         {
             get { return _UserName; }
-            set {SetProperty(ref _UserName , value);  }
+            set { SetProperty(ref _UserName, value); }
         }
-        public  ICommand Cmd_Login { get; set; }
-        private string _Password;
 
+        private string _Password;
         public string Password
         {
             get { return _Password; }
-            set { SetProperty(ref _Password , value); var res = CheckLength(); }
+            set { SetProperty(ref _Password, value); validPassword(); }
         }
-        
-       
-
-        List<string> userrole = new List<string>() { "Admin", "SSAGWL" };
 
         private List<string> _UserRole;
         public List<string> UserRole
@@ -38,25 +37,101 @@ namespace ServoIO.ViewModel
             set { SetProperty(ref _UserRole, value); }
         }
 
-        public bool CheckLength()
+        private string _SelectedRole;
+
+        public string SelectedRole
         {
-            //var str = 
+            get { return _SelectedRole; }
+            set { SetProperty(ref _SelectedRole, value); }
+        }
+
+        private Boolean showactivityindicator;
+        public Boolean ShowActivityIndicator
+        {
+            get { return showactivityindicator; }
+            set { SetProperty(ref showactivityindicator, value); }
+        }
+
+
+
+        private void validPassword()
+        {
+            if (Password.Length > 10)
+            {
+                Password = Password.Substring(0, 10);
+                //var page = new ErrorMsg("whoal");
+                //Application.Current.MainPage.Navigation.PushPopupAsync(page);
+            }
+        }
+
+        private bool Validate()
+        {
+            if (SelectedRole == null)
+            {
+                var page = new ErrorMsg("Select User Type");
+                Application.Current.MainPage.Navigation.PushPopupAsync(page);
+                return false;
+            }
+
+            if (UserName == null)
+            {
+                var page = new ErrorMsg("Enter Username");
+                Application.Current.MainPage.Navigation.PushPopupAsync(page);
+                return false;
+            }
+
+            Password = "whB5Rr75dvRE6aQMA0RuMg ==";
+
+            if (Password == null)
+            {
+                var page = new ErrorMsg("Enter Password");
+                Application.Current.MainPage.Navigation.PushPopupAsync(page);
+                return false;
+            }
             return true;
         }
 
         public LoginViewModel()
         {
             UserRole = userrole;
-            Cmd_Login = new Command(NextClick);
+            Cmd_Login = new Command(NextClickAsync);
         }
 
-         
-       
-
-        public void NextClick()
+        public async void NextClickAsync()
         {
             Application.Current.MainPage = new MasterDetailPageIO();
+            //if (Validate())
+            //{                
+            //    string Result = await ReportService.GetUserID(UserName, Password, SelectedRole);
+            //    if (Result == "0")
+            //    {
+            //        var page = new ErrorMsg("Invalid Username or Password");
+            //        await Application.Current.MainPage.Navigation.PushPopupAsync(page);
+            //        UserName = "";
+            //        Password = "";
+            //    }
+            //    else
+            //    {
+            //        Application.Current.MainPage = new MasterDetailPageIO();
+            //    }
+            //}
+
         }
-        
+
+        public async Task GetUserID(string Role)
+        {
+            try
+            {
+                ShowActivityIndicator = true;
+                string str = await ReportService.GetUserID(UserName, Password, Role);
+                ShowActivityIndicator = false;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
     }
 }
