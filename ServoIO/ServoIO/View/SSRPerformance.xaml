@@ -1,5 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:GridView="clr-namespace:ServoIO.Controls"
              x:Class="ServoIO.View.SSRPerformance">
+    
+    <StackLayout x:Name="stkmain" Margin="7">
+        
+        <StackLayout x:Name="stkupper" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="Aquamarine">
+            
+        </StackLayout>
+
+        <ScrollView Orientation="Horizontal">
+        <StackLayout x:Name="stklower" Orientation="Horizontal" HorizontalOptions="FillAndExpand" HeightRequest="160" VerticalOptions="FillAndExpand" >
+                <GridView:GridView HorizontalOptions="FillAndExpand"
+                        Grid.Row="1"
+                        VerticalOptions="FillAndExpand"
+                        RowSpacing="5"
+                        ColumnSpacing="5"
+                        MaxColumns="2"
+                        ItemsSource="{Binding SubCarriersCnt}"
+                        CommandParameter="{Binding}"
+                       Command="{Binding ClickCommand}"
+                        IsClippedToBounds="False">
+                    <GridView:GridView.TileHeight>
+                        <OnPlatform x:TypeArguments="x:Single"
+                      iOS="60"
+                      Android="90"
+                      WinPhone="90" />
+                    </GridView:GridView.TileHeight>
+                </GridView:GridView>
+            </StackLayout>
+        </ScrollView>
+        
+    </StackLayout>
+   
 </ContentPage>

@@ -56,29 +56,29 @@ namespace ServoIO.View
                 );
         }
 
-       //private void validPassword(object sender, TextChangedEventArgs e)
-        //{
-        //    entPassword.Text = CheckLength(entPassword.Text, 10);
-        //}
-        //private string CheckLength(string str, int reqLength)
-        //{
-        //    try
-        //    {
-        //        if (str.Length >= reqLength)
-        //        {
-        //            return str.Substring(0, reqLength);
-        //        }
-        //        else
-        //        {
-        //            return str;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        string ab = ex.ToString();
-        //        return null;
-        //    }
-        //}
+        private void validPassword(object sender, TextChangedEventArgs e)
+        {
+            entPassword.Text = CheckLength(entPassword.Text, 10);
+        }
+        private string CheckLength(string str, int reqLength)
+        {
+            try
+            {
+                if (str.Length >= reqLength)
+                {
+                    return str.Substring(0, reqLength);
+                }
+                else
+                {
+                    return str;
+                }
+            }
+            catch (Exception ex)
+            {
+                string ab = ex.ToString();
+                return null;
+            }
+        }
 
         //private void entSubmit_Clicked(object sender, EventArgs e)
         //{
@@ -104,7 +104,7 @@ namespace ServoIO.View
         //StkMain.TranslateTo(0, -200, 2000, Easing.BounceOut);
         //  }
     }
-    
+
 
 
 }
