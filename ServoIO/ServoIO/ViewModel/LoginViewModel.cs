@@ -14,7 +14,7 @@ namespace ServoIO.ViewModel
     public class LoginViewModel : ViewModelBase
     {
         public ICommand Cmd_Login { get; set; }
-        List<string> userrole = new List<string>() { "Admin", "SSAGWL" };
+        List<string> userrole = new List<string>() { "Administrator", "SSAGWL" };
 
         private string _UserName;
         public string UserName
@@ -56,9 +56,9 @@ namespace ServoIO.ViewModel
 
         private void validPassword()
         {
-            if (Password.Length > 10)
+            if (Password.Length > 50)
             {
-                Password = Password.Substring(0, 10);
+                Password = Password.Substring(0, 50);
                 //var page = new ErrorMsg("whoal");
                 //Application.Current.MainPage.Navigation.PushPopupAsync(page);
             }
@@ -66,12 +66,15 @@ namespace ServoIO.ViewModel
 
         private bool Validate()
         {
+            SelectedRole = "Administrator";
             if (SelectedRole == null)
             {
                 var page = new ErrorMsg("Select User Type");
                 Application.Current.MainPage.Navigation.PushPopupAsync(page);
                 return false;
             }
+
+            UserName = "admin";
 
             if (UserName == null)
             {
@@ -80,7 +83,7 @@ namespace ServoIO.ViewModel
                 return false;
             }
 
-            Password = "whB5Rr75dvRE6aQMA0RuMg ==";
+            Password = "whB5Rr75dvRE6aQMA0RuMg==";
 
             if (Password == null)
             {
@@ -99,22 +102,31 @@ namespace ServoIO.ViewModel
 
         public async void NextClickAsync()
         {
-            Application.Current.MainPage = new MasterDetailPageIO();
-            //if (Validate())
-            //{                
-            //    string Result = await ReportService.GetUserID(UserName, Password, SelectedRole);
-            //    if (Result == "0")
-            //    {
-            //        var page = new ErrorMsg("Invalid Username or Password");
-            //        await Application.Current.MainPage.Navigation.PushPopupAsync(page);
-            //        UserName = "";
-            //        Password = "";
-            //    }
-            //    else
-            //    {
-            //        Application.Current.MainPage = new MasterDetailPageIO();
-            //    }
-            //}
+            //Application.Current.MainPage = new MasterDetailPageIO();
+            try
+            {
+                if (Validate())
+                {
+                    string Result = await ReportService.GetUserID(UserName, Password, SelectedRole);
+                    if (Result == "0")
+                    {
+                        var page = new ErrorMsg("Invalid Username or Password");
+                        await Application.Current.MainPage.Navigation.PushPopupAsync(page);
+                        UserName = "";
+                        Password = "";
+                    }
+                    else
+                    {
+                        Application.Current.MainPage = new MasterDetailPageIO();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                var page = new ErrorMsg(ex.Message);
+                await Application.Current.MainPage.Navigation.PushPopupAsync(page);
+            }
+            
 
         }
 
