@@ -51,7 +51,7 @@ namespace ServoIO.Service
             try
             {
                 HttpClient client = new HttpClient();
-                var result = await client.GetAsync(Constants.Login_GetUserID + "/" + UserName + "/" + Password + "/" + Role);
+                var result = await client.GetAsync(Constants.Login_GetUserID  + UserName + "/" + Password + "/" + Role);
                 result.EnsureSuccessStatusCode();
                 string stringJson = await result.Content.ReadAsStringAsync();
                 var ObjRoot = JsonConvert.DeserializeObject<string>(stringJson);
