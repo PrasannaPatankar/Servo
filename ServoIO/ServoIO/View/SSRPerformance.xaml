@@ -5,7 +5,7 @@
              x:Class="ServoIO.View.SSRPerformance">
     
     <StackLayout x:Name="stkmain" Margin="7">
-        
+     
         <StackLayout x:Name="stkupper" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="Aquamarine">
             
         </StackLayout>
@@ -17,8 +17,8 @@
                         VerticalOptions="FillAndExpand"
                         RowSpacing="5"
                         ColumnSpacing="5"
-                        MaxColumns="2"
-                        ItemsSource="{Binding SubCarriersCnt}"
+                        MaxColumns="500"
+                        ItemsSource="{Binding LstSSRPerformance}"
                         CommandParameter="{Binding}"
                        Command="{Binding ClickCommand}"
                         IsClippedToBounds="False">
