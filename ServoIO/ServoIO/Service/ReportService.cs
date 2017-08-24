@@ -45,5 +45,23 @@ namespace ServoIO.Service
                 throw;
             }
         }
+
+        public static async Task<string> GetUserID(string UserName, string Password, string Role)
+        {
+            try
+            {
+                HttpClient client = new HttpClient();
+                var result = await client.GetAsync(Constants.Login_GetUserID + "/" + UserName + "/" + Password + "/" + Role);
+                result.EnsureSuccessStatusCode();
+                string stringJson = await result.Content.ReadAsStringAsync();
+                var ObjRoot = JsonConvert.DeserializeObject<string>(stringJson);
+                return ObjRoot;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

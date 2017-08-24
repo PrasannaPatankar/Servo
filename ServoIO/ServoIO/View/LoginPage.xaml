@@ -11,9 +11,9 @@
                     <StackLayout >
                         <Image x:Name="servoImage"  Source="io235_281.jpg" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                     </StackLayout>
-                    <Picker x:Name="LoginRolePicker" Title="User Type"  ItemsSource="{Binding UserRole}" />
-                    <Entry x:Name="entUserName" BindingContext="{Binding UserName}" Placeholder="User Name" HorizontalOptions="Fill" />
-                    <Entry x:Name="entPassword"  Text="{Binding Password}" Placeholder="Password"  IsPassword="True" HorizontalOptions="Fill"  />
+                    <Picker x:Name="LoginRolePicker" Title="User Type"  ItemsSource="{Binding UserRole}" SelectedItem="{Binding SelectedRole}" />
+                    <Entry x:Name="entUserName" Text="{Binding UserName}" Placeholder="Username" HorizontalOptions="Fill" />
+                    <Entry x:Name="entPassword" Text="{Binding Password, Mode=TwoWay}" Placeholder="Password"  IsPassword="True" HorizontalOptions="Fill"  />
                     <DatePicker x:Name="DatePicker" BindingContext="{Binding LoginDate}" />
                     <Button x:Name="BtnSubmit" Text="Login" HorizontalOptions="FillAndExpand" Command="{Binding Cmd_Login}" />
                 </StackLayout>
