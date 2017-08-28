@@ -15,41 +15,55 @@ namespace ServoIO.ViewModel
     public class SSRPerformanceReportViewModel : ViewModelBase
     {
         private List<SSRPerformanceReport> _LstSSRPerformance;
-        public ICommand ClickCommand { get; set; }
-
         public List<SSRPerformanceReport> LstSSRPerformance
         {
             get { return _LstSSRPerformance; }
             set { SetProperty(ref _LstSSRPerformance, value); }
         }
 
-        public SSRPerformanceReportViewModel()
+        private DateTime dtFrom = DateTime.Now.Date.AddYears(-2);
+        public DateTime FromDate
         {
-            Task.Factory.StartNew(async () =>
-            {
-                LstSSRPerformance = await Service.ReportService.Get_SSRPerformanceReport("", "");
-            });
+            get { return dtFrom; }
+            set { SetProperty(ref dtFrom, value); GetReport(); }
         }
 
-        //private async Task ShowReportClickAsync()
-        //{
-        //    LstSSRPerformance = await Service.ReportService.Get_SSRPerformanceReport("", "");
-        //}
+        private DateTime dtTo = DateTime.Now.Date.AddYears(-1);
+        public DateTime ToDate
+        {
+            get { return dtTo; }
+            set
+            { //SetProperty(ref dtTo, value);
+                if (SetProperty(ref dtTo, value, "Name"))
+                    GetReport();
+            }
+        }
 
-        //public async Task GetReport()
-        //{
-        //    try
-        //    {
-        //        //ShowActivityIndicator = true;
-        //        LstSSRPerformance =  await Service.ReportService.Get_SSRPerformanceReport("", "");
-        //        //ShowActivityIndicator = false;
-        //    }
-        //    catch (Exception ex)
-        //    {
+        private Boolean showactivityindicator;
+        public Boolean ShowActivityIndicator
+        {
+            get { return showactivityindicator; }
+            set { SetProperty(ref showactivityindicator, value); }
+        }
 
-        //        throw;
-        //    }
-        //}
+        public SSRPerformanceReportViewModel()
+        {
+        }
+
+        public async Task GetReport()
+        {
+            try
+            {
+                ShowActivityIndicator = true;
+                LstSSRPerformance = await Service.ReportService.Get_SSRPerformanceReport(dtFrom.ToString("MM-dd-yyyy"), dtTo.ToString("MM-dd-yyyy"));
+                ShowActivityIndicator = false;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
 
         #region Extra Code
         //public ObservableCollection<Item> Items { get; }

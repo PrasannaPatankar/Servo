@@ -71,7 +71,7 @@ namespace ServoIO.Service
             try
             {   
                 HttpClient client = new HttpClient();
-                var result = await client.GetAsync(Constants.SSRPerformanceReport + "/" + "2014-03-01" + "/" + "2017-08-23");
+                var result = await client.GetAsync(Constants.SSRPerformanceReport + "/" + FromDate + "/" + ToDate);
                 result.EnsureSuccessStatusCode();
                 string stringJson = await result.Content.ReadAsStringAsync();
                 var ObjRoot = JsonConvert.DeserializeObject<List<SSRPerformanceReport>>(stringJson);

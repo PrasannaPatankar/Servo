@@ -11,7 +11,7 @@
         <Frame BackgroundColor="Silver" Margin="10">
             <StackLayout Spacing="20">
                 <Label HorizontalOptions="Center" Text="User Animation" FontSize="16" x:Name="lblMsg" ></Label>
-                <Button Text="Close" Clicked="OnClose"></Button>
+                <Button Text="Ok" Clicked="OnClose"></Button>
             </StackLayout>
         </Frame>
     </StackLayout>

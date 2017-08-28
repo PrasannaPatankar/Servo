@@ -21,7 +21,7 @@ namespace ServoIO.View
         {
             try
             {
-                InitializeComponent();
+                InitializeComponent();               
                 BindingContext = new SSRPerformanceReportViewModel();
             }
             catch (Exception ex)
