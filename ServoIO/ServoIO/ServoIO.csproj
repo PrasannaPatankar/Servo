@@ -53,6 +53,7 @@
     <Compile Include="ViewModel\IncentivesListViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\PrimarySecondarySaleListViewModel.cs" />
+    <Compile Include="ViewModel\SSRPerformanceGridViewModel.cs" />
     <Compile Include="ViewModel\SSRPerformanceReportViewModel.cs" />
     <Compile Include="ViewModel\YearlySalesChartViewModel.cs" />
     <Compile Include="View\IncentivesList.xaml.cs">
@@ -89,6 +90,9 @@
     </Compile>
     <Compile Include="View\sample2.xaml.cs">
       <DependentUpon>sample2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SSRPerformanceGridView.xaml.cs">
+      <DependentUpon>SSRPerformanceGridView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SSRPerformanceReport.xaml.cs">
       <DependentUpon>SSRPerformanceReport.xaml</DependentUpon>
@@ -244,6 +248,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="View\SSRPerformanceReport.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\SSRPerformanceGridView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
