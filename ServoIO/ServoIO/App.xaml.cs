@@ -16,11 +16,12 @@ namespace ServoIO
             //var vSampleData = new OxyExData();
             //MainPage = new ServoIO.MainPage();
 
-              //Application.Current.MainPage = new LoginPage();
-           // MainPage = new NavigationPage(new sample());
+            // Application.Current.MainPage = new LoginPage();
+            // MainPage = new NavigationPage(new sample());
             // Application.Current.MainPage = new sample();
             // Application.Current.MainPage = new sample2();
-            Application.Current.MainPage = new SSRPerformance();
+            //Application.Current.MainPage = new SSRPerformance();
+            Application.Current.MainPage = new SSRPerformanceReport();
         }
 
         protected override void OnStart()

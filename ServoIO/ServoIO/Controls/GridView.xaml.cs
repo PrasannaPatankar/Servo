@@ -102,10 +102,7 @@ namespace ServoIO.Controls
                 CommandParameter = item1,
                 NumberOfTapsRequired = 1
             };
-
             buildTile?.GestureRecognizers.Add(tapGestureRecognizer);
-
-
             return buildTile;
         }
     }

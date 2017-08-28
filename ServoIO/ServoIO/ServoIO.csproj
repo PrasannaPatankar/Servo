@@ -44,7 +44,7 @@
     <Compile Include="Common\ActivityIndicatorScope.cs" />
     <Compile Include="Common\IncentiveReport.cs" />
     <Compile Include="Common\PrimarySecReport.cs" />
-    <Compile Include="Common\SSRPerformanceReport.cs" />
+    <Compile Include="Common\SSRPerformance.cs" />
     <Compile Include="Controls\GridView.xaml.cs">
       <DependentUpon>GridView.xaml</DependentUpon>
     </Compile>
@@ -89,9 +89,6 @@
     </Compile>
     <Compile Include="View\sample2.xaml.cs">
       <DependentUpon>sample2.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\SSRPerformance.xaml.cs">
-      <DependentUpon>SSRPerformance.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SSRPerformanceReport.xaml.cs">
       <DependentUpon>SSRPerformanceReport.xaml</DependentUpon>
@@ -234,18 +231,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="View\SSRPerformance.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="View\SSRPerformanceReport.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Controls\GridView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
@@ -253,6 +238,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="View\SubControlsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\SSRPerformanceReport.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

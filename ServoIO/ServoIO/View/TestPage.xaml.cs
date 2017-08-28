@@ -28,11 +28,11 @@ namespace ServoIO.View
                 Command = new Command(() => IncentiveClick())
             });
 
-            var ssrperformance = SSRPerformance;
-            ssrperformance.GestureRecognizers.Add(new TapGestureRecognizer
-            {
-                Command = new Command(() => SSRPerformanceClicked())
-            });
+            //var ssrperformance = SSRPerformance;
+            //ssrperformance.GestureRecognizers.Add(new TapGestureRecognizer
+            //{
+            //    Command = new Command(() => SSRPerformanceClicked())
+            //});
 
 
 
@@ -66,19 +66,19 @@ namespace ServoIO.View
 
         }
 
-        public void SSRPerformanceClicked()
-        {
-            try
-            {
-                Navigation.PushAsync(new SSRPerformanceReport());
+        //public void SSRPerformanceClicked()
+        //{
+        //    try
+        //    {
+        //        Navigation.PushAsync(new SSRPerformanceReport());
 
-            }
-            catch (Exception ex)
-            {
-                var page = new ErrorMsg(ex.Message);
-                Navigation.PushPopupAsync(page);
-            }
-        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        var page = new ErrorMsg(ex.Message);
+        //        Navigation.PushPopupAsync(page);
+        //    }
+        //}
 
     }
 }
