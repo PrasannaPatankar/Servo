@@ -1,7 +1,10 @@
 ﻿using ServoIO.Common;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -11,106 +14,132 @@ namespace ServoIO.ViewModel
 {
     public class SSRPerformanceReportViewModel : ViewModelBase
     {
-        private List<SSRPerformance> _LstSSRPerformance;
-        public ICommand ShowCommand { get; set; }
-
-        public List<SSRPerformance> LstSSRPerformance
+        private List<SSRPerformanceReport> _LstSSRPerformance;
+        public List<SSRPerformanceReport> LstSSRPerformance
         {
             get { return _LstSSRPerformance; }
             set { SetProperty(ref _LstSSRPerformance, value); }
         }
 
-        #region Properties  
-        private string _EmployeeCode;
-
-        public string EmployeeCode
+        private DateTime dtFrom = DateTime.Now.Date.AddYears(-2);
+        public DateTime FromDate
         {
-            get { return _EmployeeCode; }
-            set { SetProperty(ref _EmployeeCode, value); }
+            get { return dtFrom; }
+            set { SetProperty(ref dtFrom, value); GetReport(); }
         }
 
-        private string _EmployeeName;
-
-        public string EmployeeName
+        private DateTime dtTo = DateTime.Now.Date.AddYears(-1);
+        public DateTime ToDate
         {
-            get { return _EmployeeName; }
-            set { SetProperty(ref _EmployeeName, value); }
+            get { return dtTo; }
+            set
+            { //SetProperty(ref dtTo, value);
+                if (SetProperty(ref dtTo, value, "Name"))
+                    GetReport();
+            }
         }
 
-        private string _Outstandings;
-
-        public string Outstandings
+        private Boolean showactivityindicator;
+        public Boolean ShowActivityIndicator
         {
-            get { return _Outstandings; }
-            set { SetProperty(ref _Outstandings, value); }
+            get { return showactivityindicator; }
+            set { SetProperty(ref showactivityindicator, value); }
         }
-
-        private string _Receipts;
-
-        public string Receipts
-        {
-            get { return _Receipts; }
-            set { SetProperty(ref _Receipts, value); }
-        }
-        private string _SaleInLtr;
-
-        public string SaleInLtr
-        {
-            get { return _SaleInLtr; }
-            set { SetProperty(ref _SaleInLtr, value); }
-        }
-        private string _SaleInRs;
-
-        public string SaleInRs
-        {
-            get { return _SaleInRs; }
-            set { SetProperty(ref _SaleInRs, value); }
-        }
-
-
-        #endregion
-
-        public INavigation Navigation { get; set; }
 
         public SSRPerformanceReportViewModel()
         {
-
-            Task.Factory.StartNew(async () =>
-            {
-                LstSSRPerformance = await Service.ReportService.Get_SSRPerformanceReport("", "");
-
-            });
-            ShowCommand = new Command(GetDetails);
-            if ( LstSSRPerformance!= null)
-            {
-                EmployeeCode = LstSSRPerformance[0].EmployeeCode.ToString();
-                EmployeeName = LstSSRPerformance[0].EmployeeName.ToString();
-                Outstandings = LstSSRPerformance[0].Outstandings.ToString();
-                Receipts = LstSSRPerformance[0].Receipts.ToString();
-                SaleInLtr = LstSSRPerformance[0].SaleInLtr.ToString();
-                SaleInRs = LstSSRPerformance[0].SaleInRs.ToString();
-            }
-            else
-            {
-                EmployeeCode = "";
-                EmployeeName = "";
-                Outstandings = "";
-                Receipts = "";
-                SaleInLtr = "";
-                SaleInRs = "";
-            }
         }
 
-        public void GetDetails(object obj)
+        public async Task GetReport()
         {
-            var res = obj as SSRPerformance;
-            EmployeeCode = res.EmployeeCode.ToString();
-            EmployeeName = res.EmployeeName.ToString();
-            Outstandings = res.Outstandings.ToString();
-            Receipts = res.Receipts.ToString();
-            SaleInLtr = res.SaleInLtr.ToString();
-            SaleInRs = res.SaleInRs.ToString();
-            //throw new NotImplementedException();
+            try
+            {
+                ShowActivityIndicator = true;
+                LstSSRPerformance = await Service.ReportService.Get_SSRPerformanceReport(dtFrom.ToString("MM-dd-yyyy"), dtTo.ToString("MM-dd-yyyy"));
+                ShowActivityIndicator = false;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
         }
+
+        #region Extra Code
+        //public ObservableCollection<Item> Items { get; }
+        //public ObservableCollection<Grouping<string, Item>> ItemsGrouped { get; }
+
+        //public SSRPerformanceReportViewModel()
+        //{
+        //    Items = new ObservableCollection<Item>(new[]
+        //    {
+        //            new Item { Text = "Baboon", Detail = "Africa & Asia" },
+        //            new Item { Text = "Capuchin Monkey", Detail = "Central & South America" },
+        //            new Item { Text = "Blue Monkey", Detail = "Central & East Africa" },
+        //            new Item { Text = "Squirrel Monkey", Detail = "Central & South America" },
+        //            new Item { Text = "Golden Lion Tamarin", Detail= "Brazil" },
+        //            new Item { Text = "Howler Monkey", Detail = "South America" },
+        //            new Item { Text = "Japanese Macaque", Detail = "Japan" },
+        //        });
+
+        //    var sorted = from item in Items
+        //                 orderby item.Text
+        //                 group item by item.Text[0].ToString() into itemGroup
+        //                 select new Grouping<string, Item>(itemGroup.Key, itemGroup);
+
+        //    ItemsGrouped = new ObservableCollection<Grouping<string, Item>>(sorted);
+
+        //    RefreshDataCommand = new Command(
+        //        async () => await RefreshData());
+        //}
+
+        //public ICommand RefreshDataCommand { get; }
+
+        //async Task RefreshData()
+        //{
+        //    IsBusy = true;
+        //    //Load Data Here
+        //    await Task.Delay(2000);
+
+        //    IsBusy = false;
+        //}
+
+        //bool busy;
+        //public bool IsBusy
+        //{
+        //    get { return busy; }
+        //    set
+        //    {
+        //        busy = value;
+        //        OnPropertyChanged();
+        //        ((Command)RefreshDataCommand).ChangeCanExecute();
+        //    }
+        //}
+
+
+        //public event PropertyChangedEventHandler PropertyChanged;
+        //void OnPropertyChanged([CallerMemberName]string propertyName = "") =>
+        //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+        //public class Item
+        //{
+        //    public string Text { get; set; }
+        //    public string Detail { get; set; }
+
+        //    public override string ToString() => Text;
+        //}
+
+        //public class Grouping<K, T> : ObservableCollection<T>
+        //{
+        //    public K Key { get; private set; }
+
+        //    public Grouping(K key, IEnumerable<T> items)
+        //    {
+        //        Key = key;
+        //        foreach (var item in items)
+        //            this.Items.Add(item);
+        //    }
+        //} 
+        #endregion
     }
 }

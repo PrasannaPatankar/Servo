@@ -1,44 +1,86 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:ServoIO.Controls"
-             x:Class="ServoIO.View.SSRPerformanceReport">
-    <ContentPage.Content>
-        <StackLayout x:Name="stkmain" Margin="7">
+             x:Class="ServoIO.View.SSRPerformanceReport"
+             Title="SSR Performance Report">
+    <Grid BackgroundColor="White">
+        <Grid.RowDefinitions>
+            <!--<RowDefinition Height="Auto"/>-->
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!--<Grid Grid.Row="0">
+                <Label Text="Incentive Report"  TextColor="#628fc0" FontSize="Large" BackgroundColor="White" HorizontalOptions="CenterAndExpand"/>
+            </Grid>-->
 
-            <StackLayout x:Name="stkupper" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="#4291c1">
-                <Image Source="report1.png" HeightRequest="50" WidthRequest="50" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand"/>
-                <Label Text="{Binding EmployeeCode}" ></Label>
-                <Label Text="{Binding EmployeeName}" ></Label>
-                <Label Text="{Binding Outstandings}" ></Label>
-                <Label Text="{Binding Receipts}" ></Label>
-                <Label Text="{Binding SaleInLtr}" ></Label>
-                <Label Text="{Binding SaleInRs}" ></Label>
-            </StackLayout>
-
-            <ScrollView Orientation="Horizontal">
-                <StackLayout x:Name="stklower" Orientation="Horizontal" HorizontalOptions="FillAndExpand" HeightRequest="160" VerticalOptions="FillAndExpand" >
-                    <!--<StackLayout x:Name="stklower" Orientation="Horizontal" HorizontalOptions="FillAndExpand" HeightRequest="160" VerticalOptions="FillAndExpand" >-->
-                    <local:GridView HorizontalOptions="FillAndExpand"
-                        Grid.Row="1"
-                        VerticalOptions="FillAndExpand"
-                        RowSpacing="5"
-                        ColumnSpacing="5"
-                        MaxColumns="500" 
-                        ItemsSource="{Binding LstSSRPerformance}"
-                        CommandParameter="{Binding LstSSRPerformance}"
-                         Command="{Binding ShowCommand}"
-                        IsClippedToBounds="False">
-                        <local:GridView.TileHeight>
-                            <OnPlatform x:TypeArguments="x:Single"
-                      iOS="60"
-                      Android="150"
-                      WinPhone="90" />
-                        </local:GridView.TileHeight>
-                    </local:GridView>
+        <Grid HorizontalOptions="CenterAndExpand">
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="0">
+                <StackLayout Orientation="Horizontal"  HorizontalOptions="CenterAndExpand" >
+                    <StackLayout Orientation="Vertical"  HorizontalOptions="CenterAndExpand" Grid.ColumnSpan="2">
+                        <Label Text="From Date"></Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical"  HorizontalOptions="CenterAndExpand" Grid.ColumnSpan="2">
+                        <DatePicker x:Name="dtFrom" Date="{Binding FromDate, Mode=TwoWay}}"></DatePicker>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical"  HorizontalOptions="CenterAndExpand" Grid.ColumnSpan="2">
+                        <Label Text="To Date"></Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical"  HorizontalOptions="CenterAndExpand" Grid.ColumnSpan="2">
+                        <DatePicker x:Name="dtTo" Date="{Binding ToDate, Mode=TwoWay}}"></DatePicker>
+                    </StackLayout>
                 </StackLayout>
-            </ScrollView>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <ListView HasUnevenRows="True" SeparatorVisibility="Default" ItemsSource="{Binding LstSSRPerformance}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}" x:Name="lstPrimarySecondarySale" BackgroundColor="LightGray">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout BackgroundColor="Transparent" Margin="1,0,1,1" Padding="2">
+                                <Frame Padding="2,2,2,2" Margin="2,2,2,2" AbsoluteLayout.LayoutFlags="All" BackgroundColor="#BFffffff" VerticalOptions="Center" HorizontalOptions="Center" HasShadow="True">
+                                    <StackLayout BackgroundColor="Transparent">
+                                        <Grid Padding="2,1,1,1">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"  />
+                                                <RowDefinition Height="*" />
+                                                <RowDefinition Height="*" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
 
-        </StackLayout>
-    </ContentPage.Content>
+                                            <Label Text="{Binding EmployeeName}" TextColor="CornflowerBlue" FontSize="Medium" Grid.Column="0" Grid.Row="0" />
+                                            <Label Text="{Binding EmployeeCode}" TextColor="Black"  Grid.Column="1" Grid.Row="0"/>
+
+                                            <Label Text="{Binding Receipts,StringFormat='Receipts {0:N}'}"  Grid.Column="0" Grid.Row="1"/>
+                                            <Label Text="{Binding Outstandings,StringFormat='Outstandings {0:N}'}"   Grid.Column="1" Grid.Row="1"/>
+                                            <Label Text="Sales In" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" HorizontalTextAlignment="Center" BackgroundColor="#dedede"/>
+                                            <Label Text="{Binding SaleInLtr,StringFormat='Ltr. {0:N}'}"   Grid.Column="0" Grid.Row="3" HorizontalTextAlignment="Center" BackgroundColor="#dedede"/>
+                                            <Label Text="{Binding SaleInRs,StringFormat='Rs. {0:N}'}"   Grid.Column="1" Grid.Row="3" HorizontalTextAlignment="Center" BackgroundColor="#dedede"/>
+                                        </Grid>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <RelativeLayout x:Name="vwLoading" IsVisible="{Binding ShowActivityIndicator}" BackgroundColor="Transparent" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Frame Padding="50,30,50,30" AbsoluteLayout.LayoutFlags="All" BackgroundColor="#506cb3fe" VerticalOptions="Center" HorizontalOptions="Center" HasShadow="True">
+                        <StackLayout>
+                            <ActivityIndicator HorizontalOptions="Center" Color="AliceBlue" VerticalOptions="Center" IsVisible="{Binding ShowActivityIndicator}" IsRunning="{Binding ShowActivityIndicator}" IsEnabled="{Binding ShowActivityIndicator}" x:Name="syncIndicator"/>
+                            <Label x:Name="lblProgressStatus" Text="Loading..." />
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </RelativeLayout>
+        </Grid>
+    </Grid>
 </ContentPage>
