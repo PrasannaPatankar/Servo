@@ -20,7 +20,7 @@ namespace ServoIO
             // MainPage = new NavigationPage(new sample());
             // Application.Current.MainPage = new sample();
             // Application.Current.MainPage = new sample2();
-            //Application.Current.MainPage = new SSRPerformanceReport();
+            //Application.Current.MainPage = new SSRPerformanceChart();
         }
 
         protected override void OnStart()

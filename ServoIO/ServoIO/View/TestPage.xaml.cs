@@ -70,7 +70,7 @@ namespace ServoIO.View
         {
             try
             {
-                Navigation.PushAsync(new SSRPerformanceReport());
+                Navigation.PushAsync(new SSRPerformanceTabbed());
 
             }
             catch (Exception ex)

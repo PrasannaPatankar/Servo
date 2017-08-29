@@ -45,7 +45,7 @@ namespace ServoIO.ViewModel
             get { return showactivityindicator; }
             set { SetProperty(ref showactivityindicator, value); }
         }
-
+        
         public SSRPerformanceReportViewModel()
         {
         }
@@ -64,6 +64,8 @@ namespace ServoIO.ViewModel
                 throw;
             }
         }
+
+       
 
         #region Extra Code
         //public ObservableCollection<Item> Items { get; }
