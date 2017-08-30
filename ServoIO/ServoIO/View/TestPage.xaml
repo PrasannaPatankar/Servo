@@ -31,17 +31,17 @@
                 <Label TextColor="White"  Font="20" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center" Text="SSR Performance"  HorizontalOptions="FillAndExpand" VerticalOptions="Center" FontAttributes="Bold"></Label>
             </StackLayout>
 
-            <StackLayout  Grid.Row="1" Grid.Column="1"   BackgroundColor="#ffecb8" >
-                <Image Source="psreports.png" HeightRequest="70" WidthRequest="70" Margin="20"></Image>
-                <Label TextColor="White"  Font="20" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center"  Text="Sample" HorizontalOptions="FillAndExpand" VerticalOptions="Center" FontAttributes="Bold"></Label>
+            <StackLayout  Grid.Row="1" Grid.Column="1"   BackgroundColor="#1f3f49" x:Name="SSRPerformanceGrid" >
+                <Image Source="ssr.png" HeightRequest="70" WidthRequest="70" Margin="20"></Image>
+                <Label TextColor="White"  Font="20" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center"  Text="SSR Performance" HorizontalOptions="FillAndExpand" VerticalOptions="Center" FontAttributes="Bold"></Label>
             </StackLayout>
             
-            <StackLayout  Grid.Row="2" Grid.Column="0"   BackgroundColor="#90d2d8">
+            <StackLayout  Grid.Row="2" Grid.Column="0"   BackgroundColor="#1c4c80">
                 <Image Source="psreports.png" HeightRequest="70" WidthRequest="70" Margin="20"></Image>
                 <Label TextColor="White"  Font="20" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center"  Text="Sample" HorizontalOptions="FillAndExpand" VerticalOptions="Center" FontAttributes="Bold"></Label>
             </StackLayout>
 
-            <StackLayout  Grid.Row="2" Grid.Column="1" BackgroundColor="#b7ded2">
+            <StackLayout  Grid.Row="2" Grid.Column="1" BackgroundColor="#488a99">
                 <Image Source="psreports.png" HeightRequest="70" WidthRequest="70" Margin="20"></Image>
                 <Label TextColor="White" Font="20" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center"  Text="Sample"  HorizontalOptions="FillAndExpand" VerticalOptions="Center" FontAttributes="Bold"></Label>
             </StackLayout>
