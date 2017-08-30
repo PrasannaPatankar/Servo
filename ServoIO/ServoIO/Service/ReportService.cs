@@ -66,15 +66,15 @@ namespace ServoIO.Service
 
         //2014-03-01/2017-08-23
 
-         public static async Task<List<SSRPerformanceReport>> Get_SSRPerformanceReport(string FromDate, string ToDate)
+         public static async Task<List<SSRPerformance>> Get_SSRPerformanceReport(string FromDate, string ToDate)
         {
             try
             {   
                 HttpClient client = new HttpClient();
-                var result = await client.GetAsync(Constants.SSRPerformanceReport + "/" + FromDate + "/" + ToDate);
+                var result = await client.GetAsync(Constants.SSRPerformance + "/" + FromDate + "/" + ToDate);
                 result.EnsureSuccessStatusCode();
                 string stringJson = await result.Content.ReadAsStringAsync();
-                var ObjRoot = JsonConvert.DeserializeObject<List<SSRPerformanceReport>>(stringJson);
+                var ObjRoot = JsonConvert.DeserializeObject<List<SSRPerformance>>(stringJson);
                 return ObjRoot;
             }
             catch (Exception)

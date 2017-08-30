@@ -16,6 +16,7 @@ namespace ServoIO.View
         {
             InitializeComponent();
         }
+
         public SubControlsView(object item)
         {
             InitializeComponent();

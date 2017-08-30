@@ -14,8 +14,8 @@ namespace ServoIO.ViewModel
 {
     public class SSRPerformanceReportViewModel : ViewModelBase
     {
-        private List<SSRPerformanceReport> _LstSSRPerformance;
-        public List<SSRPerformanceReport> LstSSRPerformance
+        private List<SSRPerformance> _LstSSRPerformance;
+        public List<SSRPerformance> LstSSRPerformance
         {
             get { return _LstSSRPerformance; }
             set { SetProperty(ref _LstSSRPerformance, value); }

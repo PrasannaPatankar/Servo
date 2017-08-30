@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ServoIO.Controls"
+             x:Class="ServoIO.View.SSRPerformanceGridView">
+    <ContentPage.Content>
+        <StackLayout x:Name="stkmain" Margin="7">
+
+            <StackLayout x:Name="stkupper" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="#4291c1">
+                <Image Source="report1.png" HeightRequest="50" WidthRequest="50" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand"/>
+                <Label Text="{Binding EmployeeCode}" ></Label>
+                <Label Text="{Binding EmployeeName}" ></Label>
+                <Label Text="{Binding Outstandings}" ></Label>
+                <Label Text="{Binding Receipts}" ></Label>
+                <Label Text="{Binding SaleInLtr}" ></Label>
+                <Label Text="{Binding SaleInRs}" ></Label>
+            </StackLayout>
+
+            <ScrollView Orientation="Horizontal">
+                <StackLayout x:Name="stklower" Orientation="Horizontal" HorizontalOptions="FillAndExpand" HeightRequest="160" VerticalOptions="FillAndExpand" >
+                    <!--<StackLayout x:Name="stklower" Orientation="Horizontal" HorizontalOptions="FillAndExpand" HeightRequest="160" VerticalOptions="FillAndExpand" >-->
+                    <local:GridView HorizontalOptions="FillAndExpand"
+                        Grid.Row="1"
+                        VerticalOptions="FillAndExpand"
+                        RowSpacing="5"
+                        ColumnSpacing="5"
+                        MaxColumns="500" 
+                        ItemsSource="{Binding LstSSRPerformance}"
+                        CommandParameter="{Binding LstSSRPerformance}"
+                         Command="{Binding ShowCommand}"
+                        IsClippedToBounds="False">
+                        <local:GridView.TileHeight>
+                            <OnPlatform x:TypeArguments="x:Single"
+                      iOS="60"
+                      Android="150"
+                      WinPhone="90" />
+                        </local:GridView.TileHeight>
+                    </local:GridView>
+                </StackLayout>
+            </ScrollView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
