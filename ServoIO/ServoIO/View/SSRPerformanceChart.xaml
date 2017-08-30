@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:oxy="clr-namespace:OxyPlot.Xamarin.Forms;assembly=OxyPlot.Xamarin.Forms"  
+             Title="Rs. Vs Ltr."
+             x:Class="ServoIO.View.SSRPerformanceChart">
+    <ContentPage.Content>
+        <ScrollView VerticalOptions="CenterAndExpand">
+            <Grid VerticalOptions="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Row="0" Grid.Column="1">
+                    <StackLayout Orientation="Horizontal"  HorizontalOptions="CenterAndExpand">
+                        <StackLayout Orientation="Vertical"  HorizontalOptions="CenterAndExpand">
+                            <Label Text="From Date"></Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical"  HorizontalOptions="CenterAndExpand">
+                            <DatePicker x:Name="dtFrom" Date="{Binding FromDate, Mode=TwoWay}}"></DatePicker>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical"  HorizontalOptions="CenterAndExpand">
+                            <Label Text="To Date"></Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical"  HorizontalOptions="CenterAndExpand">
+                            <DatePicker x:Name="dtTo" Date="{Binding ToDate, Mode=TwoWay}}"></DatePicker>
+                        </StackLayout>
+                    </StackLayout>
+                </Grid>
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <oxy:PlotView Model="{Binding BarModel ,Mode=TwoWay}" HeightRequest="330"/>
+                    <RelativeLayout x:Name="vwLoading" IsVisible="{Binding ShowActivityIndicator}" BackgroundColor="Transparent" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                            <Frame Padding="50,30,50,30" AbsoluteLayout.LayoutFlags="All" BackgroundColor="#506cb3fe" VerticalOptions="Center" HorizontalOptions="Center" HasShadow="True">
+                                <StackLayout>
+                                    <ActivityIndicator HorizontalOptions="Center" Color="AliceBlue" VerticalOptions="Center" IsVisible="{Binding ShowActivityIndicator}" IsRunning="{Binding ShowActivityIndicator}" IsEnabled="{Binding ShowActivityIndicator}" x:Name="syncIndicator"/>
+                                    <Label x:Name="lblProgressStatus" Text="Loading..." />
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </RelativeLayout>
+                </Grid>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

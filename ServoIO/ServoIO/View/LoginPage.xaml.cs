@@ -22,7 +22,7 @@ namespace ServoIO.View
             InitializeComponent();
             this.BindingContext = new LoginViewModel();
             _ViewModel = (LoginViewModel)this.BindingContext;
-            ChangeBgAnimation();
+            //ChangeBgAnimation();
            // Opacity = 0.5;
         }
 

@@ -54,8 +54,10 @@
     <Compile Include="ViewModel\IncentivesListViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\PrimarySecondarySaleListViewModel.cs" />
-    <Compile Include="ViewModel\SSRPerformanceGridViewModel.cs" />
+    <Compile Include="ViewModel\SSRPerformanceChartViewModel.cs" />
     <Compile Include="ViewModel\SSRPerformanceReportViewModel.cs" />
+    <Compile Include="ViewModel\SSRPerformanceSalePieChartLtrViewModel.cs" />
+    <Compile Include="ViewModel\SSRperformanceSalesPieChartViewModel.cs" />
     <Compile Include="ViewModel\YearlySalesChartViewModel.cs" />
     <Compile Include="View\IncentivesList.xaml.cs">
       <DependentUpon>IncentivesList.xaml</DependentUpon>
@@ -92,11 +94,23 @@
     <Compile Include="View\sample2.xaml.cs">
       <DependentUpon>sample2.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\SSRPerformanceGridView.xaml.cs">
-      <DependentUpon>SSRPerformanceGridView.xaml</DependentUpon>
+    <Compile Include="View\SSRPerformanceChart.xaml.cs">
+      <DependentUpon>SSRPerformanceChart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SSRPerformanceChartTabbed.xaml.cs">
+      <DependentUpon>SSRPerformanceChartTabbed.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SSRPerformanceReport.xaml.cs">
       <DependentUpon>SSRPerformanceReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SSRPerformanceSalePieChartLtr.xaml.cs">
+      <DependentUpon>SSRPerformanceSalePieChartLtr.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SSRperformanceSalesPieChart.xaml.cs">
+      <DependentUpon>SSRperformanceSalesPieChart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SSRPerformanceTabbed.xaml.cs">
+      <DependentUpon>SSRPerformanceTabbed.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SubControlsView.xaml.cs">
       <DependentUpon>SubControlsView.xaml</DependentUpon>
@@ -249,6 +263,12 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="View\SSRPerformanceReport.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="Controls\GridView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
@@ -261,13 +281,31 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="View\SSRPerformanceReport.xaml">
+    <EmbeddedResource Include="View\SSRPerformanceChart.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="View\SSRPerformanceGridView.xaml">
+    <EmbeddedResource Include="View\SSRPerformanceTabbed.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\SSRPerformanceChartTabbed.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\SSRperformanceSalesPieChart.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\SSRPerformanceSalePieChartLtr.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

@@ -34,11 +34,6 @@ namespace ServoIO.View
                 Command = new Command(() => SSRPerformanceClicked())
             });
 
-            var ssrperformancegrid = SSRPerformanceGrid;
-            ssrperformancegrid.GestureRecognizers.Add(new TapGestureRecognizer
-            {
-                Command = new Command(() => SSRPerformanceGridClicked())
-            });
 
 
         }
@@ -48,19 +43,6 @@ namespace ServoIO.View
             {
                 Navigation.PushAsync(new IncentivesList());
 
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
-        public void SSRPerformanceGridClicked()
-        {
-            try
-            {
-                Navigation.PushAsync(new SSRPerformanceGridView());
             }
             catch (Exception)
             {
@@ -88,7 +70,7 @@ namespace ServoIO.View
         {
             try
             {
-                Navigation.PushAsync(new SSRPerformanceReport());
+                Navigation.PushAsync(new SSRPerformanceTabbed());
 
             }
             catch (Exception ex)
