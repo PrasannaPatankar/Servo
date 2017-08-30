@@ -1,7 +1,9 @@
 ﻿using OxyPlot;
 using OxyPlot.Axes;
 using OxyPlot.Series;
+using Rg.Plugins.Popup.Extensions;
 using ServoIO.Common;
+using ServoIO.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -17,8 +19,8 @@ namespace ServoIO.ViewModel
 {
     class SSRPerformanceChartViewModel : ViewModelBase
     {
-        private List<SSRPerformanceReport> _LstSSRPerformance;
-        public List<SSRPerformanceReport> LstSSRPerformance
+        private List<SSRPerformance> _LstSSRPerformance;
+        public List<SSRPerformance> LstSSRPerformance
         {
             get { return _LstSSRPerformance; }
             set { SetProperty(ref _LstSSRPerformance, value); }
@@ -28,7 +30,7 @@ namespace ServoIO.ViewModel
         public DateTime FromDate
         {
             get { return dtFrom; }
-            set { SetProperty(ref dtFrom, value); GetReport(); }
+            set { SetProperty(ref dtFrom, value); CreateBarChart(false,""); }
         }
 
         private DateTime dtTo = DateTime.Now.Date.AddYears(-1);
@@ -38,7 +40,7 @@ namespace ServoIO.ViewModel
             set
             { //SetProperty(ref dtTo, value);
                 if (SetProperty(ref dtTo, value, "Name"))
-                    GetReport();
+                    CreateBarChart(false, "");
             }
         }
 
@@ -60,34 +62,30 @@ namespace ServoIO.ViewModel
         {
             try
             {
-                Task.Factory.StartNew(async () =>
+                //showactivityindicator = true;
+                //CreateBarChartAsync(false, "", "","");
+                //showactivityindicator = false;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
+        public void CreateBarChart(bool stacked, string title)
+        {
+            try
+            {
+                if (dtFrom.Date >= dtTo.Date)
                 {
-                    BarModel = await CreatePieChartAsync(false, "Sales Report");
-                });
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
+                    var page = new ErrorMsg("From date shloud be less than To date");
+                    Application.Current.MainPage.Navigation.PushPopupAsync(page);
+                    return;
+                }
 
-        public async Task GetReport()
-        {
-            try
-            {
-                //BarModel = await CreateBarChartAsync(false, "Sales Report");
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        public async Task<PlotModel> CreateBarChartAsync(bool stacked, string title)
-        {
-            try
-            {
-                LstSSRPerformance = await Service.ReportService.Get_SSRPerformanceReport(dtFrom.ToString("MM-dd-yyyy"), dtTo.ToString("MM-dd-yyyy"));
+                Task task = Task.Run(async () => LstSSRPerformance = await Service.ReportService.Get_SSRPerformanceReport(dtFrom.ToString("MM-dd-yyyy"), dtTo.ToString("MM-dd-yyyy")));
+                task.Wait();
 
                 var model = new PlotModel
                 {
@@ -99,26 +97,26 @@ namespace ServoIO.ViewModel
                 };
 
 
-                var s1 = new BarSeries { Title = "Sales in Rs.", IsStacked = stacked, StrokeColor = OxyColors.Black, StrokeThickness = 1, LabelPlacement = LabelPlacement.Outside, LabelFormatString = "{0:.00}%" };
+                var s1 = new BarSeries { Title = "in Rs.", IsStacked = stacked, StrokeColor = OxyColors.Black, StrokeThickness = 1, LabelPlacement = LabelPlacement.Outside, LabelFormatString = "{0:.00}%" };
 
-                var s2 = new BarSeries { Title = "Sales in Ltr.", IsStacked = stacked, StrokeColor = OxyColors.Black, StrokeThickness = 1, LabelPlacement = LabelPlacement.Outside, LabelFormatString = "{0:.00}%" };
+                var s2 = new BarSeries { Title = "in Ltr.", IsStacked = stacked, StrokeColor = OxyColors.Black, StrokeThickness = 1, LabelPlacement = LabelPlacement.Outside, LabelFormatString = "{0:.00}%" };
 
                 double sums1 = 0, sums2 = 0;
 
-                foreach (SSRPerformanceReport ssritem in LstSSRPerformance)
+                foreach (SSRPerformance ssritem in LstSSRPerformance)
                 {
                     sums1 = sums1 + Convert.ToDouble(ssritem.SaleInRs);
                     sums2 = sums2 + Convert.ToDouble(ssritem.SaleInLtr);
                 }
 
-                foreach (SSRPerformanceReport ssritem in LstSSRPerformance)
+                foreach (SSRPerformance ssritem in LstSSRPerformance)
                 {
                     s1.Items.Add(new BarItem { Value = Convert.ToDouble(ssritem.SaleInRs) / sums1 * 100 });
                     s2.Items.Add(new BarItem { Value = Convert.ToDouble(ssritem.SaleInLtr) / sums2 * 100 });
                 }
 
                 var categoryAxis = new CategoryAxis { Position = CategoryAxisPosition() };
-                foreach (SSRPerformanceReport ssritem in LstSSRPerformance)
+                foreach (SSRPerformance ssritem in LstSSRPerformance)
                 {
                     categoryAxis.Labels.Add(ssritem.EmployeeName.Substring(0, ssritem.EmployeeName.IndexOf(' ') + 1));
                 }
@@ -130,7 +128,6 @@ namespace ServoIO.ViewModel
                 model.Axes.Add(categoryAxis);
                 model.Axes.Add(valueAxis);
                 BarModel = model;
-                return model;
             }
             catch (Exception ex)
             {
@@ -177,7 +174,7 @@ namespace ServoIO.ViewModel
                 dynamic seriesP1 = new PieSeries { StrokeThickness = 2.0, InsideLabelPosition = 0.5, AngleSpan = 360, StartAngle = 0, InnerDiameter = 0.4, Diameter = 1 };
 
                 //if (LstSSRPerformance != null)
-                foreach (SSRPerformanceReport ssritem in LstSSRPerformance)
+                foreach (SSRPerformance ssritem in LstSSRPerformance)
                 {
                     seriesP1.Slices.Add(new PieSlice(ssritem.EmployeeName.Substring(0, ssritem.EmployeeName.IndexOf(' ') + 1), Convert.ToDouble(ssritem.SaleInLtr)) { IsExploded = false });
                 }
@@ -190,9 +187,9 @@ namespace ServoIO.ViewModel
             {
                 ShowActivityIndicator = false;
                 throw;
-                return null;                
+                return null;
             }
-            
+
 
         }
 

@@ -1,4 +1,5 @@
 ﻿using Rg.Plugins.Popup.Extensions;
+using ServoIO.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,15 +12,14 @@ using Xamarin.Forms.Xaml;
 namespace ServoIO.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SSRPerformanceTabbed : TabbedPage
+    public partial class SSRPerformanceSalePieChartLtr : ContentPage
     {
-        public SSRPerformanceTabbed()
+        public SSRPerformanceSalePieChartLtr()
         {
             try
             {
                 InitializeComponent();
-                Children.Add(new SSRPerformanceReport());
-                Children.Add(new SSRPerformanceChartTabbed());
+                BindingContext = new SSRPerformanceSalePieChartLtrViewModel();
             }
             catch (Exception ex)
             {

@@ -1,4 +1,9 @@
-﻿using ServoIO.Common;
+﻿using OxyPlot;
+using OxyPlot.Axes;
+using OxyPlot.Series;
+using Rg.Plugins.Popup.Extensions;
+using ServoIO.Common;
+using ServoIO.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -45,27 +50,28 @@ namespace ServoIO.ViewModel
             get { return showactivityindicator; }
             set { SetProperty(ref showactivityindicator, value); }
         }
-        
-        public SSRPerformanceReportViewModel()
-        {
-        }
 
-        public async Task GetReport()
+        public void GetReport()
         {
             try
             {
+                if (dtFrom.Date >= dtTo.Date)
+                {
+                    var page = new ErrorMsg("From date shloud be less than To date");
+                    Application.Current.MainPage.Navigation.PushPopupAsync(page);
+                    return;
+                }
                 ShowActivityIndicator = true;
-                LstSSRPerformance = await Service.ReportService.Get_SSRPerformanceReport(dtFrom.ToString("MM-dd-yyyy"), dtTo.ToString("MM-dd-yyyy"));
+                //LstSSRPerformance = await Service.ReportService.Get_SSRPerformanceReport(dtFrom.ToString("MM-dd-yyyy"), dtTo.ToString("MM-dd-yyyy"));
+                Task task = Task.Run(async () => LstSSRPerformance = await Service.ReportService.Get_SSRPerformanceReport(dtFrom.ToString("MM-dd-yyyy"), dtTo.ToString("MM-dd-yyyy")));
+                task.Wait();
                 ShowActivityIndicator = false;
             }
             catch (Exception ex)
             {
-
                 throw;
             }
-        }
-
-       
+        }      
 
         #region Extra Code
         //public ObservableCollection<Item> Items { get; }

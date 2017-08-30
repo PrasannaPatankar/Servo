@@ -11,15 +11,16 @@ using Xamarin.Forms.Xaml;
 namespace ServoIO.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SSRPerformanceTabbed : TabbedPage
+    public partial class SSRPerformanceChartTabbed : TabbedPage
     {
-        public SSRPerformanceTabbed()
+        public SSRPerformanceChartTabbed ()
         {
             try
             {
-                InitializeComponent();
-                Children.Add(new SSRPerformanceReport());
-                Children.Add(new SSRPerformanceChartTabbed());
+                InitializeComponent();                
+                Children.Add(new SSRperformanceSalesPieChart());
+                Children.Add(new SSRPerformanceSalePieChartLtr());
+                Children.Add(new SSRPerformanceChart());
             }
             catch (Exception ex)
             {
