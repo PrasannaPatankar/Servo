@@ -18,11 +18,18 @@ namespace ServoIO.View
         public LoginViewModel _ViewModel { get; set; }
         public LoginPage()
         {
-           
-            InitializeComponent();
-            this.BindingContext = new LoginViewModel();
-            _ViewModel = (LoginViewModel)this.BindingContext;
-            ChangeBgAnimation();
+            try
+            {
+                InitializeComponent();
+                this.BindingContext = new LoginViewModel();
+                _ViewModel = (LoginViewModel)this.BindingContext;
+                ChangeBgAnimation();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            
            // Opacity = 0.5;
         }
 

@@ -18,28 +18,17 @@ using Entry = Microcharts.Entry;
 namespace ServoIO.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SSRPerformanceGridView : ContentPage
+    public partial class SSRGrid : ContentPage
     {
         public SSRPerformanceGridViewModel viewModel { get; set; }
-        public List<Entry> entries;// = new List<Entry>    {        };
-
-        public SSRPerformanceGridView()
+        public List<Entry> entries;
+        public SSRGrid()
         {
-            try
-            {
-               InitializeComponent();
-               this.BindingContext = new SSRPerformanceGridViewModel();
-                viewModel = (SSRPerformanceGridViewModel)this.BindingContext;
-                viewModel.OnReportChanged += ViewModel_OnReportChanged;
-            
-            }
-            catch (Exception ex)
-            {
-                var page = new ErrorMsg(ex.Message);
-                Navigation.PushPopupAsync(page);
-            }
+            InitializeComponent();
+            this.BindingContext = new SSRPerformanceGridViewModel();
+            viewModel = (SSRPerformanceGridViewModel)this.BindingContext;
+            viewModel.OnReportChanged += ViewModel_OnReportChanged;
         }
-
         private void ViewModel_OnReportChanged(List<Common.SSRPerformance> obj)
         {
             entries = new List<Entry> { };
@@ -68,7 +57,7 @@ namespace ServoIO.View
 
                 var chart = new BarChart() { Entries = entries };
                 this.chartView.Chart = chart;
-               
+
             }
         }
 
@@ -106,10 +95,9 @@ namespace ServoIO.View
         private async void ScollTest()
         {
             await Task.Delay(500);
-            //await scr.ScrollToAsync(100, 1000, true);
+            await scr.ScrollToAsync(100, 1000, true);
 
         }
 
-      
     }
 }

@@ -48,13 +48,17 @@
     <Compile Include="Controls\GridView.xaml.cs">
       <DependentUpon>GridView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\SSRPerformanceGridViewModel.cs" />
+    <Compile Include="View\CurvedCornersLabel.cs" />
     <Compile Include="Service\Constants.cs" />
     <Compile Include="Service\ReportService.cs" />
     <Compile Include="ViewModel\IncentivesListViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\PrimarySecondarySaleListViewModel.cs" />
-    <Compile Include="ViewModel\SSRPerformanceGridViewModel.cs" />
+    <Compile Include="ViewModel\SSRPerformanceChartViewModel.cs" />
     <Compile Include="ViewModel\SSRPerformanceReportViewModel.cs" />
+    <Compile Include="ViewModel\SSRPerformanceSalePieChartLtrViewModel.cs" />
+    <Compile Include="ViewModel\SSRperformanceSalesPieChartViewModel.cs" />
     <Compile Include="ViewModel\YearlySalesChartViewModel.cs" />
     <Compile Include="View\IncentivesList.xaml.cs">
       <DependentUpon>IncentivesList.xaml</DependentUpon>
@@ -91,11 +95,29 @@
     <Compile Include="View\sample2.xaml.cs">
       <DependentUpon>sample2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\SSRGrid.xaml.cs">
+      <DependentUpon>SSRGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SSRPerformanceChart.xaml.cs">
+      <DependentUpon>SSRPerformanceChart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SSRPerformanceChartTabbed.xaml.cs">
+      <DependentUpon>SSRPerformanceChartTabbed.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\SSRPerformanceGridView.xaml.cs">
       <DependentUpon>SSRPerformanceGridView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SSRPerformanceReport.xaml.cs">
       <DependentUpon>SSRPerformanceReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SSRPerformanceSalePieChartLtr.xaml.cs">
+      <DependentUpon>SSRPerformanceSalePieChartLtr.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SSRperformanceSalesPieChart.xaml.cs">
+      <DependentUpon>SSRperformanceSalesPieChart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SSRPerformanceTabbed.xaml.cs">
+      <DependentUpon>SSRPerformanceTabbed.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SubControlsView.xaml.cs">
       <DependentUpon>SubControlsView.xaml</DependentUpon>
@@ -121,6 +143,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Microcharts.Forms, Version=1.0.6429.41035, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microcharts.Forms.0.6.1\lib\portable-net45+win8+wpa81+wp8\Microcharts.Forms.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.10.0.3\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -136,6 +161,12 @@
     <Reference Include="Rg.Plugins.Popup.Platform">
       <HintPath>..\..\..\..\Xamarin Download\Rg.Plugins.Popup-master\Rg.Plugins.Popup-master\src\Rg.Plugins.Popup\bin\Debug\Rg.Plugins.Popup.Platform.dll</HintPath>
     </Reference>
+    <Reference Include="SkiaSharp, Version=1.59.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SkiaSharp.1.59.1\lib\portable-net45+win8+wpa81+wp8\SkiaSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="SkiaSharp.Views.Forms, Version=1.59.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SkiaSharp.Views.Forms.1.59.1\lib\portable-net45+win8+wpa81+wp8\SkiaSharp.Views.Forms.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Http, Version=1.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.dll</HintPath>
     </Reference>
@@ -144,6 +175,9 @@
     </Reference>
     <Reference Include="System.Net.Http.Primitives, Version=1.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.ValueTuple.4.4.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Forms.2.3.4.247\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Core.dll</HintPath>
@@ -156,6 +190,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -235,6 +270,12 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="View\SSRPerformanceReport.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="Controls\GridView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
@@ -247,16 +288,46 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="View\SSRPerformanceReport.xaml">
+    <EmbeddedResource Include="View\SSRPerformanceChart.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="View\SSRPerformanceGridView.xaml">
+    <EmbeddedResource Include="View\SSRPerformanceTabbed.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\SSRPerformanceChartTabbed.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\SSRperformanceSalesPieChart.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\SSRPerformanceSalePieChartLtr.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\SSRGrid.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="View\SSRPerformanceGridView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

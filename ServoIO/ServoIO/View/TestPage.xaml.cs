@@ -28,12 +28,16 @@ namespace ServoIO.View
                 Command = new Command(() => IncentiveClick())
             });
 
-            //var ssrperformance = SSRPerformance;
-            //ssrperformance.GestureRecognizers.Add(new TapGestureRecognizer
-            //{
-            //    Command = new Command(() => SSRPerformanceClicked())
-            //});
-
+            var ssrperformance = SSRPerformance;
+            ssrperformance.GestureRecognizers.Add(new TapGestureRecognizer
+            {
+                Command = new Command(() => SSRPerformanceClicked())
+            });
+            var ssrperformancegrid = SSRPerformanceGrid;
+            ssrperformancegrid.GestureRecognizers.Add(new TapGestureRecognizer
+            {
+                Command = new Command(() => SSRPerformanceGridClicked())
+            });
 
 
         }
@@ -43,6 +47,19 @@ namespace ServoIO.View
             {
                 Navigation.PushAsync(new IncentivesList());
 
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public void SSRPerformanceGridClicked()
+        {
+            try
+            {
+                Navigation.PushAsync(new SSRGrid());
             }
             catch (Exception)
             {
@@ -66,19 +83,19 @@ namespace ServoIO.View
 
         }
 
-        //public void SSRPerformanceClicked()
-        //{
-        //    try
-        //    {
-        //        Navigation.PushAsync(new SSRPerformanceReport());
+        public void SSRPerformanceClicked()
+        {
+            try
+            {
+                Navigation.PushAsync(new SSRPerformanceTabbed());
 
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        var page = new ErrorMsg(ex.Message);
-        //        Navigation.PushPopupAsync(page);
-        //    }
-        //}
+            }
+            catch (Exception ex)
+            {
+                var page = new ErrorMsg(ex.Message);
+                Navigation.PushPopupAsync(page);
+            }
+        }
 
     }
 }

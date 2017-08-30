@@ -12,15 +12,35 @@ using Xamarin.Forms;
 
 namespace ServoIO.ViewModel
 {
-    public class SSRPerformanceGridViewModel: ViewModelBase
+    public class SSRPerformanceGridViewModel : ViewModelBase
     {
+        public event Action<List<SSRPerformance>> OnReportChanged;
         private List<SSRPerformance> _LstSSRPerformance;
         public ICommand ShowCommand { get; set; }
+        //public Command LoadItemsCommand { get; set; }
 
         public List<SSRPerformance> LstSSRPerformance
         {
             get { return _LstSSRPerformance; }
             set { SetProperty(ref _LstSSRPerformance, value); }
+        }
+
+        private DateTime dtFrom = DateTime.Now.Date.AddYears(-2);
+        public DateTime FromDate
+        {
+            get { return dtFrom; }
+            set { SetProperty(ref dtFrom, value); GetReport(); }
+        }
+
+        private DateTime dtTo = DateTime.Now.Date.AddYears(-1);
+        public DateTime ToDate
+        {
+            get { return dtTo; }
+            set
+            { //SetProperty(ref dtTo, value);
+                if (SetProperty(ref dtTo, value, "Name"))
+                    GetReport();
+            }
         }
 
         #region Properties  
@@ -77,13 +97,11 @@ namespace ServoIO.ViewModel
 
         public SSRPerformanceGridViewModel()
         {
-
-            Task.Factory.StartNew(async () =>
-            {
-                LstSSRPerformance = await Service.ReportService.Get_SSRPerformanceReport("01-01-2014", "01-01-2015");
-
-            });
+            // LoadItemsCommand = new Command(async () => await GetReport());
+           
+            
             ShowCommand = new Command(GetDetails);
+            //ShowCommandOnLoad = new Command(GetDetailsOnLoad);
             if (LstSSRPerformance != null)
             {
                 EmployeeCode = LstSSRPerformance[0].EmployeeCode.ToString();
@@ -107,13 +125,56 @@ namespace ServoIO.ViewModel
         public void GetDetails(object obj)
         {
             var res = obj as SSRPerformance;
-            EmployeeCode = res.EmployeeCode.ToString();
-            EmployeeName = res.EmployeeName.ToString();
-            Outstandings = res.Outstandings.ToString();
-            Receipts = res.Receipts.ToString();
-            SaleInLtr = res.SaleInLtr.ToString();
-            SaleInRs = res.SaleInRs.ToString();
+            if (res !=null)
+            {
+                EmployeeCode = res.EmployeeCode;
+                EmployeeName = res.EmployeeName;
+                Outstandings = res.Outstandings;
+                Receipts = res.Receipts;
+                SaleInLtr = res.SaleInLtr;
+                SaleInRs = res.SaleInRs;
+            }
+            else
+            {
+                EmployeeCode = "";
+                EmployeeName = "";
+                Outstandings = "";
+                Receipts = "";
+                SaleInLtr = "";
+                SaleInRs = "";
+            }
             //throw new NotImplementedException();
         }
+
+        //public void GetDetailsOnLoad()
+        //{
+        //    EmployeeCode = LstSSRPerformance[0].EmployeeCode.ToString();
+        //    EmployeeName = LstSSRPerformance[0].EmployeeName.ToString();
+        //    Outstandings = LstSSRPerformance[0].Outstandings.ToString();
+        //    Receipts = LstSSRPerformance[0].Receipts.ToString();
+        //    SaleInLtr = LstSSRPerformance[0].SaleInLtr.ToString();
+        //    SaleInRs = LstSSRPerformance[0].SaleInRs.ToString();
+        //}
+
+        public async Task GetReport()
+        {
+            try
+            {
+                LstSSRPerformance = await Service.ReportService.Get_SSRPerformanceReport(dtFrom.ToString("MM-dd-yyyy"), dtTo.ToString("MM-dd-yyyy"));
+                GetDetails(LstSSRPerformance.FirstOrDefault());
+                if (OnReportChanged!=null)
+                {
+                    OnReportChanged.Invoke(LstSSRPerformance);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+
+
     }
 }

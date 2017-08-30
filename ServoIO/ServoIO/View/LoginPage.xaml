@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ServoIO.View.LoginPage">
+             x:Class="ServoIO.View.LoginPage" BackgroundImage="bluewhitered.jpg">
 
     <ContentPage.Content>
         <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
@@ -15,7 +15,7 @@
                     <Entry x:Name="entUserName" Text="{Binding UserName}" Placeholder="Username" HorizontalOptions="Fill" />
                     <Entry x:Name="entPassword" Text="{Binding Password, Mode=TwoWay}" Placeholder="Password"  IsPassword="True" HorizontalOptions="Fill"  />
                     <DatePicker x:Name="DatePicker" BindingContext="{Binding LoginDate}" />
-                    <Button x:Name="BtnSubmit" Text="Login" HorizontalOptions="FillAndExpand" Command="{Binding Cmd_Login}" />
+                    <Button x:Name="BtnSubmit" Text="Login" HorizontalOptions="Center" Command="{Binding Cmd_Login}" BackgroundColor="#02164f" TextColor="White" />
                 </StackLayout>
 
                 <RelativeLayout x:Name="vwLoading" IsVisible="False" BackgroundColor="Transparent" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
