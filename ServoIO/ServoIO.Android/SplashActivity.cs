@@ -14,7 +14,7 @@ namespace ServoIO.Droid
 {
     // [Activity(Label = "SplashActivity")]
     [Activity(Theme = "@style/Theme.Splash",
-        MainLauncher = true,
+        
         NoHistory = true)]
     public class SplashActivity : Activity
     {

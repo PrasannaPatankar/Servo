@@ -48,6 +48,7 @@
     <Compile Include="Controls\GridView.xaml.cs">
       <DependentUpon>GridView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\SSRPerformanceGridViewModel.cs" />
     <Compile Include="View\CurvedCornersLabel.cs" />
     <Compile Include="Service\Constants.cs" />
     <Compile Include="Service\ReportService.cs" />
@@ -55,7 +56,6 @@
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\PrimarySecondarySaleListViewModel.cs" />
     <Compile Include="ViewModel\SSRPerformanceChartViewModel.cs" />
-    <Compile Include="ViewModel\SSRPerformanceGridViewModel.cs" />
     <Compile Include="ViewModel\SSRPerformanceReportViewModel.cs" />
     <Compile Include="ViewModel\SSRPerformanceSalePieChartLtrViewModel.cs" />
     <Compile Include="ViewModel\SSRperformanceSalesPieChartViewModel.cs" />
@@ -95,11 +95,17 @@
     <Compile Include="View\sample2.xaml.cs">
       <DependentUpon>sample2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\SSRGrid.xaml.cs">
+      <DependentUpon>SSRGrid.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\SSRPerformanceChart.xaml.cs">
       <DependentUpon>SSRPerformanceChart.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SSRPerformanceChartTabbed.xaml.cs">
       <DependentUpon>SSRPerformanceChartTabbed.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SSRPerformanceGridView.xaml.cs">
+      <DependentUpon>SSRPerformanceGridView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SSRPerformanceReport.xaml.cs">
       <DependentUpon>SSRPerformanceReport.xaml</DependentUpon>
@@ -112,9 +118,6 @@
     </Compile>
     <Compile Include="View\SSRPerformanceTabbed.xaml.cs">
       <DependentUpon>SSRPerformanceTabbed.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\SSRPerformanceGridView.xaml.cs">
-      <DependentUpon>SSRPerformanceGridView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SubControlsView.xaml.cs">
       <DependentUpon>SubControlsView.xaml</DependentUpon>
@@ -315,10 +318,16 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="View\SSRPerformanceGridView.xaml">
+    <EmbeddedResource Include="View\SSRGrid.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="View\SSRPerformanceGridView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />
