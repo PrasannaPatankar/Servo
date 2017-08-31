@@ -27,11 +27,11 @@ namespace ServoIO.View
         {
             try
             {
-               InitializeComponent();
-               this.BindingContext = new SSRPerformanceGridViewModel();
+                InitializeComponent();
+                this.BindingContext = new SSRPerformanceGridViewModel();
                 viewModel = (SSRPerformanceGridViewModel)this.BindingContext;
                 viewModel.OnReportChanged += ViewModel_OnReportChanged;
-            
+
             }
             catch (Exception ex)
             {
@@ -68,7 +68,7 @@ namespace ServoIO.View
 
                 var chart = new BarChart() { Entries = entries };
                 this.chartView.Chart = chart;
-               
+
             }
         }
 
@@ -109,7 +109,5 @@ namespace ServoIO.View
             //await scr.ScrollToAsync(100, 1000, true);
 
         }
-
-      
     }
 }

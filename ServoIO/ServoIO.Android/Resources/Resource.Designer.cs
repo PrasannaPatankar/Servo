@@ -2221,8 +2221,8 @@ namespace ServoIO.Droid
 			// aapt resource value: 0x7f0200a7
 			public const int mr_ic_play_light = 2130837671;
 			
-			// aapt resource value: 0x7f0200ae
-			public const int notification_template_icon_bg = 2130837678;
+			// aapt resource value: 0x7f0200ad
+			public const int notification_template_icon_bg = 2130837677;
 			
 			// aapt resource value: 0x7f0200a8
 			public const int psreports = 2130837672;
@@ -2238,9 +2238,6 @@ namespace ServoIO.Droid
 			
 			// aapt resource value: 0x7f0200ac
 			public const int splash = 2130837676;
-			
-			// aapt resource value: 0x7f0200ad
-			public const int ssr = 2130837677;
 			
 			static Drawable()
 			{

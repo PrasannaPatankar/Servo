@@ -10,7 +10,7 @@ namespace ServoIO.View
 {
     public class CurvedCornersLabel : Label
     {
-        public static readonly BindableProperty CurvedCornerRadiusProperty =BindableProperty.Create(nameof(CurvedCornerRadius),typeof(double),typeof(CurvedCornersLabel),12.0);
+        public static readonly BindableProperty CurvedCornerRadiusProperty = BindableProperty.Create(nameof(CurvedCornerRadius), typeof(double), typeof(CurvedCornersLabel), 12.0);
         public double CurvedCornerRadius
         {
             get { return (double)GetValue(CurvedCornerRadiusProperty); }
@@ -18,7 +18,7 @@ namespace ServoIO.View
         }
 
 
-        public static readonly BindableProperty CurvedBackgroundColorProperty =BindableProperty.Create(nameof(CurvedBackgroundColor),typeof(Color),typeof(CurvedCornersLabel),Color.Default);
+        public static readonly BindableProperty CurvedBackgroundColorProperty = BindableProperty.Create(nameof(CurvedBackgroundColor), typeof(Color), typeof(CurvedCornersLabel), Color.Default);
         public Color CurvedBackgroundColor
         {
             get { return (Color)GetValue(CurvedBackgroundColorProperty); }
