@@ -60,7 +60,6 @@
     <Compile Include="ViewModel\SSRPerformanceSalePieChartLtrViewModel.cs" />
     <Compile Include="ViewModel\SSRperformanceSalesPieChartViewModel.cs" />
     <Compile Include="ViewModel\YearlySalesChartViewModel.cs" />
-    <Compile Include="View\CurvedCornersLabel.cs" />
     <Compile Include="View\IncentivesList.xaml.cs">
       <DependentUpon>IncentivesList.xaml</DependentUpon>
     </Compile>
