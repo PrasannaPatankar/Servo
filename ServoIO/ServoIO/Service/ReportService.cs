@@ -51,7 +51,7 @@ namespace ServoIO.Service
             try
             {
                 HttpClient client = new HttpClient();
-                var result = await client.GetAsync(Constants.Login_GetUserID  + UserName + "/" + Password + "/" + Role);
+                var result = await client.GetAsync(Constants.Login_GetUserID + UserName + "/" + Password + "/" + Role);
                 result.EnsureSuccessStatusCode();
                 string stringJson = await result.Content.ReadAsStringAsync();
                 var ObjRoot = JsonConvert.DeserializeObject<string>(stringJson);
@@ -66,15 +66,51 @@ namespace ServoIO.Service
 
         //2014-03-01/2017-08-23
 
-         public static async Task<List<SSRPerformance>> Get_SSRPerformanceReport(string FromDate, string ToDate)
+        public static async Task<List<SSRPerformance>> Get_SSRPerformanceReport(string FromDate, string ToDate)
         {
             try
-            {   
+            {
                 HttpClient client = new HttpClient();
                 var result = await client.GetAsync(Constants.SSRPerformance + "/" + FromDate + "/" + ToDate);
                 result.EnsureSuccessStatusCode();
                 string stringJson = await result.Content.ReadAsStringAsync();
                 var ObjRoot = JsonConvert.DeserializeObject<List<SSRPerformance>>(stringJson);
+                return ObjRoot;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static async Task<List<LedgerReport>> Get_LedgerReport(string FromDate, string ToDate, string LedgerName)
+        {
+            try
+            {
+                HttpClient client = new HttpClient();
+                var result = await client.GetAsync(Constants.LedgerReport + "/" + FromDate + "/" + ToDate + "/" + LedgerName);
+                result.EnsureSuccessStatusCode();
+                string stringJson = await result.Content.ReadAsStringAsync();
+                var ObjRoot = JsonConvert.DeserializeObject<List<LedgerReport>>(stringJson);
+                return ObjRoot;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static async Task<List<LedgerName>> Get_LedgerName()
+        {
+            try
+            {
+                HttpClient client = new HttpClient();
+                var result = await client.GetAsync(Constants.LedgerName);
+                result.EnsureSuccessStatusCode();
+                string stringJson = await result.Content.ReadAsStringAsync();
+                var ObjRoot = JsonConvert.DeserializeObject<List<LedgerName>>(stringJson);
                 return ObjRoot;
             }
             catch (Exception)

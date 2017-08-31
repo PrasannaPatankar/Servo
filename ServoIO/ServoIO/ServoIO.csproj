@@ -43,6 +43,8 @@
     </Compile>
     <Compile Include="Common\ActivityIndicatorScope.cs" />
     <Compile Include="Common\IncentiveReport.cs" />
+    <Compile Include="Common\LedgerName.cs" />
+    <Compile Include="Common\LedgerReport.cs" />
     <Compile Include="Common\PrimarySecReport.cs" />
     <Compile Include="Common\SSRPerformance.cs" />
     <Compile Include="Controls\GridView.xaml.cs">
