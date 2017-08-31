@@ -11,7 +11,7 @@ using Android.OS;
 
 namespace ServoIO.Droid
 {
-    [Activity(Label = "ServoIO",  Icon = "@drawable/io235_281", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "ServoIO",  Icon = "@drawable/io235_281", Theme = "@style/MainTheme", MainLauncher = false, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)

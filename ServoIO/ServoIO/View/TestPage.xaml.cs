@@ -67,7 +67,7 @@ namespace ServoIO.View
         {
             try
             {
-                Navigation.PushAsync(new SSRPerformanceGridView());
+                Navigation.PushAsync(new SSRGrid());
 
             }
             catch (Exception ex)
