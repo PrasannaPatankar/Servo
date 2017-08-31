@@ -15,7 +15,8 @@
                     <Entry x:Name="entUserName" Text="{Binding UserName}" Placeholder="Username" HorizontalOptions="Fill" />
                     <Entry x:Name="entPassword" Text="{Binding Password, Mode=TwoWay}" Placeholder="Password"  IsPassword="True" HorizontalOptions="Fill"  />
                     <DatePicker x:Name="DatePicker" BindingContext="{Binding LoginDate}" />
-                    <Button x:Name="BtnSubmit" Text="Login" HorizontalOptions="Center" Command="{Binding Cmd_Login}" BackgroundColor="#02164f" TextColor="White" />
+                    <Button x:Name="BtnSubmit" Text="Login" HorizontalOptions="Center" Command="{Binding Cmd_Login}" BackgroundColor="#02164f" TextColor="White" /> <!--BackgroundColor="#02164f" TextColor="White"-->
+
                 </StackLayout>
 
                 <RelativeLayout x:Name="vwLoading" IsVisible="False" BackgroundColor="Transparent" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">

@@ -1,12 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Grid xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+      xmlns:local="clr-namespace:ServoIO.View"
              x:Class="ServoIO.View.SubControlsView" BackgroundColor="#4291c1">
-    <StackLayout VerticalOptions="CenterAndExpand">
-
-        <Image Source="ic_user.png" />
-        <Label Text="{Binding EmployeeName}" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" TextColor="White"></Label>
-        <Label Text="{Binding SaleInRs}" HorizontalOptions="CenterAndExpand"  FontSize="Large" FontAttributes="Bold"  TextColor="White"></Label>
+    <StackLayout VerticalOptions="FillAndExpand">
+        <local:CurvedCornersLabel Text="{Binding EmployeeName}"
+            HorizontalTextAlignment="Center"
+         VerticalTextAlignment="Center"
+         FontSize="14.5"
+         HeightRequest="30"
+            CurvedBackgroundColor="#4291c1"
+         TextColor="White"
+         CurvedCornerRadius="15"/>
 
     </StackLayout>
 </Grid>

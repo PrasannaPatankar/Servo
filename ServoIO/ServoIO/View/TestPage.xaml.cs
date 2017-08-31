@@ -33,9 +33,6 @@ namespace ServoIO.View
             {
                 Command = new Command(() => SSRPerformanceClicked())
             });
-
-
-
         }
         public void IncentiveClick()
         {
@@ -70,7 +67,7 @@ namespace ServoIO.View
         {
             try
             {
-                Navigation.PushAsync(new SSRPerformanceTabbed());
+                Navigation.PushAsync(new SSRPerformanceGridView());
 
             }
             catch (Exception ex)
