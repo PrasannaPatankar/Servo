@@ -2,10 +2,16 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ServoIO.View.PrimarySecondarySaleList"
+             xmlns:local="clr-namespace:ServoIO.View"
              Title="List">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:InvertBoolenConverter x:Key="cnvInvert"></local:InvertBoolenConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
-
-
         <Grid BackgroundColor="White">
             <Grid.RowDefinitions>
                 <!--<RowDefinition Height="Auto"/>-->
@@ -38,42 +44,50 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <StackLayout BackgroundColor="Transparent" Margin="1,0,1,1" Padding="2">
-                                    <Frame Padding="2,2,2,2" Margin="2,2,2,2" AbsoluteLayout.LayoutFlags="All" BackgroundColor="#BFffffff" VerticalOptions="Center" HorizontalOptions="Center"  HasShadow="True">
-                                        <StackLayout BackgroundColor="Transparent">
-                                            <Grid Padding="2,1,1,1">
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition Height="*"  />
-                                                    <RowDefinition Height="*" />
-                                                    <RowDefinition Height="*" />
-                                                </Grid.RowDefinitions>
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="*"/>
-                                                    <ColumnDefinition Width="*"/>
-                                                    <ColumnDefinition Width="*"/>
-                                                </Grid.ColumnDefinitions>
+                                <AbsoluteLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="LightGray" Margin="5">
+                                    <StackLayout BackgroundColor="Transparent" Margin="5,2,20,2" Padding="2" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+                                        <Frame BackgroundColor="#BFffffff" VerticalOptions="Center" HorizontalOptions="Center"  HasShadow="True">
+                                            <StackLayout BackgroundColor="Transparent">
+                                                <Grid Padding="2,1,1,1">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*"  />
+                                                        <RowDefinition Height="*" />
+                                                        <RowDefinition Height="*" />
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                    </Grid.ColumnDefinitions>
 
-                                                <Label Text="{Binding SubCategory}"  TextColor="CornflowerBlue" FontSize="Medium"  Grid.ColumnSpan="2" Grid.Row="0" />
+                                                    <Label Text="{Binding SubCategory}"  TextColor="CornflowerBlue" FontSize="Medium"  Grid.ColumnSpan="2" Grid.Row="0" />
 
-                                                <Label Text="{Binding MainCategory}" TextColor="Black"  Grid.Column="1" Grid.Row="0"/>
+                                                    <Label TextColor="Black"  Grid.Column="1" Grid.Row="0" Text=""/>
 
-                                                <Label Text="{Binding April,StringFormat='April {0:N}'}"  Grid.Column="0" Grid.Row="1"/>
-                                                <Label Text="{Binding May,StringFormat='May {0:N}'}"   Grid.Column="1" Grid.Row="1"/>
-                                                <Label Text="{Binding June,StringFormat='June {0:N}'}"   Grid.Column="2" Grid.Row="1"/>
-                                                <Label Text="{Binding July,StringFormat='July {0:N}'}"   Grid.Column="0" Grid.Row="2"/>
-                                                <Label Text="{Binding August,StringFormat='August {0:N}'}"   Grid.Column="1" Grid.Row="2"/>
-                                                <Label Text="{Binding September,StringFormat='September {0:N}'}"   Grid.Column="2" Grid.Row="2"/>
-                                                <Label Text="{Binding October,StringFormat='October {0:N}'}"   Grid.Column="0" Grid.Row="3"/>
-                                                <Label Text="{Binding November,StringFormat='November {0:N}'}"   Grid.Column="1" Grid.Row="3"/>
-                                                <Label Text="{Binding December,StringFormat='December {0:N}'}"   Grid.Column="2" Grid.Row="3"/>
-                                                <Label Text="{Binding January,StringFormat='January {0:N}'}"   Grid.Column="0" Grid.Row="4"/>
-                                                <Label Text="{Binding February,StringFormat='February {0:N}'}"   Grid.Column="1" Grid.Row="4"/>
-                                                <Label Text="{Binding March,StringFormat='March {0:N}'}"   Grid.Column="2" Grid.Row="4"/>
+                                                    <Label Text="{Binding April,StringFormat='April {0:N}'}"  Grid.Column="0" Grid.Row="1"/>
+                                                    <Label Text="{Binding May,StringFormat='May {0:N}'}"   Grid.Column="1" Grid.Row="1"/>
+                                                    <Label Text="{Binding June,StringFormat='June {0:N}'}"   Grid.Column="2" Grid.Row="1"/>
+                                                    <Label Text="{Binding July,StringFormat='July {0:N}'}"   Grid.Column="0" Grid.Row="2"/>
+                                                    <Label Text="{Binding August,StringFormat='August {0:N}'}"   Grid.Column="1" Grid.Row="2"/>
+                                                    <Label Text="{Binding September,StringFormat='September {0:N}'}"   Grid.Column="2" Grid.Row="2"/>
+                                                    <Label Text="{Binding October,StringFormat='October {0:N}'}"   Grid.Column="0" Grid.Row="3"/>
+                                                    <Label Text="{Binding November,StringFormat='November {0:N}'}"   Grid.Column="1" Grid.Row="3"/>
+                                                    <Label Text="{Binding December,StringFormat='December {0:N}'}"   Grid.Column="2" Grid.Row="3"/>
+                                                    <Label Text="{Binding January,StringFormat='January {0:N}'}"   Grid.Column="0" Grid.Row="4"/>
+                                                    <Label Text="{Binding February,StringFormat='February {0:N}'}"   Grid.Column="1" Grid.Row="4"/>
+                                                    <Label Text="{Binding March,StringFormat='March {0:N}'}"   Grid.Column="2" Grid.Row="4"/>
 
-                                            </Grid>
+                                                </Grid>
+                                            </StackLayout>
+                                        </Frame>
+                                    </StackLayout>
+                                    <Frame Padding="4,4,4,4" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="1,0.1,AutoSize,AutoSize" BackgroundColor="{Binding MainCategory, Converter={StaticResource cnvInvert}}"
+                                           CornerRadius="5" HasShadow="True" Margin="1,1,3,1">
+                                        <StackLayout>
+                                            <Label x:Name="lblProgressStatus" Text="{Binding MainCategory}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
                                         </StackLayout>
                                     </Frame>
-                                </StackLayout>
+                                </AbsoluteLayout>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>

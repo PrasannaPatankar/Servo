@@ -65,6 +65,7 @@
     <Compile Include="View\IncentivesList.xaml.cs">
       <DependentUpon>IncentivesList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\InvertBoolenConverter.cs" />
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
