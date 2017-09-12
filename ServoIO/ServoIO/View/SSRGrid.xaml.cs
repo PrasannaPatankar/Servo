@@ -25,6 +25,7 @@ namespace ServoIO.View
         public SSRGrid()
         {
             InitializeComponent();
+            DynamicGrid.ItemTemplate =typeof(SubControlsView);
             this.BindingContext = new SSRPerformanceGridViewModel();
             viewModel = (SSRPerformanceGridViewModel)this.BindingContext;
             viewModel.OnReportChanged += ViewModel_OnReportChanged;

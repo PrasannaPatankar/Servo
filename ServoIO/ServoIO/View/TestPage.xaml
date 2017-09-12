@@ -31,9 +31,9 @@
                 <Label TextColor="#2d3f3e"  Font="20" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center" Text="SSR Performance"  HorizontalOptions="FillAndExpand" VerticalOptions="Center" FontAttributes="Italic"></Label>
             </StackLayout>
 
-            <StackLayout  Grid.Row="1" Grid.Column="1" BackgroundColor="#334c4c4c" >
+            <StackLayout  Grid.Row="1" Grid.Column="1" BackgroundColor="#334c4c4c" x:Name="LedgerReport" >
                 <Image Source="psreports.png" HeightRequest="60" WidthRequest="60" Margin="20"></Image>
-                <Label TextColor="#2d3f3e" Font="20" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center"  Text="Sample" HorizontalOptions="FillAndExpand" VerticalOptions="Center" FontAttributes="Italic"></Label>
+                <Label TextColor="#2d3f3e" Font="20" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center"  Text="Ledger Report" HorizontalOptions="FillAndExpand" VerticalOptions="Center" FontAttributes="Italic"></Label>
             </StackLayout>
 
             <StackLayout  Grid.Row="2" Grid.Column="0" BackgroundColor="#334c4c4c">

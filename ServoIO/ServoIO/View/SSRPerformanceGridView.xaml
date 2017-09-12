@@ -35,7 +35,7 @@
                 <ScrollView Orientation="Horizontal">
                     <StackLayout x:Name="stklower" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
                         <!--<StackLayout x:Name="stklower" Orientation="Horizontal" HorizontalOptions="FillAndExpand" HeightRequest="160" VerticalOptions="FillAndExpand" >-->
-                        <local:GridView HorizontalOptions="FillAndExpand"
+                        <local:GridView HorizontalOptions="FillAndExpand" x:Name="DynamicGrid"
                         Grid.Row="1"
                         VerticalOptions="Fill"
                         RowSpacing="5"

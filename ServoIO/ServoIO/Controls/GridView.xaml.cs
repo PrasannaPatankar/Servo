@@ -28,7 +28,7 @@ namespace ServoIO.Controls
         private int _maxColumns = 2;
         private float _tileHeight = 0;
 
-        public Type ItemTemplate { get; set; } = typeof(SubControlsView);
+        public Type ItemTemplate { get; set; } //= typeof(SubControlsView);
 
         public int MaxColumns
         {

@@ -18,6 +18,6 @@ namespace ServoIO.Service
 
         public static string LedgerReport = @"http://172.25.29.70:54553/Service1.svc/json/Get_LedgerReport/";
 
-        public static string LedgerName = @"http://172.25.29.70:54553/Service1.svc/json/Get_LedgerNames/";
+        public static string LedgerName = @"http://172.25.29.70:54553/Service1.svc/json/Get_LedgerNames";
     }
 }

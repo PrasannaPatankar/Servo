@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dg="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid"
+             x:Class="ServoIO.View.LedgerReportView"
+             Title="Ledger Report">
+    <StackLayout Margin="4">
+        
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+
+            </Grid.RowDefinitions>
+            <Label Text="From Date"  Grid.Row="0" Grid.Column="0" VerticalOptions="Center"></Label>
+            <DatePicker  x:Name="dtFrom" Date="{Binding  FromDate}" Grid.Row="0" Grid.Column="1" VerticalOptions="Center"></DatePicker>
+            <Label Text="To Date" Grid.Row="0" Grid.Column="2" VerticalOptions="Center"></Label>
+            <DatePicker x:Name="dtTo"  Grid.Row="0" Date="{Binding ToDate }" Grid.Column="3" VerticalOptions="Center"></DatePicker>
+
+            <!--<Picker Title="Party Name" Grid.Row="1" Grid.ColumnSpan="3"  ItemsSource="{Binding UserRole}"  SelectedItem="{Binding SelectedRole}" VerticalOptions="Center">
+                --><!--<Picker.ItemDisplayBinding>
+                    <Binding Path="LName"></Binding>
+                </Picker.ItemDisplayBinding>--><!--
+                
+            </Picker>-->
+            <!--<Picker x:Name="LoginRolePicker" Title="User Type" Grid.Row="1" Grid.ColumnSpan="3" ItemsSource="{Binding UserRole}" SelectedItem="{Binding SelectedRole}" />-->
+            <Button Text="Show" Grid.Row="1" Grid.Column="3" HorizontalOptions="Fill" Command="{Binding cmd_Show}" WidthRequest="80"/>
+            <Picker x:Name="LoginRolePicker" Title="User Type"  ItemsSource="{Binding UserRole}" SelectedItem="{Binding SelectedRole}" />
+        </Grid>
+
+        <!--<ScrollView Orientation="Horizontal">-->
+        <StackLayout>
+            <dg:DataGrid ItemsSource="{Binding LdrReport}" SelectionEnabled="True"
+               RowHeight="30" HeaderHeight="30" BorderColor="#CCCCCC" HeaderBackground="#E0E6F8">
+
+                <dg:DataGrid.HeaderFontSize>
+                    <OnIdiom  x:TypeArguments="x:Double">
+                        <OnIdiom.Tablet>15</OnIdiom.Tablet>
+                        <OnIdiom.Phone>13</OnIdiom.Phone>
+                    </OnIdiom>
+                </dg:DataGrid.HeaderFontSize>
+                <dg:DataGrid.Columns>
+
+                    <dg:DataGridColumn SortingEnabled="True" VerticalContentAlignment="Start"  HorizontalContentAlignment="Center"  Title="Entry Date" PropertyName="EntryDate" />
+                    <dg:DataGridColumn Title="Debit Amount" PropertyName="DebitAmount" />
+                    <dg:DataGridColumn Title="Credit Amount" PropertyName="CreditAmount" />
+
+
+
+                </dg:DataGrid.Columns>
+
+
+            </dg:DataGrid>
+        </StackLayout>
+        <!--</ScrollView>-->
+
+
+
+
+
+    </StackLayout>
+</ContentPage>

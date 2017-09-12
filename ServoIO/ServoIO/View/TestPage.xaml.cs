@@ -33,6 +33,12 @@ namespace ServoIO.View
             {
                 Command = new Command(() => SSRPerformanceClicked())
             });
+            var ledgerreport = LedgerReport;
+            ledgerreport.GestureRecognizers.Add(new TapGestureRecognizer
+            {
+                Command = new Command(() => LedgerReportClick())
+            });
+
         }
         public void IncentiveClick()
         {
@@ -46,6 +52,21 @@ namespace ServoIO.View
 
                 throw;
             }
+        }
+
+        public void LedgerReportClick()
+        {
+            try
+            {
+                Navigation.PushAsync(new LedgerReportView());
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
 
         public void PrimarySecondaryClick()
