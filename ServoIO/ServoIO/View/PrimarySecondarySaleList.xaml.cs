@@ -1,4 +1,5 @@
-﻿using ServoIO.Common;
+﻿using Rg.Plugins.Popup.Extensions;
+using ServoIO.Common;
 using ServoIO.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,7 @@ namespace ServoIO.View
             YearList.Add("2012");
             YearList.Add("2013");
             YearList.Add("2014");
-            YearList.Add("2015");
+            YearList.Add("2015");    
             YearList.Add("2016");
             YearList.Add("2017");
             try
@@ -35,7 +36,8 @@ namespace ServoIO.View
             }
             catch (Exception ex)
             {
-                DisplayAlert("", ex.Message, "Ok");
+                var page = new ErrorMsg(ex.Message);
+                Navigation.PushPopupAsync(page);
             }
 
         }
@@ -44,14 +46,17 @@ namespace ServoIO.View
         {
             try
             {
-                Application.Current.Properties["PropYear"] = pkrYear.SelectedItem.ToString();
 
-                if (viewModel != null) { }
-                using (var scope = new ActivityIndicatorScope(syncIndicator, true, vwLoading))
+
+                if (viewModel != null)
                 {
-                    await viewModel.GetPSRrport(pkrYear.SelectedItem.ToString());
-                    
+                    using (var scope = new ActivityIndicatorScope(syncIndicator, true, vwLoading))
+                    {
+                        await viewModel.GetPSRrport(pkrYear.SelectedItem.ToString());
+
+                    }
                 }
+                
             }
             catch (Exception ex)
             {

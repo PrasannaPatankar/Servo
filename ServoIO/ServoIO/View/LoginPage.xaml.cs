@@ -1,4 +1,6 @@
-﻿using ServoIO.Common;
+﻿using Rg.Plugins.Popup.Extensions;
+using ServoIO.Common;
+using ServoIO.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,25 +15,30 @@ namespace ServoIO.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {
+        public LoginViewModel _ViewModel { get; set; }
         public LoginPage()
         {
+           
             InitializeComponent();
-            ChangeBgAnimation();
+            this.BindingContext = new LoginViewModel();
+            _ViewModel = (LoginViewModel)this.BindingContext;
+            //ChangeBgAnimation();
+           // Opacity = 0.5;
         }
 
 
         public void ChangeBgAnimation()
         {
             var repeatCount = 0;
-            this.stkMain.Animate(
+            this.StkMain.Animate(
                 name: "ChangeBg",
             // create the animation object and callback
             animation: new Xamarin.Forms.Animation((val) => {
                     // val will be a from 0 - 1 and can use that to set a BG color
                     if (repeatCount == 0)
-                    this.stkMain.BackgroundColor = Color.FromRgb(1 - val, 1 - val, 1 - val);
+                    this.StkMain.BackgroundColor = Color.FromRgb(1 - val, 1 - val, 1 - val);
                 else
-                    this.stkMain.BackgroundColor = Color.FromRgb(val, val, val);
+                    this.StkMain.BackgroundColor = Color.FromRgb(val, val, val);
             }),
 
             // set the length
@@ -48,6 +55,7 @@ namespace ServoIO.View
             }
                 );
         }
+
         private void validPassword(object sender, TextChangedEventArgs e)
         {
             entPassword.Text = CheckLength(entPassword.Text, 10);
@@ -72,13 +80,13 @@ namespace ServoIO.View
             }
         }
 
-        private void  entSubmit_Clicked(object sender, EventArgs e)
-        {
-            
+        //private void entSubmit_Clicked(object sender, EventArgs e)
+        //{
 
-            using (var scope = new ActivityIndicatorScope(syncIndicator, true, vwLoading))
-                Application.Current.MainPage = new MasterDetailPageIO();
-        }
+
+        //    using (var scope = new ActivityIndicatorScope(syncIndicator, true, vwLoading))
+        //        Application.Current.MainPage = new MasterDetailPageIO();
+        //}
 
 
         //protected override void OnAppearing()
@@ -87,16 +95,16 @@ namespace ServoIO.View
         //    entSubmit.AnchorX = 0.48;
         //    entSubmit.AnchorY = 0.48;
 
-            //stkMain.TranslateTo(0, 50, 2000, Easing.BounceIn);
-            //stkMain.TranslateTo(0, 200, 2000, Easing.BounceOut);
-            //stkMain.ScaleTo(2, 2000, Easing.CubicIn);
-            //stkMain.ScaleTo(2, 2000, Easing.CubicInOut);
-            //stkMain.RotateTo(360, 2000, Easing.SinInOut);
-            //stkMain.ScaleTo(1, 2000, Easing.CubicOut);
-            //stkMain.TranslateTo(0, -200, 2000, Easing.BounceOut);
-      //  }
+        //StkMain.TranslateTo(0, 50, 2000, Easing.BounceIn);
+        //StkMain.TranslateTo(0, 200, 2000, Easing.BounceOut);
+        //StkMain.ScaleTo(2, 2000, Easing.CubicIn);
+        //StkMain.ScaleTo(2, 2000, Easing.CubicInOut);
+        //StkMain.RotateTo(360, 2000, Easing.SinInOut);
+        //StkMain.ScaleTo(1, 2000, Easing.CubicOut);
+        //StkMain.TranslateTo(0, -200, 2000, Easing.BounceOut);
+        //  }
     }
-    
+
 
 
 }

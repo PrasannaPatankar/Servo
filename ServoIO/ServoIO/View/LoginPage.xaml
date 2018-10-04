@@ -1,34 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ServoIO.View.LoginPage">
+             x:Class="ServoIO.View.LoginPage" BackgroundImage="bluewhitered.jpg">
 
     <ContentPage.Content>
-        <Grid x:Name="stkMain">
-            <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
-            <StackLayout Margin="20">
-                <StackLayout Margin="10">
-                        <Image x:Name="servoImage" Source="io235_281.jpg" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                </StackLayout>
-                <StackLayout >
-                    <Entry x:Name="entUserName" Margin="20" Placeholder="User Name" HorizontalOptions="Fill" HeightRequest="40" />
-                    <Entry x:Name="entPassword" TextChanged="validPassword" Placeholder="Password" Margin="20" IsPassword="True" HorizontalOptions="Fill" HeightRequest="40" />
-                </StackLayout>
-                <StackLayout>
-                        <Button x:Name="entSubmit" Text="Login" HorizontalOptions="CenterAndExpand"  Clicked="entSubmit_Clicked" />
-                </StackLayout>
-            </StackLayout>
-        </ScrollView>
-        <RelativeLayout x:Name="vwLoading" IsVisible="False" BackgroundColor="Transparent" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-                <Frame Padding="50,30,50,30"  AbsoluteLayout.LayoutFlags="All" BackgroundColor="#506cb3fe" VerticalOptions="Center" HorizontalOptions="Center" CornerRadius="10" HasShadow="True">
-                    <StackLayout>
-                        <ActivityIndicator HorizontalOptions="Center" Color="AliceBlue" VerticalOptions="Center" IsVisible="False" IsEnabled="True" x:Name="syncIndicator"/>
-                        <Label x:Name="lblProgressStatus" Text="Loading..." />
+        <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
+            <Grid x:Name="StkMain">
+
+                <StackLayout Margin="20">
+                    <StackLayout >
+                        <Image x:Name="servoImage"  Source="io235_281.jpg" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                     </StackLayout>
-                </Frame>
-            </StackLayout>
-        </RelativeLayout>
+                    <Picker x:Name="LoginRolePicker" Title="User Type"  ItemsSource="{Binding UserRole}" SelectedItem="{Binding SelectedRole}" />
+                    <Entry x:Name="entUserName" Text="{Binding UserName}" Placeholder="Username" HorizontalOptions="Fill" />
+                    <Entry x:Name="entPassword" Text="{Binding Password, Mode=TwoWay}" Placeholder="Password"  IsPassword="True" HorizontalOptions="Fill"  />
+                    <DatePicker x:Name="DatePicker" BindingContext="{Binding LoginDate}" />
+                    <Button x:Name="BtnSubmit" Text="Login" HorizontalOptions="Center" Command="{Binding Cmd_Login}" BackgroundColor="#02164f" TextColor="White" /> <!--BackgroundColor="#02164f" TextColor="White"-->
+
+                </StackLayout>
+
+                <RelativeLayout x:Name="vwLoading" IsVisible="False" BackgroundColor="Transparent" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                        <Frame Padding="50,30,50,30"  AbsoluteLayout.LayoutFlags="All" BackgroundColor="#506cb3fe" VerticalOptions="Center" HorizontalOptions="Center" CornerRadius="10" HasShadow="True">
+                            <StackLayout>
+                                <ActivityIndicator HorizontalOptions="Center" Color="AliceBlue" VerticalOptions="Center" IsVisible="False" IsEnabled="True" x:Name="syncIndicator"/>
+                                <Label x:Name="lblProgressStatus" Text="Loading..." />
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </RelativeLayout>
             </Grid>
-    </ContentPage.Content>  
+        </ScrollView>
+    </ContentPage.Content>
 </ContentPage>

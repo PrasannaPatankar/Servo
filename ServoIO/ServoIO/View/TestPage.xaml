@@ -1,10 +1,50 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ServoIO.View.TestPage">
+             x:Class="ServoIO.View.TestPage"  BackgroundImage="bluewhitered.jpg"
+             Title="Home">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin Forms!" />            
-        </StackLayout>
+        <Grid Margin="8" BackgroundColor="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackLayout  Grid.Row="0" Grid.Column="0"  BackgroundColor="#334c4c4c" x:Name="PandSSales" >
+                <Image Source="psreports.png" HeightRequest="60" WidthRequest="60" Margin="20"></Image>
+                <Label  TextColor="#2d3f3e" Font="20" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center"  Text="Primary and Secondary Reports" HorizontalOptions="FillAndExpand" VerticalOptions="Center" FontAttributes="Italic" ></Label>
+            </StackLayout>
+
+            <StackLayout  Grid.Row="0" Grid.Column="1"  BackgroundColor="#334c4c4c"  x:Name="IncentiveRepot"  >
+                <Image Source="salesreports.png" HeightRequest="60" WidthRequest="60" Margin="20"></Image>
+                <Label TextColor="#2d3f3e"  Font="20" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="Incentives Report"  HorizontalOptions="FillAndExpand" VerticalOptions="Center" FontAttributes="Italic" ></Label>
+            </StackLayout>
+
+            <StackLayout  Grid.Row="1" Grid.Column="0" BackgroundColor="#334c4c4c" x:Name="SSRPerformance">
+                <Image Source="psreports.png" HeightRequest="60" WidthRequest="60" Margin="20"></Image>
+                <Label TextColor="#2d3f3e"  Font="20" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center" Text="SSR Performance"  HorizontalOptions="FillAndExpand" VerticalOptions="Center" FontAttributes="Italic"></Label>
+            </StackLayout>
+
+            <StackLayout  Grid.Row="1" Grid.Column="1" BackgroundColor="#334c4c4c" x:Name="LedgerReport" >
+                <Image Source="psreports.png" HeightRequest="60" WidthRequest="60" Margin="20"></Image>
+                <Label TextColor="#2d3f3e" Font="20" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center"  Text="Ledger Report" HorizontalOptions="FillAndExpand" VerticalOptions="Center" FontAttributes="Italic"></Label>
+            </StackLayout>
+
+            <StackLayout  Grid.Row="2" Grid.Column="0" BackgroundColor="#334c4c4c">
+                <Image Source="psreports.png" HeightRequest="60" WidthRequest="60" Margin="20"></Image>
+                <Label TextColor="#2d3f3e" Font="20" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center"  Text="Sample" HorizontalOptions="FillAndExpand" VerticalOptions="Center" FontAttributes="Italic"></Label>
+            </StackLayout>
+
+            <StackLayout  Grid.Row="2" Grid.Column="1" BackgroundColor="#334c4c4c">
+                <Image Source="psreports.png" HeightRequest="60" WidthRequest="60" Margin="20"></Image>
+                <Label TextColor="#2d3f3e" Font="20" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center"  Text="Sample"  HorizontalOptions="FillAndExpand" VerticalOptions="Center" FontAttributes="Italic"></Label>
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

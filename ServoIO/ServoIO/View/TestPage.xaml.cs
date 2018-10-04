@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Rg.Plugins.Popup.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,25 +16,87 @@ namespace ServoIO.View
         public TestPage()
         {
             InitializeComponent();
-        }
+            var firstLabel = PandSSales;
+            firstLabel.GestureRecognizers.Add(new TapGestureRecognizer
+            {
+                Command = new Command(() => PrimarySecondaryClick()),
+            });
 
-        //private void setTitleBarBAckground()
-        //{
-        //    var titleBar = ApplicationView.GetCurrentView().TitleBar;
-        //}
-        protected override void OnAppearing()
+            var incentivesLabel = IncentiveRepot;
+            incentivesLabel.GestureRecognizers.Add(new TapGestureRecognizer
+            {
+                Command = new Command(() => IncentiveClick())
+            });
+
+            var ssrperformance = SSRPerformance;
+            ssrperformance.GestureRecognizers.Add(new TapGestureRecognizer
+            {
+                Command = new Command(() => SSRPerformanceClicked())
+            });
+            var ledgerreport = LedgerReport;
+            ledgerreport.GestureRecognizers.Add(new TapGestureRecognizer
+            {
+                Command = new Command(() => LedgerReportClick())
+            });
+
+        }
+        public void IncentiveClick()
         {
-            base.OnAppearing();
             try
             {
-                //this.Animate("", s => Layout(new Rectangle(((-1 + s) * Width), Y, Width, Height)), 16, 250, Easing.Linear, null, null);
+                Navigation.PushAsync(new IncentivesList());
+
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                string s = ex.Message;
+
+                throw;
+            }
+        }
+
+        public void LedgerReportClick()
+        {
+            try
+            {
+                Navigation.PushAsync(new LedgerReportView());
+
+            }
+            catch (Exception)
+            {
+
                 throw;
             }
 
         }
+
+        public void PrimarySecondaryClick()
+        {
+            // Application.Current.MainPage = new MasterDetailPageIO();
+            try
+            {
+                Navigation.PushAsync(new MasterDetailPageIODetail());
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
+        public void SSRPerformanceClicked()
+        {
+            try
+            {
+                Navigation.PushAsync(new SSRGrid());
+
+            }
+            catch (Exception ex)
+            {
+                var page = new ErrorMsg(ex.Message);
+                Navigation.PushPopupAsync(page);
+            }
+        }
+
     }
 }

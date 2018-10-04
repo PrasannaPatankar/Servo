@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ServoIO.View.sample2">
+    <ContentPage.Content>
+        <ScrollView Orientation="Horizontal" >
+            <StackLayout Orientation="Horizontal"  Margin="10">
+
+                <Grid Margin="15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"  />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"  />
+                        <ColumnDefinition Width="100" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout BackgroundColor="#5D63C3"  Grid.Row="0" Grid.Column="0" Padding="5">
+                        <Image Source="ic_user.png" WidthRequest="50" HorizontalOptions="CenterAndExpand" ></Image>
+                        <Label Text="in Stak" TextColor="White" HorizontalOptions="CenterAndExpand" ></Label>
+                    </StackLayout>
+
+                    <StackLayout BackgroundColor="#5D63C3" Grid.Row="0" Grid.Column="1"  Padding="5">
+                        <Image Source="ic_user.png" WidthRequest="50" HorizontalOptions="CenterAndExpand" ></Image>
+                        <Label Text="in Stak" TextColor="White" HorizontalOptions="CenterAndExpand" ></Label>
+                    </StackLayout>
+
+                    <StackLayout BackgroundColor="#5D63C3" Grid.Row="1" Grid.Column="0"  Padding="5">
+                        <Image Source="ic_user.png" WidthRequest="50" HorizontalOptions="CenterAndExpand" ></Image>
+                        <Label Text="in Stak" TextColor="White" HorizontalOptions="CenterAndExpand" ></Label>
+                    </StackLayout>
+
+                    <StackLayout BackgroundColor="#5D63C3" Grid.Row="1" Grid.Column="1"  Padding="5">
+                        <Image Source="ic_user.png" WidthRequest="50" HorizontalOptions="CenterAndExpand" ></Image>
+                        <Label Text="in Stak" TextColor="White" HorizontalOptions="CenterAndExpand" ></Label>
+                    </StackLayout>
+
+                    <StackLayout BackgroundColor="#5D63C3"  Grid.Row="2" Grid.Column="0" Padding="5">
+                        <Image Source="ic_user.png" WidthRequest="50" HorizontalOptions="CenterAndExpand" ></Image>
+                        <Label Text="in Stak" TextColor="White" HorizontalOptions="CenterAndExpand" ></Label>
+                    </StackLayout>
+
+                    <StackLayout BackgroundColor="#5D63C3"  Grid.Row="2" Grid.Column="1"  Padding="5">
+                        <Image Source="ic_user.png" WidthRequest="50" HorizontalOptions="CenterAndExpand" ></Image>
+                        <Label Text="in Stak" TextColor="White" HorizontalOptions="CenterAndExpand" ></Label>
+                    </StackLayout>
+
+                    <StackLayout BackgroundColor="#5D63C3"  Grid.Row="3" Grid.Column="0" Padding="5">
+                        <Image Source="ic_user.png" WidthRequest="50" HorizontalOptions="CenterAndExpand" ></Image>
+                        <Label Text="in Stak" TextColor="White" HorizontalOptions="CenterAndExpand" ></Label>
+                    </StackLayout>
+
+                    <StackLayout  BackgroundColor="#5D63C3"  Grid.Row="3" Grid.Column="1" Padding="5">
+                        <Image Source="ic_user.png" WidthRequest="50" HorizontalOptions="CenterAndExpand" ></Image>
+                        <Label Text="in Stak" TextColor="White" HorizontalOptions="CenterAndExpand" ></Label>
+                    </StackLayout>
+                </Grid>
+
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition Width="150" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Top Left" Grid.Row="0" Grid.Column="0"  BackgroundColor="Transparent" VerticalOptions="FillAndExpand" />
+                    <Label Text="Top Right" Grid.Row="0" Grid.Column="1" BackgroundColor="#5D63C3" VerticalOptions="FillAndExpand"  />
+                    <Label Text="Bottom Left" Grid.Row="1" Grid.Column="0" BackgroundColor="#5D63C3" VerticalOptions="FillAndExpand"  />
+                    <Label Text="Bottom Right" Grid.Row="1" Grid.Column="1"  BackgroundColor="#5D63C3" VerticalOptions="FillAndExpand" />
+                    <Label Text="Bottom Left" Grid.Row="0" Grid.Column="2" BackgroundColor="#5D63C3" VerticalOptions="FillAndExpand"  />
+                    <Label Text="Bottom Right" Grid.Row="1" Grid.Column="2"  BackgroundColor="#5D63C3" VerticalOptions="FillAndExpand" />
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+
+</ContentPage>

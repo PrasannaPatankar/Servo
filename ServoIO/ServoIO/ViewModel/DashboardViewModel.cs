@@ -12,11 +12,14 @@ using OxyPlot.Series;
 using OxyPlot.Axes;
 using ServoIO.Service;
 using Xamarin.Forms;
+using System.Windows.Input;
 
 namespace ServoIO.View
 {
     public class DashboardViewModel : ViewModelBase
     {
+
+
         private PlotModel barmodel;
 
         public PlotModel BarModel
@@ -24,16 +27,51 @@ namespace ServoIO.View
             get { return barmodel; }
             set { SetProperty(ref barmodel, value); }
         }
+        List<string> selectyear = new List<string>() { "2012", "2013", "2014", "2016", "2017" };
+
+        private object  SelectedIndex;
+
+        public  object selectedIndex
+        {
+            get { return SelectedIndex; }
+            set { SetProperty(ref SelectedIndex, value);
+                 
+                MethodAsync();
+            }
+        }
+
+        public async Task MethodAsync()
+        {
+            BarModel = await CreateBarChartAsync(false, "Sales Report", SelectedIndex.ToString());
+        }
+
+        private List<string> _SelectYear;
+
+        public List<string> SelectYear
+        {
+            get { return _SelectYear; }
+            set { SetProperty(ref _SelectYear, value); }
+        }
+
+        //public DashboardViewModel()
+        //{
+
+        //}
+
+        public void SetIndex(int index)
+        {
+            selectedIndex = index;
+        }
 
         public DashboardViewModel(string Year)
         {
-           
+            SelectYear = selectyear;
             Task.Factory.StartNew(async () =>
             {
-               
-                BarModel = await CreateBarChartAsync(false, "Year By Charts", Year);
+
+                BarModel = await CreateBarChartAsync(false, "Sales Report", Year);
             });
-            
+
         }
 
 
@@ -66,7 +104,6 @@ namespace ServoIO.View
                     else
                         s2.Items.Add(new BarItem { Value = Convert.ToInt32(psitem.Total) });
                 }
-
             }
 
             var categoryAxis = new CategoryAxis { Position = CategoryAxisPosition() };

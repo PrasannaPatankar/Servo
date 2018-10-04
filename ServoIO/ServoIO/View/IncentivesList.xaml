@@ -1,24 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ServoIO.View.IncentivesList">
+             x:Class="ServoIO.View.IncentivesList"
+             Title="Incentive Report">
     <ContentPage.Content>
         <Grid BackgroundColor="White">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
+                <!--<RowDefinition Height="Auto"/>-->
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
+            <!--<Grid Grid.Row="0">
                 <Label Text="Incentive Report"  TextColor="#628fc0" FontSize="Large" BackgroundColor="White" HorizontalOptions="CenterAndExpand"/>
-            </Grid>
+            </Grid>-->
 
             <Grid HorizontalOptions="CenterAndExpand">
                 <Grid.ColumnDefinitions >
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <Grid Grid.Row="1">
+                <Grid Grid.Row="0">
                     <StackLayout Orientation="Horizontal"  HorizontalOptions="CenterAndExpand" >
                         <StackLayout Orientation="Vertical"  HorizontalOptions="CenterAndExpand" Grid.ColumnSpan="2">
                             <Label Text="From Date"></Label>
@@ -38,13 +39,13 @@
                     </StackLayout>
                 </Grid>
             </Grid>
-            <Grid Grid.Row="2">
+            <Grid Grid.Row="1">
                 <ListView HasUnevenRows="True" SeparatorVisibility="Default" ItemsSource="{Binding ListIR}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}" x:Name="lstPrimarySecondarySale" BackgroundColor="LightGray">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout BackgroundColor="Transparent" Margin="1,0,1,1" Padding="2">
-                                    <Frame Padding="2,2,2,2" Margin="2,2,2,2" AbsoluteLayout.LayoutFlags="All" BackgroundColor="#BFffffff" VerticalOptions="Center" HorizontalOptions="Center" CornerRadius="10" HasShadow="True">
+                                    <Frame Padding="2,2,2,2" Margin="2,2,2,2" AbsoluteLayout.LayoutFlags="All" BackgroundColor="#BFffffff" VerticalOptions="Center" HorizontalOptions="Center" HasShadow="True">
                                         <StackLayout BackgroundColor="Transparent">
                                             <Grid Padding="2,1,1,1">
                                                 <Grid.RowDefinitions>
@@ -80,7 +81,7 @@
 
                 <RelativeLayout x:Name="vwLoading" IsVisible="{Binding ShowActivityIndicator}" BackgroundColor="Transparent" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
                     <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-                        <Frame Padding="50,30,50,30" AbsoluteLayout.LayoutFlags="All" BackgroundColor="#506cb3fe" VerticalOptions="Center" HorizontalOptions="Center" CornerRadius="10" HasShadow="True">
+                        <Frame Padding="50,30,50,30" AbsoluteLayout.LayoutFlags="All" BackgroundColor="#506cb3fe" VerticalOptions="Center" HorizontalOptions="Center" HasShadow="True">
                             <StackLayout>
                                 <ActivityIndicator HorizontalOptions="Center" Color="AliceBlue" VerticalOptions="Center" IsVisible="{Binding ShowActivityIndicator}" IsRunning="{Binding ShowActivityIndicator}" IsEnabled="{Binding ShowActivityIndicator}" x:Name="syncIndicator"/>
                                 <Label x:Name="lblProgressStatus" Text="Loading..." />

@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using ServoIO.ViewModel;
 using ServoIO.Common;
+using Rg.Plugins.Popup.Extensions;
 
 namespace ServoIO.View
 {
@@ -17,19 +18,27 @@ namespace ServoIO.View
         public DashboardViewModel viewModel { get; set; }
         public Dashboard()
         {
-            var YearList = new List<string>();
-            YearList.Add("2012");
-            YearList.Add("2013");
-            YearList.Add("2014");
-            YearList.Add("2015");
-            YearList.Add("2016");
-            YearList.Add("2017");
-
+            try
+            {
+                
             InitializeComponent();
-            pkrYear.ItemsSource = YearList;
-            pkrYear.SelectedIndex = 0;
-            this.BindingContext = new DashboardViewModel(pkrYear.SelectedItem.ToString());
+           // pkrYear.ItemsSource = YearList;
+          // pkrYear.SelectedIndex = 0;
+            this.BindingContext = new DashboardViewModel("2012");
             viewModel = (DashboardViewModel)this.BindingContext;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            //var YearList = new List<string>();
+            //YearList.Add("2012");
+            //YearList.Add("2013");
+            //YearList.Add("2014");
+            //YearList.Add("2015");
+            //YearList.Add("2016");
+            //YearList.Add("2017");
+
 
         }
         public async Task pkrYear_SelectedIndexChangedAsync(object sender, EventArgs e)
@@ -45,7 +54,8 @@ namespace ServoIO.View
             }
             catch (Exception ex)
             {
-                //await DisplayAlert("", ex.Message, "Ok");
+                var page = new ErrorMsg(ex.Message);
+                await Navigation.PushPopupAsync(page);
             }
         }
 

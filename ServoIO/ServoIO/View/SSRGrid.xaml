@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ServoIO.Controls"
+             xmlns:curve="clr-namespace:ServoIO.View"
+             x:Class="ServoIO.View.SSRGrid"
+             xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             Title="SSRPerformance">
+    <ContentPage.Content>
+        <ScrollView x:Name="scr">
+
+            <StackLayout x:Name="stkmain" Margin="5" >
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Text="From Date" Grid.Row="0" Grid.Column="0" VerticalOptions="Center"></Label>
+                    <DatePicker  x:Name="dtFrom" Date="{Binding FromDate, Mode=TwoWay}}" Grid.Row="0" Grid.Column="1" VerticalOptions="Center"></DatePicker>
+                    <Label Text="To Date" Grid.Row="0" Grid.Column="2" VerticalOptions="Center"></Label>
+                    <DatePicker x:Name="dtTo" Date="{Binding ToDate, Mode=TwoWay}}" Grid.Row="0" Grid.Column="3" VerticalOptions="Center"></DatePicker>
+                </Grid>
+
+                <ScrollView Orientation="Horizontal">
+                    <StackLayout x:Name="stklower" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                        <!--<StackLayout x:Name="stklower" Orientation="Horizontal" HorizontalOptions="FillAndExpand" HeightRequest="160" VerticalOptions="FillAndExpand" >-->
+                        <local:GridView HorizontalOptions="FillAndExpand" x:Name="DynamicGrid"
+                        Grid.Row="1"
+                        VerticalOptions="Fill"
+                        RowSpacing="5"
+                        ColumnSpacing="5"
+                        MaxColumns="500" 
+                        ItemsSource="{Binding LstSSRPerformance}"
+                        CommandParameter="{Binding LstSSRPerformance}"
+                        Command="{Binding ShowCommand}"
+                        IsClippedToBounds="False">
+                            <local:GridView.TileHeight>
+                                <OnPlatform x:TypeArguments="x:Single"
+                      iOS="60"
+                      Android="40"
+                      WinPhone="90" />
+                            </local:GridView.TileHeight>
+                        </local:GridView>
+                    </StackLayout>
+                </ScrollView>
+
+                <StackLayout x:Name="stkLower"  HorizontalOptions="FillAndExpand" BackgroundColor="#33759D">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20*"/>
+
+                            <ColumnDefinition Width="30*"/>
+                            <ColumnDefinition Width="30*"/>
+
+                            <ColumnDefinition Width="20*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Source="ic_user.png" HeightRequest="70" Grid.Row="0" Grid.ColumnSpan="4" Margin="2" WidthRequest="70"/>
+
+                        <Label Text=" " Grid.Column="0" Grid.Row="1"></Label>
+                        <!--<Grid  >-->
+                        <!--<Label Text="{Binding EmployeeName}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" TextColor="White" Font="20" FontAttributes="Bold"></Label>-->
+                        <curve:CurvedCornersLabel Text="{Binding EmployeeName}"
+            HorizontalTextAlignment="Center"
+	        VerticalTextAlignment="Center"
+           WidthRequest="200"
+	        FontSize="18"
+	        HeightRequest="30"
+            CurvedBackgroundColor="White"
+	        TextColor="#4291c1" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1"
+	        CurvedCornerRadius="15"/>
+                        <!--</Grid>-->
+                        <Label Text=" " Grid.Column="3" Grid.Row="0"></Label>
+
+                        <Label Text="Sale (in Ltr)" HorizontalOptions="StartAndExpand" Grid.Row="2" Grid.Column="1" VerticalOptions="FillAndExpand" TextColor="White"   FontAttributes="Bold"></Label>
+                        <Label Text="Sale (in Rs)" HorizontalOptions="StartAndExpand" Grid.Row="3" Grid.Column="1" VerticalOptions="FillAndExpand" TextColor="White"   FontAttributes="Bold"></Label>
+                        <Label  Text="Outstandings" HorizontalOptions="StartAndExpand" Grid.Row="4" Grid.Column="1"  VerticalOptions="FillAndExpand" TextColor="White"   FontAttributes="Bold"></Label>
+                        <Label Text="Receipts " HorizontalOptions="StartAndExpand" Grid.Row="5" Grid.Column="1" VerticalOptions="FillAndExpand" TextColor="White"   FontAttributes="Bold"></Label>
+                        <!--<Label Text="Receipts" HorizontalOptions="StartAndExpand" Grid.Row="6" Grid.Column="1" VerticalOptions="FillAndExpand" TextColor="White"   FontAttributes="Bold"></Label>-->
+                        <!--<Label  Text="SaleInRs" HorizontalOptions="StartAndExpand" Grid.Row="7" Grid.Column="1" VerticalOptions="FillAndExpand" TextColor="White"   FontAttributes="Bold"></Label>-->
+
+                        <Label Text="{Binding SaleInLtr}" HorizontalOptions="StartAndExpand" Grid.Row="2" Grid.Column="2" VerticalOptions="FillAndExpand" TextColor="White"  ></Label>
+                        <Label Text="{Binding SaleInRs}" HorizontalOptions="StartAndExpand" Grid.Row="3" Grid.Column="2" VerticalOptions="FillAndExpand" TextColor="White"  ></Label>
+                        <Label  Text="{Binding Outstandings}" HorizontalOptions="StartAndExpand" Grid.Row="4" Grid.Column="2" VerticalOptions="FillAndExpand" TextColor="White"  ></Label>
+                        <Label Text="{Binding Receipts}" HorizontalOptions="StartAndExpand" Grid.Row="5" Grid.Column="2" VerticalOptions="FillAndExpand" TextColor="White"  ></Label>
+                        <!--<Label Text="{Binding SaleInLtr}" HorizontalOptions="StartAndExpand" Grid.Row="6" Grid.Column="2" VerticalOptions="FillAndExpand" TextColor="White"  ></Label>-->
+                        <!--<Label  Text="{Binding SaleInRs}" HorizontalOptions="StartAndExpand" Grid.Row="7" Grid.Column="2" VerticalOptions="FillAndExpand" TextColor="White"  ></Label>-->
+
+                    </Grid>
+
+                </StackLayout>
+                <StackLayout>
+                    <!--<Button Text="Show Report" Clicked="Button_Clicked"></Button>-->
+                    <microcharts:ChartView x:Name="chartView"  HeightRequest="300" IgnorePixelScaling="False" EnableTouchEvents="True"  />
+                </StackLayout>
+
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
