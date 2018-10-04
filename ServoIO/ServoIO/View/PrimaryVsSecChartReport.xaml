@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:microchartsForms="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             xmlns:microcharts="clr-namespace:Microcharts;assembly=Microcharts.Forms"
+             x:Class="ServoIO.View.PrimaryVsSecChartReport">
+    <ContentPage.Content>
+        <StackLayout>
+            <!--<microchartsForms:ChartView x:Name="PrimaryVsSecChart">
+                <microcharts:Chart>
+                    <microcharts:RadialGaugeChart x:Name="radialGaugeChart"/>
+                </microcharts:Chart>
+            </microchartsForms:ChartView>-->
+            <microchartsForms:ChartView x:Name="PrimaryVsSecChart" HeightRequest="500">
+            </microchartsForms:ChartView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

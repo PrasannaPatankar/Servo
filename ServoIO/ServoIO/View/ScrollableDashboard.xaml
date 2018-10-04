@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:CustomGrid="clr-namespace:ServoIO.Controls"
+             xmlns:dg="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid"
+             x:Class="ServoIO.View.ScrollableDashboard" Title="Servo" >
+
+    <ContentPage.Content>
+        <ScrollView Orientation="Vertical" >
+            <StackLayout Orientation="Vertical"  Margin="5">
+                <!--<ScrollView>
+                    <CustomGrid:GridView HorizontalOptions="FillAndExpand" x:Name="DashboardGrid"
+                        Grid.Row="1"
+                        VerticalOptions="Fill"
+                        RowSpacing="5"
+                        ColumnSpacing="5"
+                        MaxColumns="2" 
+                        ItemsSource="{Binding DashboardData}"
+                        CommandParameter="{Binding DashboardData}"
+                        Command="{Binding ViewCommand}"
+                        IsClippedToBounds="False">
+
+                        <CustomGrid:GridView.TileHeight>
+                            <OnPlatform x:TypeArguments="x:Single"
+                          iOS="60"
+                          Android="100"
+                          WinPhone="90" />
+                        </CustomGrid:GridView.TileHeight>
+                    </CustomGrid:GridView>
+                </ScrollView>-->
+
+
+                <!--<ScrollView>-->
+                <Grid Margin="15" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" /> 
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"  />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+
+                    <StackLayout BackgroundColor="#5D63C3"  x:Name="stkTileOne"  Grid.Row="0" Grid.Column="0" Padding="5">
+                        <Image Source="Performance.png" WidthRequest="80" HorizontalOptions="CenterAndExpand" ></Image>
+                        <Label Text="Performance Report" HorizontalOptions="Center" VerticalOptions="Center" TextColor="White" ></Label>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="PerformanceReportTapped" CommandParameter="1" NumberOfTapsRequired="1" /> 
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+
+                    <StackLayout BackgroundColor="#5D63C3" x:Name="stkTileTwo" Grid.Row="0" Grid.Column="1"  Padding="5">
+                        <Image Source="Incentive.png" WidthRequest="80" HorizontalOptions="CenterAndExpand" ></Image>
+                        <Label Text="Incentive Report" TextColor="White" HorizontalOptions="CenterAndExpand" ></Label>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="IncentiveReportTapped" CommandParameter="1" NumberOfTapsRequired="1" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+
+                    <StackLayout  BackgroundColor="#5D63C3" Grid.Row="1" Grid.Column="0"  Padding="5">
+                        <Image Source="Charts.png" WidthRequest="80" HorizontalOptions="CenterAndExpand" ></Image>
+                        <Label Text="Animated Charts" TextColor="White" HorizontalOptions="CenterAndExpand" ></Label>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="AnimatedChartsTapped" CommandParameter="1" NumberOfTapsRequired="1" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+
+                    <StackLayout BackgroundColor="#5D63C3" Grid.Row="1" Grid.Column="1"  Padding="5">
+                        <Image Source="PriVsSecSales.png" WidthRequest="80" HorizontalOptions="CenterAndExpand" ></Image>
+                        <Label Text="Primary Vs Secondary Sales Report" TextColor="White" HorizontalOptions="CenterAndExpand" ></Label>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="PrimarySecChartTapped" CommandParameter="1" NumberOfTapsRequired="1" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+
+                    <StackLayout BackgroundColor="#5D63C3"  Grid.Row="2" Grid.Column="0" Padding="5">
+                        <Image Source="LedgerReport.png" WidthRequest="80" HorizontalOptions="CenterAndExpand"></Image>
+                        <Label Text="Ledger Report" TextColor="White" HorizontalOptions="CenterAndExpand"></Label>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="LedgerReportTapped" CommandParameter="1" NumberOfTapsRequired="1" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+
+                    <!--<StackLayout BackgroundColor="#5D63C3"  Grid.Row="2" Grid.Column="1"  Padding="5">
+                        <Image Source="ic_user.png" WidthRequest="80" HorizontalOptions="CenterAndExpand" ></Image>
+                        <Label Text="Report Six" TextColor="White" HorizontalOptions="CenterAndExpand" ></Label>
+                    </StackLayout>
+
+                    <StackLayout BackgroundColor="#5D63C3"  Grid.Row="3" Grid.Column="0" Padding="5">
+                        <Image Source="ic_user.png" WidthRequest="80" HorizontalOptions="CenterAndExpand" ></Image>
+                        <Label Text="Report Seven" TextColor="White" HorizontalOptions="CenterAndExpand" ></Label>
+                    </StackLayout>-->
+                    
+                    
+
+                </Grid>
+                <!--</ScrollView>
+                <ScrollView>-->
+                <!--<Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition Width="150" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="One" Grid.Row="0" Grid.Column="0"  BackgroundColor="#5D63C3" VerticalOptions="FillAndExpand" />
+                    <Label Text="Two" Grid.Row="0" Grid.Column="1" BackgroundColor="#5D63C3" VerticalOptions="FillAndExpand"  />
+                    <Label Text="Three" Grid.Row="1" Grid.Column="0" BackgroundColor="#5D63C3" VerticalOptions="FillAndExpand"  />
+                    <Label Text="Four" Grid.Row="1" Grid.Column="1"  BackgroundColor="#5D63C3" VerticalOptions="FillAndExpand" />
+                    <Label Text="Five" Grid.Row="0" Grid.Column="2" BackgroundColor="#5D63C3" VerticalOptions="FillAndExpand"  />
+                    <Label Text="Bottom Right" Grid.Row="1" Grid.Column="2"  BackgroundColor="#5D63C3" VerticalOptions="FillAndExpand" />
+                </Grid>-->
+                <!--</ScrollView>-->
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+
+</ContentPage>

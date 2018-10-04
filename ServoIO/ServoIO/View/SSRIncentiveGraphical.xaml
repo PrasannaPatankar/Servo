@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:control="clr-namespace:ServoIO.Controls" 
+             x:Class="ServoIO.View.SSRIncentiveGraphical" Title="SSR Incentive Report">
+
+    <ContentPage.Content>
+        <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <ScrollView Margin="5">
+            <control:GridView x:Name="customGrid"
+                        HorizontalOptions="FillAndExpand"
+                        Grid.Row="1"
+                        VerticalOptions="FillAndExpand"
+                        RowSpacing="5"
+                        ColumnSpacing="5"
+                        MaxColumns="2"
+                        ItemsSource="{Binding IncentiveReport}"
+                        CommandParameter="{Binding IncentiveReport}"
+                        Command="{Binding ViewCommand}"
+                        IsClippedToBounds="False">
+                <control:GridView.TileHeight>
+                    <OnPlatform x:TypeArguments="x:Single"
+                      iOS="60"
+                      Android="170"
+                      WinPhone="90" />
+                </control:GridView.TileHeight>
+            </control:GridView>
+        </ScrollView>
+            <StackLayout IsVisible="{Binding IsBusy}" BackgroundColor="#80000000" Padding="12"
+                                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                                    AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1">
+                <ActivityIndicator IsRunning="{Binding IsBusy}" Color ="White">
+                </ActivityIndicator>
+                <Label Text="Loading..." HorizontalOptions="Center" TextColor="White"/>
+
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

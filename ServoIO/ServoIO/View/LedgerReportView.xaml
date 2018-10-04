@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:autocomplete="clr-namespace:Syncfusion.SfAutoComplete.XForms;assembly=Syncfusion.SfAutoComplete.XForms"
+             xmlns:dg="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid"
+             x:Class="ServoIO.View.LedgerReportView" Title="Ledger Report">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Picker x:Name="PikPartyName" ItemsSource="{Binding PartyNameList}" Grid.Row="0" Grid.ColumnSpan="2"  HorizontalOptions="FillAndExpand" VerticalOptions="Center"></Picker>
+                <DatePicker x:Name="PikFromDate" BindingContext="{Binding FromDate}" Grid.Row="1"  Grid.Column="0"></DatePicker>
+                <DatePicker x:Name="pikToDate" BindingContext="{Binding ToDate}"  Grid.Row="1"  Grid.Column="1"></DatePicker>
+                <Button x:Name="btnShow" Command="{Binding ShowReportCommand}" Text="Show Report"  BackgroundColor="RoyalBlue" TextColor="White" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="0"></Button>
+                
+            </Grid>
+            
+    
+            <ScrollView Orientation="Horizontal">
+            <StackLayout>
+                <dg:DataGrid ItemsSource="{Binding LstLedgerReport}" SelectionEnabled="True"
+               RowHeight="30" HeaderHeight="30" BorderColor="#CCCCCC" HeaderBackground="RoyalBlue" HeaderTextColor="White" >
+
+                    <dg:DataGrid.HeaderFontSize>
+                        <OnIdiom  x:TypeArguments="x:Double">
+                            <OnIdiom.Tablet>15</OnIdiom.Tablet>
+                            <OnIdiom.Phone>13</OnIdiom.Phone>
+                        </OnIdiom>
+                    </dg:DataGrid.HeaderFontSize>
+                    <dg:DataGrid.Columns>
+                        
+                        <dg:DataGridColumn SortingEnabled="True" VerticalContentAlignment="Start"  HorizontalContentAlignment="Center"  Title="Entry Date" PropertyName="EntryDate" />
+                        <dg:DataGridColumn Title="Debit Amount" PropertyName="DebitAmount" />
+                        <dg:DataGridColumn Title="Credit Amount" PropertyName="CreditAmount" />
+                      
+                    </dg:DataGrid.Columns>
+
+
+                </dg:DataGrid>
+            </StackLayout>
+            </ScrollView>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace ServoIO.Common
 {
@@ -21,5 +22,7 @@ namespace ServoIO.Common
         public string Total_Receipts { get; set; }
         public string Total_Incentive { get; set; }
         public string Salary_Incentive { get; set; }
+        public Color  ColorCode { get; set; }
+        
     }
 }

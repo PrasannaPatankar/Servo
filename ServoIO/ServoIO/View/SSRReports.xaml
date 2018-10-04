@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+            x:Class="ServoIO.View.SSRReports" BackgroundColor="White" Title="SSR Incentive Details">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout  Orientation="Horizontal" VerticalOptions="Fill" BackgroundColor="#1b2d60">
+                <Image Source="ic_user.png" HeightRequest="30" Margin="2" />
+                <Label x:Name="lblEmpName" HorizontalOptions="FillAndExpand" TextColor="White" Margin="2"  FontSize="Medium" />
+             </StackLayout>
+            <microcharts:ChartView x:Name="chartView" IgnorePixelScaling="False" EnableTouchEvents="True" HeightRequest="350" WidthRequest="550" Rotation="-90" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

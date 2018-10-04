@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:CustomGrid="clr-namespace:ServoIO.Controls"
+             x:Class="ServoIO.View.DashboardNew">
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout>
+        <Label Text="Test Title"></Label>
+       
+        <CustomGrid:GridView HorizontalOptions="FillAndExpand" x:Name="DashboardGrid"
+                        Grid.Row="1"
+                        VerticalOptions="Fill"
+                        RowSpacing="5"
+                        ColumnSpacing="5"
+                        MaxColumns="500" 
+                        ItemsSource="{Binding LstSSRPerformance}"
+                        CommandParameter="{Binding LstSSRPerformance}"
+                         Command="{Binding ShowCommand}"
+                        IsClippedToBounds="False">
+            <CustomGrid:GridView.TileHeight>
+                <OnPlatform x:TypeArguments="x:Single"
+                      iOS="60"
+                      Android="40"
+                      WinPhone="90" />
+            </CustomGrid:GridView.TileHeight>
+        </CustomGrid:GridView>
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
+
+<!--ItemsSource="{Binding DashboardData}"
+                        CommandParameter="{Binding DashboardData}"
+                        Command="{Binding MyCommand}"-->

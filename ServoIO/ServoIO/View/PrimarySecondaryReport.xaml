@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             x:Class="ServoIO.View.PrimarySecondaryReport" Title="Primary Vs Secondary Sales">
+    <ContentPage.Content>
+        <ScrollView >
+         
+            <StackLayout x:Name="stkMain">
+                <StackLayout x:Name="stkHeader" Orientation="Horizontal">
+                    <Picker x:Name="pikYear" Title="Select Year" HorizontalOptions="FillAndExpand" >
+                    </Picker>
+                    <Button x:Name="btnShow" Clicked="btnShow_ClickedAsync"  BackgroundColor="RoyalBlue" TextColor="White" HorizontalOptions="FillAndExpand" Text="Show" />
+                </StackLayout>
+                <!--<microcharts:ChartView x:Name="Chart1" HeightRequest="400"></microcharts:ChartView>-->
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
